@@ -6,10 +6,10 @@ export default function BlogCard({ title, date, pic }: any) {
       <div className="w-40 h-20 overflow-hidden flex justify-center">
         <Image
           src={pic}
-          width={160}
-          height={160}
+          width={100}
+          height={100}
           alt={title}
-          className="object-cover rounded-t-md"
+          className="object-cover rounded-t-md w-full"
         />
       </div>
       <div>{title}</div>

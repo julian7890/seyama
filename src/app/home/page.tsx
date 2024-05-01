@@ -14,7 +14,7 @@ export default function Home() {
   }, 1000);
 
   return (
-    <div className="relative overflow-hidden min-h-[100dvh] flex flex-col justify-start">
+    <div className="relative overflow-hidden min-h-[100svh] flex flex-col justify-start">
       <div
         className={`w-full translate-x-0 duration-1000 ${
           show ? "opacity-100" : "opacity-0"
