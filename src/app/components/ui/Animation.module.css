@@ -1,0 +1,41 @@
+.trebleClefAnimation {
+  animation: zoomInTreble 2s ease 1.5s forwards;
+}
+
+.bassClefAnimation {
+  animation: zoomInBass 2s ease forwards;
+}
+
+.bassClef {
+  transform: scale(40) translateX(600%) translateY(440%);
+}
+
+@keyframes zoomInTreble {
+  0% {
+    transform: scale(100);
+  }
+  40% {
+    transform: scale(1);
+  }
+  70% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes zoomInBass {
+  0% {
+    transform: scale(40);
+  }
+  40% {
+    transform: scale(1);
+  }
+  70% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
