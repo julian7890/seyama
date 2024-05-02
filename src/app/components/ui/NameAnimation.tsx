@@ -32,11 +32,13 @@ export default function NameAnimation() {
 
   return (
     <div
-      className={`absolute flex flex-col items-start text-black text-5xl transition-all duration-700 pt-1 ${
+      className={`absolute flex flex-col items-start text-black text-5xl lg:text-8xl transition-all duration-700 pt-1 ${
         seasons.className
-      } ${position ? " -translate-y-80 pb-16 translate-x-20" : "pb-0"} ${
-        fade ? "opacity-0" : "opacity-100"
-      }`}
+      } ${
+        position
+          ? " top-10 right-12 -translate-y-0 translate-x-0 lg:text-5xl"
+          : "pb-0 top-1/2 -translate-y-1/2 right-1/2 translate-x-1/2"
+      } ${fade ? "opacity-0" : "opacity-100"}`}
     >
       <div
         className={`transition duration-700 ${
