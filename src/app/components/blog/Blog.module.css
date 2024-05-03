@@ -1,0 +1,10 @@
+.bgMove img {
+  animation: bgMove linear;
+  animation-timeline: scroll();
+}
+
+@keyframes bgMove {
+  to {
+    transform: translateY(100%);
+  }
+}

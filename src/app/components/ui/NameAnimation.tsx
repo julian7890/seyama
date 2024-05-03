@@ -45,14 +45,14 @@ export default function NameAnimation() {
           show ? "-translate-x-10 opacity-100" : "-translate-x-16 opacity-0"
         } ${position ? "!translate-x-0" : ""}`}
       >
-        Seyama
+        Tomohiro
       </div>
       <div
         className={`transition duration-700 ${
           show ? "translate-x-12 opacity-100" : "translate-x-20 opacity-0"
         } ${position ? "!translate-x-0" : ""}`}
       >
-        Tomohiro
+        Seyama
       </div>
     </div>
   );

@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
-import { Lexend } from "next/font/google";
+import { Lexend, Rajdhani } from "next/font/google";
 
 const lexend = Lexend({ subsets: ["latin"] });
+const rajdhani = Rajdhani({
+  weight: ["300", "400", "500", "600", "700"],
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Tomohiro Seyama",
@@ -14,6 +18,6 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   return (
-    <section className={`${lexend.className} min-h-full`}>{children}</section>
+    <section className={`${rajdhani.className} min-h-full`}>{children}</section>
   );
 }
