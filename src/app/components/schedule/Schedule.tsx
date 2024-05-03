@@ -10,8 +10,12 @@ const murecho = Murecho({ subsets: ["latin"] });
 const scheduleData = [
   {
     date: new Date(2024, 5, 1),
-    description: "Higashiosaka Civic Opera 2nd Performance “Carmen”",
+    description: "2nd Higashi-Osaka Civic Opera Performance “Carmen”",
     location: "Higashi-Osaka Cultural Creation Hall",
+    performer: [
+      { role: "Director", name: "Okumura Keigo" },
+      { role: "Orchestra", name: "Kansai Philharmonic Orchestra" },
+    ],
   },
 ];
 
@@ -34,7 +38,7 @@ export default function Schedule({ language }: propsType) {
           公演スケジュール
         </div>
       </div>
-      <ul className="px-8 flex flex-col justify-center items-center">
+      <ul className="flex flex-col justify-center items-center">
         <ScheduleCard schedule={scheduleData[0]} language={language} />
       </ul>
     </div>

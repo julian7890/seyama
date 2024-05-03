@@ -38,51 +38,6 @@ export default function Blog() {
           date={"5/1/24"}
           pic={"/resources/img/sofa.jpg"}
         />
-        <BlogCard
-          title={"Fourth Blog"}
-          date={"5/1/24"}
-          pic={"/resources/img/sofa.jpg"}
-        />
-        <BlogCard
-          title={"Fourth Blog"}
-          date={"5/1/24"}
-          pic={"/resources/img/sofa.jpg"}
-        />
-        <BlogCard
-          title={"Fourth Blog"}
-          date={"5/1/24"}
-          pic={"/resources/img/sofa.jpg"}
-        />
-        <BlogCard
-          title={"Fourth Blog"}
-          date={"5/1/24"}
-          pic={"/resources/img/sofa.jpg"}
-        />
-        <BlogCard
-          title={"Fourth Blog"}
-          date={"5/1/24"}
-          pic={"/resources/img/sofa.jpg"}
-        />
-        <BlogCard
-          title={"Fourth Blog"}
-          date={"5/1/24"}
-          pic={"/resources/img/sofa.jpg"}
-        />
-        <BlogCard
-          title={"Fourth Blog"}
-          date={"5/1/24"}
-          pic={"/resources/img/sofa.jpg"}
-        />
-        <BlogCard
-          title={"Fourth Blog"}
-          date={"5/1/24"}
-          pic={"/resources/img/sofa.jpg"}
-        />
-        <BlogCard
-          title={"Fourth Blog"}
-          date={"5/1/24"}
-          pic={"/resources/img/sofa.jpg"}
-        />
       </div>
     </div>
   );
