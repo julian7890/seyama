@@ -1,6 +1,6 @@
 import Image from "next/image";
-import facebookIcon from "../../../../public/resources/img/facebooklogo_icon.svg";
-import instagramIcon from "../../../../public/resources/img/instagramlogo_icon.svg";
+import facebookIcon from "../../../../public/resources/img/Facebook_Logo_Primary.png";
+import instagramIcon from "../../../../public/resources/img/Instagram_Glyph_Gradient.png";
 // import linkedinIcon from "../../../../public/resources/img/linkedinlogo_icon.png";
 // import youtubeIcon from "../../../../public/resources/img/youtubelogo_icon.svg";
 
@@ -16,7 +16,7 @@ export default function Social() {
           width={30}
           height={30}
           alt="Follow me on Facebook"
-          className="invert"
+          className="grayscale hover:grayscale-0 translate-x-0 duration-200"
         />
       </a>
       <a href={"https://www.instagram.com/tomohiroseyama/"} target="_blank">
@@ -25,7 +25,7 @@ export default function Social() {
           width={30}
           height={30}
           alt="Follow me on Instagram"
-          className="invert"
+          className="grayscale hover:grayscale-0 translate-x-0 duration-200"
         />
       </a>
       {/* <Image
