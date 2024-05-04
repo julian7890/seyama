@@ -13,9 +13,16 @@ const scheduleData = [
     description: "2nd Higashi-Osaka Civic Opera Performance “Carmen”",
     location: "Higashi-Osaka Cultural Creation Hall",
     performer: [
-      { role: "Director", name: "Okumura Keigo" },
+      { role: "Director", name: "Keigo Okumura" },
       { role: "Orchestra", name: "Kansai Philharmonic Orchestra" },
     ],
+    link: 'https://higashiosaka.hall-info.jp/event-information/2024/20240526.html'
+  },
+  {
+    date: new Date(2024, 7, 13),
+    description: "Osaka College of Music Opera Major First Term Concert",
+    location: "Osaka College of Music Millenium Hall",
+    performer: [{ role: "Director", name: "Tatsuji Iwata" }],
   },
 ];
 
@@ -40,6 +47,7 @@ export default function Schedule({ language }: propsType) {
       </div>
       <ul className="flex flex-col justify-center items-center">
         <ScheduleCard schedule={scheduleData[0]} language={language} />
+        <ScheduleCard schedule={scheduleData[1]} language={language} />
       </ul>
     </div>
   );

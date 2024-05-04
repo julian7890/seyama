@@ -5,6 +5,7 @@ import Image from "next/image";
 import Footer from "../components/footer/Footer";
 import Schedule from "../components/schedule/Schedule";
 import Blog from "../components/blog/Blog";
+import Bio from "../components/bio/Bio";
 
 export default function Home() {
   const [show, setShow] = useState(false);
@@ -60,6 +61,7 @@ export default function Home() {
           show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
       >
+        <Bio />
         <Footer />
       </div>
     </div>

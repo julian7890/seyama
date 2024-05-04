@@ -24,6 +24,7 @@ body {
   min-height: 100%;
   color: rgb(var(--foreground-rgb));
   background: white;
+  perspective: 1px;
 }
 @layer utilities {
   .text-balance {

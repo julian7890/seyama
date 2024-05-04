@@ -1,21 +1,10 @@
 "use client";
 import BlogCard from "./BlogCard";
-import Image from "next/image";
-import violin from "../../../../public/resources/img/violin.jpg";
 import classes from "./Blog.module.css";
 
 export default function Blog() {
   return (
-    <div className={`${classes.bgMove}`}>
-      <div className={`absolute overflow-hidden w-full h-full -z-10`}>
-        <Image
-          src={violin}
-          fill
-          alt="violin"
-          className={`-z-10 opacity-50 object-cover scale-150`}
-          priority
-        />
-      </div>
+    <div className={`${classes.bgViolin}`}>
       <div className="text-4xl text-white text-center pt-4">BLOG</div>
       <div className="flex flex-wrap justify-around gap-4 py-8">
         <BlogCard

@@ -39,7 +39,7 @@ export default function ScheduleCard({ schedule, language }: any) {
   for (let performer of schedule.performer) {
     performerList.push(
       <tr key={performer.name}>
-        <td className="pl-2">{performer.role}</td>
+        <td className="px-4">{performer.role}</td>
         <td>{performer.name}</td>
       </tr>
     );
@@ -47,49 +47,58 @@ export default function ScheduleCard({ schedule, language }: any) {
 
   return (
     <li className="w-full">
-      <div className="flex pl-6 w-full">
-        <div className="p-2 absolute h-fit rounded-md border border-amber-300/50 shadow-lg shadow-amber-800 bg-white">
-          <div className="flex flex-col">
-            <div className="flex gap-1 items-baseline">
-              <div className="text-4xl">
-                <div>{dateDay < 10 ? "0" + dateDay : dateDay}</div>
-              </div>
-              <div className="text-2xl">{monthConverter(dateMonth)}</div>
-            </div>
-            <hr />
-            <div className="text-2xl text-center">{dateYear}</div>
-          </div>
-        </div>
+      <div className="flex w-full">
         <div className="flex flex-col mt-4 pr-2 ml-4 border border-amber-300/50 rounded-md">
-          <div className="font-semibold pl-24 pt-2">{schedule.description}</div>
-          <div className="w-full flex gap-2 justify-end items-center">
-            <div>
-              <Image
-                src={"/resources/img/location.png"}
-                width={20}
-                height={20}
-                alt="location"
-              />
+          <div className="flex">
+            <div className="p-2 h-fit rounded-md border border-amber-300/50 shadow-lg shadow-amber-800 bg-white -translate-x-4 -translate-y-3">
+              <div className="flex flex-col">
+                <div className="flex gap-1 items-baseline">
+                  <div className="text-4xl">
+                    <div>{dateDay < 10 ? "0" + dateDay : dateDay}</div>
+                  </div>
+                  <div className="text-2xl">{monthConverter(dateMonth)}</div>
+                </div>
+                <hr />
+                <div className="text-2xl text-center">{dateYear}</div>
+              </div>
             </div>
-            <div className="text-en w-36">{schedule.location}</div>
+
+            <div className="flex flex-col">
+              <div className="font-semibold pt-2">{schedule.description}</div>
+              <div className="w-full flex gap-2 justify-end items-center">
+                <div>
+                  <Image
+                    src={"/resources/img/location.png"}
+                    width={20}
+                    height={20}
+                    alt="location"
+                  />
+                </div>
+                <div className="text-en w-36">{schedule.location}</div>
+              </div>
+            </div>
           </div>
+
           <div className="pt-4">
-            <table className="w-full">
+            <table>
               <tbody>{schedule.performer ? performerList : ""}</tbody>
             </table>
           </div>
 
-          <div className="w-full flex justify-end items-center pt-4 font-semibold text-2xl text-amber-600">
-            <a
-              href="https://higashiosaka.hall-info.jp/event-information/2024/20240526.html"
-              target="_blank"
-            >
-              <div className="flex items-center  hover:translate-x-2 transition duration-200 select-none">
-                <div>Tickets and Info</div>
-                <div className={`${classes.arrow} w-8 h-8 bg-amber-600`}></div>
-              </div>
-            </a>
-          </div>
+          {schedule.link ? (
+            <div className="w-full flex justify-end items-center pt-4 font-semibold text-2xl text-amber-600">
+              <a href={schedule.link} target="_blank">
+                <div className="flex items-center  hover:translate-x-2 transition duration-200 select-none">
+                  <div>Tickets and Info</div>
+                  <div
+                    className={`${classes.arrow} w-8 h-8 bg-amber-600`}
+                  ></div>
+                </div>
+              </a>
+            </div>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </li>
