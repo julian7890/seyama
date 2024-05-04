@@ -33,7 +33,7 @@ export default function Title({ show, onLanguageChange, language }: any) {
         <div
           className={`${
             zen.className
-          } px-10 font-bold absolute top-0 transition duration-1000 ${
+          } px-8 font-bold absolute top-0 transition duration-1000 ${
             language == "japanese" ? "opacity-100" : "opacity-0"
           }`}
         >
