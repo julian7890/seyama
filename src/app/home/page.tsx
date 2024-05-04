@@ -61,7 +61,7 @@ export default function Home() {
           show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
       >
-        <Bio />
+        {/* <Bio /> */}
         <Footer />
       </div>
     </div>
