@@ -128,18 +128,26 @@ export default function Home() {
         </div>
       </div>
 
-      <Navbar />
+      <div
+        className={`transition duration-500 delay-1000 ${
+          show ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        <Navbar />
+      </div>
 
       <div
         className={`flex flex-col justify-between h-fit transition duration-500 delay-1000 scroll-mt-8 ${
           show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        }`} id="schedule"
+        }`}
+        id="schedule"
       >
-        <Schedule language={language}/>
+        <Schedule language={language} />
         <div
           className={`transition duration-500 delay-[1500ms] scroll-mt-8 ${
             show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`} id="bio"
+          }`}
+          id="bio"
         >
           <Bio />
         </div>
@@ -147,7 +155,8 @@ export default function Home() {
       <div
         className={`mt-auto transition duration-500 delay-[2000ms] scroll-mt-8 ${
           show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        }`} id="blog"
+        }`}
+        id="blog"
       >
         <Blog />
         <Footer />

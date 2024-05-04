@@ -16,7 +16,7 @@ export default function Bio() {
       </div>
 
       <div className="absolute top-0 w-1/2">
-        <div className={`flex flex-col gap-8 ${garamond.className} p-4 pt-8`}>
+        <div className={`flex flex-col gap-8 ${garamond.className} p-4 pt-8 pb-32`}>
           <div>
             Tomohiro Seyama / Conductor has conducted in opera houses such as
             the Magdeburg Opera House in Germany, the Dessau Anhalt State Opera

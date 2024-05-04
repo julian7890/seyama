@@ -11,7 +11,7 @@ export default function Animation() {
   }, 1000);
 
   return (
-    <div className="w-1/2 h-full relative flex justify-center items-center">
+    <div className="w-1/2 lg:w-1/4 h-full relative flex justify-center items-center">
       <Image
         src={"/resources/img/treble.png"}
         width={1200}
