@@ -17,13 +17,13 @@ export default function Title({ show, onLanguageChange, language }: any) {
     <div
       className={`${
         seasons.className
-      }  flex flex-col bg-gradient-to-b from-black to-transparent pl-2 pr-4 pt-6 transition duration-1000 ${
+      }  flex flex-col bg-gradient-to-b from-black to-transparent pl-2 pt-6 transition duration-1000 ${
         show ? "opacity-100" : "opacity-0"
       }`}
     >
       <div className="invert relative">
         <div
-          className={`transition duration-1000 ${
+          className={`transition duration-1000 pr-4 ${
             language == "japanese" ? "opacity-0" : "opacity-100"
           }`}
         >

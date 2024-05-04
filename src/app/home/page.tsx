@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Title from "../components/ui/Title";
 import Image from "next/image";
 import Footer from "../components/footer/Footer";
@@ -10,38 +10,110 @@ import Bio from "../components/bio/Bio";
 export default function Home() {
   const [show, setShow] = useState(false);
   const [language, setLanguage] = useState("english");
+  const [slide, setSlide] = useState(0);
+  const [slideActive, setSlideActive] = useState(false);
+
+  console.log(slide);
 
   const languageHandler = (language: string) => {
     setLanguage(language);
   };
+
+  const incSlide = (e: any) => {
+    e.preventDefault();
+    if (slide < 1) {
+      setSlide((prevState) => prevState + 1);
+    }
+    setSlideActive(true);
+    console.log(slide);
+  };
+
+  const decSlide = (e: any) => {
+    e.preventDefault();
+    if (slide > 0) {
+      setSlide((prevState) => prevState - 1);
+    }
+    setSlideActive(true);
+    console.log(slide);
+  };
+
+  useEffect(() => {
+    let slideInd = slide;
+    const intervalId = setInterval(() => {
+      if (!slideActive) {
+        if (slideInd <= 0) {
+          setSlide((prevState) => prevState + 1);
+          slideInd++;
+        } else if (slideInd >= 1) {
+          setSlide((prevState) => prevState - 1);
+          slideInd--;
+        }
+      }
+    }, 10000);
+    if (slideActive) {
+      clearInterval(intervalId);
+    }
+    return () => clearInterval(intervalId);
+  }, [slideActive]);
 
   setTimeout(() => {
     setShow(true);
   }, 1000);
 
   return (
-    <div className="relative overflow-x-hidden min-h-[100svh] flex flex-col justify-start">
+    <div className="relative min-h-[100svh] flex flex-col justify-start">
       <div
-        className={`w-full bg-black translate-x-0 duration-1000 ${
+        className={`w-full translate-x-0 duration-1000 ${
           show ? "opacity-100" : "opacity-0"
         }`}
       >
-        <Image
-          src="/resources/img/headshot2.jpg"
-          width={1500}
-          height={1500}
-          alt="seyama1"
-          className="w-full -translate-x-10"
-          priority
-        />
-        <div className="flex absolute top-0 right-0 h-full w-fit justify-center text-5xl">
+        <div className="relative flex bg-black overflow-x-hidden">
+          <Image
+            src="/resources/img/forest2_edit.png"
+            width={1500}
+            height={1500}
+            alt="seyama1"
+            className={`w-full transition duration-700 ${
+              slide == 0 ? "inline-block translate-x-0" : "-translate-x-full"
+            }`}
+            priority
+          />
+          <Image
+            src="/resources/img/headshot2.jpg"
+            width={1500}
+            height={1500}
+            alt="seyama1"
+            className={`w-full transition duration-700 origin-bottom-left ${
+              slide == 1 ? "inline-block -translate-x-full" : ""
+            }`}
+            priority
+          />
+        </div>
+        <div className="flex absolute top-0 right-0 h-full w-fit justify-center text-4xl">
           <Title
             show={show}
             onLanguageChange={languageHandler}
             language={language}
           />
+          <div className="absolute flex justify-between bottom-2 left-2 text-xl w-10">
+            <button
+              className="invert opacity-80 hover:opacity-100"
+              onClick={decSlide}
+            >
+              &#10094;
+            </button>
+            <button
+              className="invert opacity-80 hover:opacity-100"
+              onClick={incSlide}
+            >
+              &#10095;
+            </button>
+          </div>
         </div>
       </div>
+
+      {/* <div className="sticky top-0 bg-lime-500 z-20">Scroll Watcher</div> */}
+
       <div
         className={`flex flex-col justify-between h-fit transition duration-500 delay-1000 ${
           show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"

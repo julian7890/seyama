@@ -45,7 +45,7 @@ export default function Schedule({ language }: propsType) {
           公演スケジュール
         </div>
       </div>
-      <ul className="flex flex-col justify-center items-center">
+      <ul className="flex gap-8 flex-wrap justify-center items-center">
         <ScheduleCard schedule={scheduleData[0]} language={language} />
         <ScheduleCard schedule={scheduleData[1]} language={language} />
       </ul>

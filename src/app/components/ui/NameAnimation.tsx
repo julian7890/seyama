@@ -32,24 +32,24 @@ export default function NameAnimation() {
 
   return (
     <div
-      className={`absolute flex flex-col items-start text-black text-5xl transition-all duration-700 pt-1 ${
+      className={`absolute flex flex-col items-start text-black transition-all duration-700 pt-1 ${
         seasons.className
       } ${
         position
-          ? "top-6 right-4 -translate-y-0 translate-x-0 lg:text-5xl"
-          : "top-1/2 -translate-y-1/2 right-1/2 translate-x-1/2 lg:text-8xl"
+          ? "top-6 right-4 -translate-y-0 translate-x-0 text-4xl lg:text-5xl"
+          : "top-1/2 -translate-y-1/2 right-1/2 translate-x-1/2 text-5xl lg:text-8xl"
       } ${fade ? "opacity-0" : "opacity-100"}`}
     >
       <div
         className={`transition duration-700 ${
-          show ? "-translate-x-10 opacity-100" : "-translate-x-16 opacity-0"
+          show ? "-translate-x-6 opacity-100" : "-translate-x-10 opacity-0"
         } ${position ? "!translate-x-0" : ""}`}
       >
         Tomohiro
       </div>
       <div
         className={`transition duration-700 ${
-          show ? "translate-x-12 opacity-100" : "translate-x-20 opacity-0"
+          show ? "translate-x-16 opacity-100" : "translate-x-20 opacity-0"
         } ${position ? "!translate-x-0" : ""}`}
       >
         Seyama

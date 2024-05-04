@@ -46,7 +46,7 @@ export default function ScheduleCard({ schedule, language }: any) {
   }
 
   return (
-    <li className="w-full">
+    <li>
       <div className="flex w-full">
         <div className="flex flex-col mt-4 pr-2 ml-4 border border-amber-300/50 rounded-md">
           <div className="flex">
@@ -97,7 +97,7 @@ export default function ScheduleCard({ schedule, language }: any) {
               </a>
             </div>
           ) : (
-            ""
+            <div className="h-8"></div>
           )}
         </div>
       </div>

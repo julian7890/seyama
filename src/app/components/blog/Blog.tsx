@@ -5,7 +5,7 @@ import classes from "./Blog.module.css";
 export default function Blog() {
   return (
     <div className={`${classes.bgViolin}`}>
-      <div className="text-4xl text-white text-center pt-4">BLOG</div>
+      <div className="text-4xl text-white text-center pt-4 sticky top-0 left-0">BLOG</div>
       <div className="flex flex-wrap justify-around gap-4 py-8">
         <BlogCard
           title={"First Blog"}
