@@ -60,7 +60,7 @@ export default function Home() {
       clearInterval(intervalId);
     }
     return () => clearInterval(intervalId);
-  }, [slideActive]);
+  }, [slideActive, slide]);
 
   setTimeout(() => {
     setShow(true);

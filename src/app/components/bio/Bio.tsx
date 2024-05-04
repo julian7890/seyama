@@ -16,7 +16,9 @@ export default function Bio() {
       </div>
 
       <div className="absolute top-0 w-1/2">
-        <div className={`flex flex-col gap-8 ${garamond.className} p-4 pt-8 pb-32`}>
+        <div
+          className={`flex flex-col gap-8 ${garamond.className} p-4 pt-8 pb-32`}
+        >
           <div>
             Tomohiro Seyama / Conductor has conducted in opera houses such as
             the Magdeburg Opera House in Germany, the Dessau Anhalt State Opera
@@ -29,7 +31,7 @@ export default function Bio() {
             Germany. In 2009, he made his debut conducting Mozart's "Don
             Giovanni" at the Schönbrunn Palace Opera in Vienna. He has been an
             assistant conductor at the Bregenz Music Festival and the Graffenegg
-            Music Festival in Austria, as wel as the Royal Opera in Turin ,
+            Music Festival in Austria, as wel as the Royal Opera in Turin,
             Italy, and 2016 was working as a Kapelmeister (exclusive conductor)
             at the Magdeburg Opera House in Germany.
           </div>
@@ -63,7 +65,7 @@ export default function Bio() {
             three, and completed his studies in the Piano Department of the
             Osaka University of Music, as wel as in the Department of Conducting
             of the Vienna State University of Music. While enroled at the
-            university of Vienna , he was a member of the Wiener Singverein and
+            university of Vienna, he was a member of the Wiener Singverein and
             also worked as a choir repetitor.
           </div>
           <div>

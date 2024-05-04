@@ -28,7 +28,7 @@ export default function NameAnimation() {
     setTimeout(() => {
       router.push("/home");
     }, 8000);
-  }, []);
+  }, [router]);
 
   return (
     <div
