@@ -16,7 +16,7 @@ const scheduleData = [
       { role: "Director", name: "Keigo Okumura" },
       { role: "Orchestra", name: "Kansai Philharmonic Orchestra" },
     ],
-    link: 'https://higashiosaka.hall-info.jp/event-information/2024/20240526.html'
+    link: "https://higashiosaka.hall-info.jp/event-information/2024/20240526.html",
   },
   {
     date: new Date(2024, 7, 13),
@@ -45,7 +45,7 @@ export default function Schedule({ language }: propsType) {
           公演スケジュール
         </div>
       </div>
-      <ul className="flex gap-8 flex-wrap justify-center items-center">
+      <ul className="flex gap-8 flex-wrap justify-center items-start">
         <ScheduleCard schedule={scheduleData[0]} language={language} />
         <ScheduleCard schedule={scheduleData[1]} language={language} />
       </ul>

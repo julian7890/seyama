@@ -6,6 +6,7 @@ import Footer from "../components/footer/Footer";
 import Schedule from "../components/schedule/Schedule";
 import Blog from "../components/blog/Blog";
 import Bio from "../components/bio/Bio";
+import Navbar from "../components/ui/Navbar";
 
 export default function Home() {
   const [show, setShow] = useState(false);
@@ -13,15 +14,13 @@ export default function Home() {
   const [slide, setSlide] = useState(0);
   const [slideActive, setSlideActive] = useState(false);
 
-  console.log(slide);
-
   const languageHandler = (language: string) => {
     setLanguage(language);
   };
 
   const incSlide = (e: any) => {
     e.preventDefault();
-    if (slide < 1) {
+    if (slide < 2) {
       setSlide((prevState) => prevState + 1);
     }
     setSlideActive(true);
@@ -39,14 +38,21 @@ export default function Home() {
 
   useEffect(() => {
     let slideInd = slide;
+    let slideDirection = "forwards";
     const intervalId = setInterval(() => {
       if (!slideActive) {
-        if (slideInd <= 0) {
+        if (slideDirection == "forwards") {
           setSlide((prevState) => prevState + 1);
           slideInd++;
-        } else if (slideInd >= 1) {
+          if (slideInd == 2) {
+            slideDirection = "backwards";
+          }
+        } else if (slideDirection == "backwards") {
           setSlide((prevState) => prevState - 1);
           slideInd--;
+          if (slideInd == 0) {
+            slideDirection = "forwards";
+          }
         }
       }
     }, 10000);
@@ -82,10 +88,20 @@ export default function Home() {
             src="/resources/img/headshot2.jpg"
             width={1500}
             height={1500}
-            alt="seyama1"
+            alt="seyama2"
             className={`w-full transition duration-700 origin-bottom-left ${
-              slide == 1 ? "inline-block -translate-x-full" : ""
-            }`}
+              slide == 1 ? "inline-block -translate-x-full" : "translate-x-0"
+            } ${slide > 1 ? " !-translate-x-[200%]" : ""}`}
+            priority
+          />
+          <Image
+            src="/resources/img/bwportrait6_edit.jpg"
+            width={1500}
+            height={1500}
+            alt="seyama3"
+            className={`w-full absolute transition duration-700 origin-bottom-left ${
+              slide == 2 ? "inline-block" : "translate-x-full"
+            } ${slide > 2 ? " !-translate-x-[200%]" : ""}`}
             priority
           />
         </div>
@@ -112,28 +128,28 @@ export default function Home() {
         </div>
       </div>
 
-      {/* <div className="sticky top-0 bg-lime-500 z-20">Scroll Watcher</div> */}
+      <Navbar />
 
       <div
-        className={`flex flex-col justify-between h-fit transition duration-500 delay-1000 ${
+        className={`flex flex-col justify-between h-fit transition duration-500 delay-1000 scroll-mt-8 ${
           show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        }`}
+        }`} id="schedule"
       >
-        <Schedule language={language} />
+        <Schedule language={language}/>
         <div
-          className={`transition duration-500 delay-[1500ms] ${
+          className={`transition duration-500 delay-[1500ms] scroll-mt-8 ${
             show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
+          }`} id="bio"
         >
-          <Blog />
+          <Bio />
         </div>
       </div>
       <div
-        className={`mt-auto transition duration-500 delay-[2000ms] ${
+        className={`mt-auto transition duration-500 delay-[2000ms] scroll-mt-8 ${
           show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        }`}
+        }`} id="blog"
       >
-        {/* <Bio /> */}
+        <Blog />
         <Footer />
       </div>
     </div>
