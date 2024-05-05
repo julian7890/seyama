@@ -46,8 +46,8 @@ export default function ScheduleCard({ schedule, language }: any) {
   }
 
   return (
-    <li>
-      <div className="flex w-full">
+    <li className="md:w-[40%]">
+      <div className="flex">
         <div className="flex flex-col mt-4 pr-2 ml-4 border border-amber-300/50 rounded-md">
           <div className="flex">
             <div className="p-2 h-fit rounded-md border border-amber-300/50 shadow-lg shadow-amber-800 bg-white -translate-x-4 -translate-y-3">

@@ -56,7 +56,7 @@ export default function Bio({ language }: propType) {
             Germany. In 2009, he made his debut conducting Mozart's "Don
             Giovanni" at the Schönbrunn Palace Opera in Vienna. He has been an
             assistant conductor at the Bregenz Music Festival and the Graffenegg
-            Music Festival in Austria, as wel as the Royal Opera in Turin,
+            Music Festival in Austria, as well as the Royal Opera in Turin,
             Italy, and 2016 was working as a Kapelmeister (exclusive conductor)
             at the Magdeburg Opera House in Germany.
           </div>
@@ -88,10 +88,10 @@ export default function Bio({ language }: propType) {
           <div>
             Tomohiro started his musical education in Mexico at the age of
             three, and completed his studies in the Piano Department of the
-            Osaka University of Music, as wel as in the Department of Conducting
-            of the Vienna State University of Music. While enroled at the
-            university of Vienna, he was a member of the Wiener Singverein and
-            also worked as a choir repetitor.
+            Osaka University of Music, as well as in the Department of
+            Conducting of the Vienna State University of Music. While enroled at
+            the university of Vienna, he was a member of the Wiener Singverein
+            and also worked as a choir repetitor.
           </div>
           <div>
             Tomohiro Seyama has studied conducting with Leopold Hager, Urosh
@@ -107,30 +107,20 @@ export default function Bio({ language }: propType) {
           } ${language == "english" ? "opacity-0" : "opacity-100"}`}
         >
           <div>
-            ３歳よりメキシコシティで音楽教育を受け始める。大阪音楽大学ピアノ科およびウィーン国立音楽大学指揮科卒業。
-            2008年にドイツのアーヘン市立歌劇場コレペティトールとして活動を始め、ウィーンのシェーンブルン宮殿歌劇場でモーツァルト「ドン・ジョヴァンニ」を指揮してデビュー。
+            ３歳よりメキシコシティで音楽教育を受け始める。大阪音楽大学ピアノ科およびウィーン国立音楽大学指揮科卒業。2008年にドイツのアーヘン市立歌劇場コレペティトールとして活動を始め、ウィーンのシェーンブルン宮殿歌劇場でモーツァルト「ドン・ジョヴァンニ」を指揮してデビュー。
           </div>
           <div>
-            その後オーストリアのブレゲンツ音楽祭、グラフェネッグ音楽祭やイタリアのトリノ王立歌劇場において音楽スタッフを務め、2016年からはドイツのマグデブルグ歌劇場の
-            カペルマイスターとして活動。同劇場においてオッフェンバッハ「パリの生活」、ニコライ「ウィンザーの陽気な女房たち」、ロルツィング「密猟者」、ビゼー「カルメン」など多数の公演を指揮した。ドイツではその他にデッサウ・アンハルト州立歌劇場、バード・ラオホシュテット歌劇場、スイスではヴィ
-            ンタートゥール歌劇場において指揮者を務めた。
+            その後オーストリアのブレゲンツ音楽祭、グラフェネッグ音楽祭やイタリアのトリノ王立歌劇場において音楽スタッフを務め、2016年からはドイツのマグデブルグ歌劇場のカペルマイスターとして活動。同劇場においてオッフェンバッハ「パリの生活」、ニコライ「ウィンザーの陽気な女房たち」、ロルツィング「密猟者」、ビゼー「カルメン」など多数の公演を指揮した。ドイツではその他にデッサウ・アンハルト州立歌劇場、バード・ラオホシュテット歌劇場、スイスではヴィンタートゥール歌劇場において指揮者を務めた。
           </div>
           <div>
-            ウィーン国立音楽大学在籍中にウィーン楽友協会合唱団団員として研鑽を積
-            み、同合唱団のコレペティトールとしても活動。その後、ウィーン少年合唱団の指揮者やウィーン国立歌劇場合唱団のコレペティトールおよび指揮者を務め
-            るなど、現在に至るまで多岐に渡り国際的な活動を続けている。
+            ウィーン国立音楽大学在籍中にウィーン楽友協会合唱団団員として研鑽を積み、同合唱団のコレペティトールとしても活動。その後、ウィーン少年合唱団の指揮者やウィーン国立歌劇場合唱団のコレペティトールおよび指揮者を務めるなど、現在に至るまで多岐に渡り国際的な活動を続けている。
           </div>
           <div>
-            これまでにヨーロッパではBBC交響楽団、ウィーン室内管弦楽団、マグデブルグ・フィルハーモニー管弦楽団、デッサウ・アンハルト州立管弦楽団、ムジー
-            クコレギウム・ヴィンタートゥール、ソフィア祝祭管弦楽団などを指揮。国内では東京シティ・フィルハーモニック管弦楽団、京都市交響楽団、日本センチュ
-            リー交響楽団、大阪交響楽団、関西フィルハーモニー管弦楽団、オペラハウス管弦楽団、兵庫県立芸術文化センター管弦楽団、広島交響楽団、九州交響楽団
-            など多数のオーケストラと共演している。
+            これまでにヨーロッパではBBC交響楽団、ウィーン室内管弦楽団、マグデブルグ・フィルハーモニー管弦楽団、デッサウ・アンハルト州立管弦楽団、ムジークコレギウム・ヴィンタートゥール、ソフィア祝祭管弦楽団などを指揮。国内では東京シティ・フィルハーモニック管弦楽団、京都市交響楽団、日本センチュリー交響楽団、大阪交響楽団、関西フィルハーモニー管弦楽団、オペラハウス管弦楽団、兵庫県立芸術文化センター管弦楽団、広島交響楽団、九州交響楽団など多数のオーケストラと共演している。
           </div>
           <div>
-            指揮を湯浅勇治、レオポルト・ハーガー、ウロシュ・ラィオヴィチ、ファビオ・ルイジ、小澤征爾各氏に師事。シエナ・キジアーナ音楽院においてオーケ
-            ストラ指揮ディプロマ所得。シカゴ・ショルティコンクールセミファイナリスト、ブザンソン国際指揮者コンクールファイナリスト。
+            指揮を湯浅勇治、レオポルト・ハーガー、ウロシュ・ラィオヴィチ、ファビオ・ルイジ、小澤征爾各氏に師事。シエナ・キジアーナ音楽院においてオーケストラ指揮ディプロマ所得。シカゴ・ショルティコンクールセミファイナリスト、ブザンソン国際指揮者コンクールファイナリスト。
           </div>
-
           <div>
             大阪音楽大学声楽科オペラ部門非常勤講師、名古屋音楽大学声楽科オペラ部門客員講師。2021年よりノマドオペラ音楽監督を務めている。
           </div>

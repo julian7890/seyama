@@ -133,7 +133,7 @@ export default function Home() {
           show ? "opacity-100" : "opacity-0"
         }`}
       >
-        <Navbar />
+        <Navbar language={language} />
       </div>
 
       <div
