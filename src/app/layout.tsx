@@ -8,6 +8,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Tomohiro Seyama",
   description: "Profile page for conductor Tomohiro Seyama",
+  icons: {
+    icon: "/resources/img/favicon.ico",
+  },
 };
 
 export const viewport: Viewport = {

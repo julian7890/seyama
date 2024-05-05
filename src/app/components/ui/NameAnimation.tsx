@@ -24,35 +24,41 @@ export default function NameAnimation() {
     }, 1000);
   }, 5000);
 
-  useEffect(() => {
-    setTimeout(() => {
-      router.push("/home");
-    }, 8000);
-  }, [router]);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     router.push("/home");
+  //   }, 8000);
+  // }, [router]);
 
   return (
     <div
-      className={`absolute flex flex-col items-start text-black transition-all duration-700 pt-1 ${
-        seasons.className
-      } ${
+      className={`absolute transition-all duration-700 ${
         position
-          ? "top-6 right-4 -translate-y-0 translate-x-0 text-4xl lg:text-5xl"
-          : "top-1/2 -translate-y-1/2 right-1/2 translate-x-1/2 text-5xl lg:text-8xl"
-      } ${fade ? "opacity-0" : "opacity-100"}`}
+          ? "top-6 right-4"
+          : "top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2"
+      }`}
     >
       <div
-        className={`transition duration-700 ${
-          show ? "-translate-x-6 opacity-100" : "-translate-x-10 opacity-0"
-        } ${position ? "!translate-x-0" : ""}`}
+        className={`flex flex-col items-start text-black transition-all duration-700 pt-1 ${
+          seasons.className
+        } ${position ? "text-4xl lg:text-5xl" : "text-5xl lg:text-8xl"} ${
+          fade ? "opacity-0" : "opacity-100"
+        }`}
       >
-        Tomohiro
-      </div>
-      <div
-        className={`transition duration-700 ${
-          show ? "translate-x-16 opacity-100" : "translate-x-20 opacity-0"
-        } ${position ? "!translate-x-0" : ""}`}
-      >
-        Seyama
+        <div
+          className={`transition duration-700 ${
+            show ? "-translate-x-6 opacity-100" : "-translate-x-10 opacity-0"
+          } ${position ? "!translate-x-0" : ""}`}
+        >
+          Tomohiro
+        </div>
+        <div
+          className={`transition duration-700 ${
+            show ? "translate-x-16 opacity-100" : "translate-x-20 opacity-0"
+          } ${position ? "!translate-x-0" : ""}`}
+        >
+          Seyama
+        </div>
       </div>
     </div>
   );
