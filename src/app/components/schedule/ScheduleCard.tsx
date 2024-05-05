@@ -1,5 +1,8 @@
 import Image from "next/image";
 import classes from "./ScheduleCard.module.css";
+import { Murecho } from "next/font/google";
+
+const murecho = Murecho({ subsets: ["latin"] });
 
 export default function ScheduleCard({ schedule, language }: any) {
   const dateDay = schedule.date.getDate();
@@ -35,9 +38,20 @@ export default function ScheduleCard({ schedule, language }: any) {
     }
   };
 
-  const performerList = [];
-  for (let performer of schedule.performer) {
-    performerList.push(
+  const performerListEN = [];
+  const performerListJP = [];
+
+  for (let performer of schedule.en.performer) {
+    performerListEN.push(
+      <tr key={performer.name}>
+        <td className="px-4">{performer.role}</td>
+        <td>{performer.name}</td>
+      </tr>
+    );
+  }
+
+  for (let performer of schedule.jp.performer) {
+    performerListJP.push(
       <tr key={performer.name}>
         <td className="px-4">{performer.role}</td>
         <td>{performer.name}</td>
@@ -50,8 +64,12 @@ export default function ScheduleCard({ schedule, language }: any) {
       <div className="flex">
         <div className="flex flex-col mt-4 pr-2 ml-4 border border-amber-300/50 rounded-md">
           <div className="flex">
-            <div className="p-2 h-fit rounded-md border border-amber-300/50 shadow-lg shadow-amber-800 bg-white -translate-x-4 -translate-y-3">
-              <div className="flex flex-col">
+            <div className="relative flex justify-center items-center p-2 h-fit rounded-md border border-amber-300/50 shadow-lg shadow-amber-800 bg-white -translate-x-4 -translate-y-3">
+              <div
+                className={`flex flex-col transition duration-1000 ${
+                  language == "english" ? "opacity-100" : "opacity-0"
+                }`}
+              >
                 <div className="flex gap-1 items-baseline">
                   <div className="text-4xl">
                     <div>{dateDay < 10 ? "0" + dateDay : dateDay}</div>
@@ -61,27 +79,70 @@ export default function ScheduleCard({ schedule, language }: any) {
                 <hr />
                 <div className="text-2xl text-center">{dateYear}</div>
               </div>
+
+              <div
+                className={`absolute translation duration-700 ${
+                  murecho.className
+                } ${language == "english" ? "opacity-0" : "opacity-100"}`}
+              >
+                <div className="flex flex-col items-center">
+                  <div className="flex justify-center">
+                    <div className="flex items-baseline">
+                      <div className="text-2xl">{dateMonth + 1}</div>
+                      <div className="text-xl">月</div>
+                    </div>
+
+                    <div className="flex items-baseline">
+                      <div className="text-2xl">{dateDay}</div>
+                      <div className="text-xl">日</div>
+                    </div>
+                  </div>
+                  <hr className="border-t-slate-300 rounded-xl w-full" />
+                  <div className="text-2xl">{dateYear}</div>
+                </div>
+              </div>
             </div>
 
             <div className="flex flex-col">
-              <div className="font-semibold pt-2">{schedule.description}</div>
-              <div className="w-full flex gap-2 justify-end items-center">
+              <div className="font-semibold pt-2 break-keep">
+                {language == "english" ? (
+                  <div>{schedule.en.description}</div>
+                ) : (
+                  <div className={murecho.className}>
+                    {schedule.jp.description}
+                  </div>
+                )}
+              </div>
+              <div className="w-2/3 flex gap-2 justify-end self-end items-center">
                 <div>
                   <Image
                     src={"/resources/img/location.png"}
                     width={20}
                     height={20}
                     alt="location"
+                    className="min-w-5"
                   />
                 </div>
-                <div className="text-en w-36">{schedule.location}</div>
+                <div className="text-en break-keep">
+                  {language == "english" ? (
+                    <div>{schedule.en.location}</div>
+                  ) : (
+                    <div className={`${murecho.className}`}>
+                      {schedule.jp.location}
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </div>
 
           <div className="pt-4">
             <table>
-              <tbody>{schedule.performer ? performerList : ""}</tbody>
+              {language == "english" ? (
+                <tbody>{schedule.en.performer ? performerListEN : ""}</tbody>
+              ) : (
+                <tbody>{schedule.jp.performer ? performerListJP : ""}</tbody>
+              )}
             </table>
           </div>
 
@@ -89,7 +150,22 @@ export default function ScheduleCard({ schedule, language }: any) {
             <div className="w-full flex justify-end items-center pt-4 font-semibold text-2xl text-amber-600">
               <a href={schedule.link} target="_blank">
                 <div className="flex items-center  hover:translate-x-2 transition duration-200 select-none">
-                  <div>Tickets and Info</div>
+                  <div className="relative flex justify-end items-center">
+                    <div
+                      className={`transition duration-1000 ${
+                        language == "english" ? "opacity-100" : "opacity-0"
+                      }`}
+                    >
+                      Tickets and Info
+                    </div>
+                    <div
+                      className={`absolute text-xl transition duration-1000 pb-[3px] ${
+                        murecho.className
+                      } ${language == "english" ? "opacity-0" : "opacity-100"}`}
+                    >
+                      詳細
+                    </div>
+                  </div>
                   <div
                     className={`${classes.arrow} w-8 h-8 bg-amber-600`}
                   ></div>
