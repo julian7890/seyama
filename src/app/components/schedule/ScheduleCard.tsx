@@ -5,9 +5,11 @@ import { Murecho } from "next/font/google";
 const murecho = Murecho({ subsets: ["latin"] });
 
 export default function ScheduleCard({ schedule, language }: any) {
-  const dateDay = schedule.date.getDate();
-  const dateMonth = schedule.date.getMonth();
-  const dateYear = schedule.date.getFullYear();
+  const dateData = new Date(schedule.date);
+
+  const dateDay = dateData.getDate();
+  const dateMonth = dateData.getMonth();
+  const dateYear = dateData.getFullYear();
 
   const monthConverter = (dateMonth: number) => {
     switch (dateMonth) {
