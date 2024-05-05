@@ -75,7 +75,7 @@ export default function Home() {
       >
         <div className="relative flex bg-black overflow-hidden">
           <Image
-            src="/resources/img/forest2_edit.png"
+            src="/resources/img/forest2_edit.jpg"
             width={1920}
             height={1080}
             alt="seyama1"
