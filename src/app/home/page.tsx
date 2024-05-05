@@ -92,7 +92,6 @@ export default function Home() {
             className={`w-full transition duration-700 origin-bottom-left ${
               slide == 1 ? "inline-block -translate-x-full" : "translate-x-0"
             } ${slide > 1 ? " !-translate-x-[200%]" : ""}`}
-            priority
           />
           <Image
             src="/resources/img/bwportrait6_edit.jpg"
@@ -102,7 +101,6 @@ export default function Home() {
             className={`w-full absolute transition duration-700 origin-bottom-left ${
               slide == 2 ? "inline-block" : "translate-x-full"
             } ${slide > 2 ? " !-translate-x-[200%]" : ""}`}
-            priority
           />
         </div>
         <div className="flex absolute top-0 right-0 h-full w-fit justify-center text-4xl">
