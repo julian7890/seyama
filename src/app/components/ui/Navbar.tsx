@@ -6,7 +6,7 @@ export default function Navbar() {
   };
 
   return (
-    <div className="sticky flex justify-around top-0 bg-black z-20 text-white text-2xl">
+    <div className="flex justify-around  bg-black text-white text-2xl">
       <button value="schedule" onClick={handleScroll}>
         Schedule
       </button>
