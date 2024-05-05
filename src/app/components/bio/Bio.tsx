@@ -29,7 +29,7 @@ export default function Bio({ language }: propType) {
             } ${murecho.className}`}
           >
             <div>プロフィール</div>
-            <div　className="text-base">瀬山 智博 / 指揮者</div>
+            <div className="text-base">瀬山 智博 / 指揮者</div>
           </div>
         </div>
       </div>
@@ -38,7 +38,11 @@ export default function Bio({ language }: propType) {
         <div
           className={`flex flex-col gap-8 p-4 pt-8 transition duration-700 ${
             garamond.className
-          } ${language == "english" ? "opacity-100 pb-32" : "opacity-0 pb-8 hidden"}`}
+          } ${
+            language == "english"
+              ? "opacity-100 pb-32"
+              : "opacity-0 pb-8 hidden"
+          }`}
         >
           <div>
             Tomohiro Seyama / Conductor has conducted in opera houses such as
@@ -108,11 +112,11 @@ export default function Bio({ language }: propType) {
           </div>
           <div>
             その後オーストリアのブレゲンツ音楽祭、グラフェネッグ音楽祭やイタリアのトリノ王立歌劇場において音楽スタッフを務め、2016年からはドイツのマグデブルグ歌劇場の
-            カペルマイスターとして活動。同劇場においてオッフェンバッハ「パリの生活」、ニコライ「ウィンザーの陽気な女房たち」、ロルツィング「密猟者」、ビゼー「カルメン」など多数の公演を指揮した。
+            カペルマイスターとして活動。同劇場においてオッフェンバッハ「パリの生活」、ニコライ「ウィンザーの陽気な女房たち」、ロルツィング「密猟者」、ビゼー「カルメン」など多数の公演を指揮した。ドイツではその他にデッサウ・アンハルト州立歌劇場、バード・ラオホシュテット歌劇場、スイスではヴィ
+            ンタートゥール歌劇場において指揮者を務めた。
           </div>
           <div>
-            ドイツではその他にデッサウ・アンハルト州立歌劇場、バード・ラオホシュテット歌劇場、スイスではヴィ
-            ンタートゥール歌劇場において指揮者を務めた。ウィーン国立音楽大学在籍中にウィーン楽友協会合唱団団員として研鑽を積
+            ウィーン国立音楽大学在籍中にウィーン楽友協会合唱団団員として研鑽を積
             み、同合唱団のコレペティトールとしても活動。その後、ウィーン少年合唱団の指揮者やウィーン国立歌劇場合唱団のコレペティトールおよび指揮者を務め
             るなど、現在に至るまで多岐に渡り国際的な活動を続けている。
           </div>
@@ -125,6 +129,9 @@ export default function Bio({ language }: propType) {
           <div>
             指揮を湯浅勇治、レオポルト・ハーガー、ウロシュ・ラィオヴィチ、ファビオ・ルイジ、小澤征爾各氏に師事。シエナ・キジアーナ音楽院においてオーケ
             ストラ指揮ディプロマ所得。シカゴ・ショルティコンクールセミファイナリスト、ブザンソン国際指揮者コンクールファイナリスト。
+          </div>
+
+          <div>
             大阪音楽大学声楽科オペラ部門非常勤講師、名古屋音楽大学声楽科オペラ部門客員講師。2021年よりノマドオペラ音楽監督を務めている。
           </div>
         </div>
