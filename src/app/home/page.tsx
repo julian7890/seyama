@@ -129,7 +129,7 @@ export default function Home() {
       </div>
 
       <div
-        className={`transition duration-500 delay-1000 sticky top-0 z-20 ${
+        className={`transition duration-500 delay-1000 sticky -top-[1px] z-20 ${
           show ? "opacity-100" : "opacity-0"
         }`}
       >
