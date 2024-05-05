@@ -24,11 +24,11 @@ export default function NameAnimation() {
     }, 1000);
   }, 5000);
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     router.push("/home");
-  //   }, 8000);
-  // }, [router]);
+  useEffect(() => {
+    setTimeout(() => {
+      router.push("/home");
+    }, 8000);
+  }, [router]);
 
   return (
     <div
