@@ -37,7 +37,7 @@ export default function Home() {
   };
 
   useEffect(() => {
-    let slideInd = slide;
+    let slideInd = 0;
     let slideDirection = "forwards";
     const intervalId = setInterval(() => {
       if (!slideActive) {
@@ -60,7 +60,7 @@ export default function Home() {
       clearInterval(intervalId);
     }
     return () => clearInterval(intervalId);
-  }, [slideActive, slide]);
+  }, [slideActive]);
 
   setTimeout(() => {
     setShow(true);
@@ -149,7 +149,7 @@ export default function Home() {
           }`}
           id="bio"
         >
-          <Bio />
+          <Bio language={language} />
         </div>
       </div>
       <div
