@@ -80,8 +80,8 @@ export default function Home() {
             height={1500}
             alt="seyama1"
             className={`w-full transition duration-700 ${
-              slide == 0 ? "inline-block translate-x-0" : "-translate-x-full"
-            }`}
+              slide == 0 ? "inline-block translate-x-0" : ""
+            } ${slide > 0 ? "-translate-x-full" : ""}`}
             priority
           />
           <Image
