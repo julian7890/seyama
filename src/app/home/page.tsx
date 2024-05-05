@@ -73,11 +73,11 @@ export default function Home() {
           show ? "opacity-100" : "opacity-0"
         }`}
       >
-        <div className="relative flex bg-black overflow-x-hidden">
+        <div className="relative flex bg-black overflow-hidden">
           <Image
             src="/resources/img/forest2_edit.png"
-            width={1500}
-            height={1500}
+            width={1920}
+            height={1080}
             alt="seyama1"
             className={`w-full transition duration-700 ${
               slide == 0 ? "inline-block translate-x-0" : ""
@@ -86,20 +86,20 @@ export default function Home() {
           />
           <Image
             src="/resources/img/headshot2.jpg"
-            width={1500}
-            height={1500}
+            width={1920}
+            height={1080}
             alt="seyama2"
-            className={`w-full transition duration-700 origin-bottom-left ${
-              slide == 1 ? "inline-block -translate-x-full" : "translate-x-0"
+            className={`w-full absolute transition duration-700 ${
+              slide == 1 ? "inline-block translate-x-0" : "translate-x-full"
             } ${slide > 1 ? " !-translate-x-[200%]" : ""}`}
           />
           <Image
             src="/resources/img/bwportrait6_edit.jpg"
-            width={1500}
-            height={1500}
+            width={1920}
+            height={1080}
             alt="seyama3"
-            className={`w-full absolute transition duration-700 origin-bottom-left ${
-              slide == 2 ? "inline-block" : "translate-x-full"
+            className={`w-full absolute transition duration-700 ${
+              slide == 2 ? "inline-block translate-x-0" : "translate-x-full"
             } ${slide > 2 ? " !-translate-x-[200%]" : ""}`}
           />
         </div>
