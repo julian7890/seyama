@@ -111,7 +111,11 @@ export default function Home() {
             onLanguageChange={languageHandler}
             language={language}
           />
-          <div className="absolute flex justify-between bottom-2 left-2 text-xl w-10">
+          <div
+            className={`absolute flex justify-between bottom-2 left-2 text-xl w-10 transition duration-1000 delay-1000 ${
+              show ? "opacity-100" : "opacity-0"
+            }`}
+          >
             <button
               className="invert opacity-80 hover:opacity-100"
               onClick={decSlide}
@@ -137,7 +141,7 @@ export default function Home() {
       </div>
 
       <div
-        className={`flex flex-col justify-between h-fit transition duration-500 delay-1000 scroll-mt-8 ${
+        className={`flex flex-col justify-between h-fit transition duration-500 delay-[1300ms] scroll-mt-8 ${
           show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
         id="schedule"
