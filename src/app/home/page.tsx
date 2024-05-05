@@ -83,6 +83,7 @@ export default function Home() {
               slide == 0 ? "inline-block translate-x-0" : ""
             } ${slide > 0 ? "-translate-x-full" : ""}`}
             priority
+            loading="lazy"
           />
           <Image
             src="/resources/img/headshot2.jpg"
