@@ -11,13 +11,13 @@ export default function Animation() {
   }, 1000);
 
   return (
-    <div className="w-1/2 lg:w-1/4 h-full relative flex justify-center items-center">
+    <div className="absolute w-full h-full">
       <Image
         src={"/resources/img/treble.png"}
         width={1200}
         height={1200}
-        className={`absolute scale-[120] z-0 ${
-          animate ? classes.trebleClefAnimation : ""
+        className={`absolute top-0 z-0 scale-[120] ${
+          animate ? `${classes.trebleClefAnimation}` : ""
         }`}
         alt="treble"
         priority
@@ -26,7 +26,7 @@ export default function Animation() {
         src={"/resources/img/bass.png"}
         width={1200}
         height={1200}
-        className={`absolute invert z-10 ${classes.bassClef} ${
+        className={`absolute top-44 invert z-10 ${classes.bassClef} ${
           animate ? classes.bassClefAnimation : ""
         }`}
         alt="bass"

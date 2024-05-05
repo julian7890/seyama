@@ -7,7 +7,7 @@
 }
 
 .bassClef {
-  transform: scale(40) translateX(600%) translateY(440%);
+  transform: scale(40) translateX(600%);
 }
 
 @keyframes zoomInTreble {
@@ -15,10 +15,10 @@
     transform: scale(100);
   }
   40% {
-    transform: scale(1);
+    transform: scale(0.7);
   }
   70% {
-    transform: scale(1);
+    transform: scale(0.7);
   }
   100% {
     transform: scale(0);
@@ -30,10 +30,10 @@
     transform: scale(40);
   }
   40% {
-    transform: scale(1);
+    transform: scale(0.8);
   }
   70% {
-    transform: scale(1);
+    transform: scale(0.8);
   }
   100% {
     transform: scale(0);
