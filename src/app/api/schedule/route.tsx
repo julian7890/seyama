@@ -6,10 +6,15 @@ export async function GET(request: any) {
   return NextResponse.json(result);
 }
 
-export async function POST(request: any) {
-  console.log(request);
-  const uploadData = request;
-
-  const result = await prisma.schedule.create({ data: uploadData });
-  return NextResponse.json(result);
+export async function POST(req: any) {
+  const res = await req.json();
+  if (res.id) {
+    const result = await prisma.schedule.findUnique({
+      where: { id: res.id },
+    });
+    return NextResponse.json(result);
+  } else if (!res.id) {
+    const result = await prisma.schedule.create({ data: res });
+    return NextResponse.json(result);
+  }
 }

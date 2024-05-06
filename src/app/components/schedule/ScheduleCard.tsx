@@ -62,7 +62,13 @@ export default function ScheduleCard({ schedule, language }: any) {
   }
 
   return (
-    <li>
+    <li
+      className={`${
+        language == "english" && schedule.en.description == "" ? "hidden" : ""
+      } ${
+        language == "japanese" && schedule.jp.description == "" ? "hidden" : ""
+      }`}
+    >
       <div className="flex">
         <div className="flex flex-col mt-4 pr-2 ml-4 border border-amber-300/50 rounded-md">
           <div className="flex">

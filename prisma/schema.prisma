@@ -10,8 +10,8 @@ datasource db {
 
 model schedule {
   id   String   @id @default(auto()) @map("_id") @db.ObjectId
-  date DateTime
+  date String
   en   Json?
   jp   Json?
-  link String?
+  url  String?
 }

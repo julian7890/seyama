@@ -848,14 +848,14 @@ export namespace Prisma {
 
   export type ScheduleMinAggregateOutputType = {
     id: string | null
-    date: Date | null
-    link: string | null
+    date: string | null
+    url: string | null
   }
 
   export type ScheduleMaxAggregateOutputType = {
     id: string | null
-    date: Date | null
-    link: string | null
+    date: string | null
+    url: string | null
   }
 
   export type ScheduleCountAggregateOutputType = {
@@ -863,7 +863,7 @@ export namespace Prisma {
     date: number
     en: number
     jp: number
-    link: number
+    url: number
     _all: number
   }
 
@@ -871,13 +871,13 @@ export namespace Prisma {
   export type ScheduleMinAggregateInputType = {
     id?: true
     date?: true
-    link?: true
+    url?: true
   }
 
   export type ScheduleMaxAggregateInputType = {
     id?: true
     date?: true
-    link?: true
+    url?: true
   }
 
   export type ScheduleCountAggregateInputType = {
@@ -885,7 +885,7 @@ export namespace Prisma {
     date?: true
     en?: true
     jp?: true
-    link?: true
+    url?: true
     _all?: true
   }
 
@@ -963,10 +963,10 @@ export namespace Prisma {
 
   export type ScheduleGroupByOutputType = {
     id: string
-    date: Date
+    date: string
     en: JsonValue | null
     jp: JsonValue | null
-    link: string | null
+    url: string | null
     _count: ScheduleCountAggregateOutputType | null
     _min: ScheduleMinAggregateOutputType | null
     _max: ScheduleMaxAggregateOutputType | null
@@ -991,7 +991,7 @@ export namespace Prisma {
     date?: boolean
     en?: boolean
     jp?: boolean
-    link?: boolean
+    url?: boolean
   }, ExtArgs["result"]["schedule"]>
 
   export type scheduleSelectScalar = {
@@ -999,7 +999,7 @@ export namespace Prisma {
     date?: boolean
     en?: boolean
     jp?: boolean
-    link?: boolean
+    url?: boolean
   }
 
 
@@ -1009,10 +1009,10 @@ export namespace Prisma {
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      date: Date
+      date: string
       en: Prisma.JsonValue | null
       jp: Prisma.JsonValue | null
-      link: string | null
+      url: string | null
     }, ExtArgs["result"]["schedule"]>
     composites: {}
   }
@@ -1435,10 +1435,10 @@ export namespace Prisma {
    */ 
   interface scheduleFieldRefs {
     readonly id: FieldRef<"schedule", 'String'>
-    readonly date: FieldRef<"schedule", 'DateTime'>
+    readonly date: FieldRef<"schedule", 'String'>
     readonly en: FieldRef<"schedule", 'Json'>
     readonly jp: FieldRef<"schedule", 'Json'>
-    readonly link: FieldRef<"schedule", 'String'>
+    readonly url: FieldRef<"schedule", 'String'>
   }
     
 
@@ -1748,7 +1748,7 @@ export namespace Prisma {
     date: 'date',
     en: 'en',
     jp: 'jp',
-    link: 'link'
+    url: 'url'
   };
 
   export type ScheduleScalarFieldEnum = (typeof ScheduleScalarFieldEnum)[keyof typeof ScheduleScalarFieldEnum]
@@ -1790,20 +1790,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'DateTime'
-   */
-  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
-    
-
-
-  /**
-   * Reference to a field of type 'DateTime[]'
-   */
-  export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
-    
-
-
-  /**
    * Reference to a field of type 'Json'
    */
   export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
@@ -1832,10 +1818,10 @@ export namespace Prisma {
     OR?: scheduleWhereInput[]
     NOT?: scheduleWhereInput | scheduleWhereInput[]
     id?: StringFilter<"schedule"> | string
-    date?: DateTimeFilter<"schedule"> | Date | string
+    date?: StringFilter<"schedule"> | string
     en?: JsonNullableFilter<"schedule">
     jp?: JsonNullableFilter<"schedule">
-    link?: StringNullableFilter<"schedule"> | string | null
+    url?: StringNullableFilter<"schedule"> | string | null
   }
 
   export type scheduleOrderByWithRelationInput = {
@@ -1843,7 +1829,7 @@ export namespace Prisma {
     date?: SortOrder
     en?: SortOrder
     jp?: SortOrder
-    link?: SortOrder
+    url?: SortOrder
   }
 
   export type scheduleWhereUniqueInput = Prisma.AtLeast<{
@@ -1851,10 +1837,10 @@ export namespace Prisma {
     AND?: scheduleWhereInput | scheduleWhereInput[]
     OR?: scheduleWhereInput[]
     NOT?: scheduleWhereInput | scheduleWhereInput[]
-    date?: DateTimeFilter<"schedule"> | Date | string
+    date?: StringFilter<"schedule"> | string
     en?: JsonNullableFilter<"schedule">
     jp?: JsonNullableFilter<"schedule">
-    link?: StringNullableFilter<"schedule"> | string | null
+    url?: StringNullableFilter<"schedule"> | string | null
   }, "id">
 
   export type scheduleOrderByWithAggregationInput = {
@@ -1862,7 +1848,7 @@ export namespace Prisma {
     date?: SortOrder
     en?: SortOrder
     jp?: SortOrder
-    link?: SortOrder
+    url?: SortOrder
     _count?: scheduleCountOrderByAggregateInput
     _max?: scheduleMaxOrderByAggregateInput
     _min?: scheduleMinOrderByAggregateInput
@@ -1873,62 +1859,62 @@ export namespace Prisma {
     OR?: scheduleScalarWhereWithAggregatesInput[]
     NOT?: scheduleScalarWhereWithAggregatesInput | scheduleScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"schedule"> | string
-    date?: DateTimeWithAggregatesFilter<"schedule"> | Date | string
+    date?: StringWithAggregatesFilter<"schedule"> | string
     en?: JsonNullableWithAggregatesFilter<"schedule">
     jp?: JsonNullableWithAggregatesFilter<"schedule">
-    link?: StringNullableWithAggregatesFilter<"schedule"> | string | null
+    url?: StringNullableWithAggregatesFilter<"schedule"> | string | null
   }
 
   export type scheduleCreateInput = {
     id?: string
-    date: Date | string
+    date: string
     en?: InputJsonValue | null
     jp?: InputJsonValue | null
-    link?: string | null
+    url?: string | null
   }
 
   export type scheduleUncheckedCreateInput = {
     id?: string
-    date: Date | string
+    date: string
     en?: InputJsonValue | null
     jp?: InputJsonValue | null
-    link?: string | null
+    url?: string | null
   }
 
   export type scheduleUpdateInput = {
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    date?: StringFieldUpdateOperationsInput | string
     en?: InputJsonValue | InputJsonValue | null
     jp?: InputJsonValue | InputJsonValue | null
-    link?: NullableStringFieldUpdateOperationsInput | string | null
+    url?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type scheduleUncheckedUpdateInput = {
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    date?: StringFieldUpdateOperationsInput | string
     en?: InputJsonValue | InputJsonValue | null
     jp?: InputJsonValue | InputJsonValue | null
-    link?: NullableStringFieldUpdateOperationsInput | string | null
+    url?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type scheduleCreateManyInput = {
     id?: string
-    date: Date | string
+    date: string
     en?: InputJsonValue | null
     jp?: InputJsonValue | null
-    link?: string | null
+    url?: string | null
   }
 
   export type scheduleUpdateManyMutationInput = {
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    date?: StringFieldUpdateOperationsInput | string
     en?: InputJsonValue | InputJsonValue | null
     jp?: InputJsonValue | InputJsonValue | null
-    link?: NullableStringFieldUpdateOperationsInput | string | null
+    url?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type scheduleUncheckedUpdateManyInput = {
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    date?: StringFieldUpdateOperationsInput | string
     en?: InputJsonValue | InputJsonValue | null
     jp?: InputJsonValue | InputJsonValue | null
-    link?: NullableStringFieldUpdateOperationsInput | string | null
+    url?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -1944,17 +1930,6 @@ export namespace Prisma {
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     mode?: QueryMode
     not?: NestedStringFilter<$PrismaModel> | string
-  }
-
-  export type DateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
   export type JsonNullableFilter<$PrismaModel = never> = 
     | PatchUndefined<
@@ -1990,19 +1965,19 @@ export namespace Prisma {
     date?: SortOrder
     en?: SortOrder
     jp?: SortOrder
-    link?: SortOrder
+    url?: SortOrder
   }
 
   export type scheduleMaxOrderByAggregateInput = {
     id?: SortOrder
     date?: SortOrder
-    link?: SortOrder
+    url?: SortOrder
   }
 
   export type scheduleMinOrderByAggregateInput = {
     id?: SortOrder
     date?: SortOrder
-    link?: SortOrder
+    url?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -2021,20 +1996,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
-  }
-
-  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
   }
   export type JsonNullableWithAggregatesFilter<$PrismaModel = never> = 
     | PatchUndefined<
@@ -2071,8 +2032,8 @@ export namespace Prisma {
     isSet?: boolean
   }
 
-  export type DateTimeFieldUpdateOperationsInput = {
-    set?: Date | string
+  export type StringFieldUpdateOperationsInput = {
+    set?: string
   }
 
   export type NullableStringFieldUpdateOperationsInput = {
@@ -2092,17 +2053,6 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringFilter<$PrismaModel> | string
-  }
-
-  export type NestedDateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
   export type NestedStringNullableFilter<$PrismaModel = never> = {
@@ -2146,20 +2096,6 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntFilter<$PrismaModel> | number
-  }
-
-  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type NestedIntNullableFilter<$PrismaModel = never> = {

@@ -117,7 +117,7 @@ exports.Prisma.ScheduleScalarFieldEnum = {
   date: 'date',
   en: 'en',
   jp: 'jp',
-  link: 'link'
+  url: 'url'
 };
 
 exports.Prisma.SortOrder = {

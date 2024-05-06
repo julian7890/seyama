@@ -82,7 +82,6 @@ export default function Home() {
             className={`w-full transition duration-700 ${
               slide == 0 ? "inline-block translate-x-0" : ""
             } ${slide > 0 ? "-translate-x-full" : ""}`}
-            priority
             loading="lazy"
           />
           <Image
