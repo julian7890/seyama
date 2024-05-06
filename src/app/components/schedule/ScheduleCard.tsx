@@ -7,7 +7,6 @@ const hiragino = localFont({
   src: "../../../../public/resources/font/hiragino_mincho.otf",
 });
 
-
 const murecho = Murecho({ subsets: ["latin"] });
 
 export default function ScheduleCard({ schedule, language }: any) {
@@ -16,6 +15,15 @@ export default function ScheduleCard({ schedule, language }: any) {
   const dateDay = dateData.getDate();
   const dateMonth = dateData.getMonth();
   const dateYear = dateData.getFullYear();
+
+  const formatJP = (str: string) => {
+    const resultArr = [];
+    const splitString = str.split(/\s/g);
+    for (let section of splitString) {
+      resultArr.push(<span className="inline-block">{section}</span>);
+    }
+    return resultArr;
+  };
 
   const monthConverter = (dateMonth: number) => {
     switch (dateMonth) {
@@ -118,12 +126,12 @@ export default function ScheduleCard({ schedule, language }: any) {
             </div>
 
             <div className="flex flex-col">
-              <div className="font-semibold pt-2 break-keep">
+              <div className="font-semibold pt-2">
                 {language == "english" ? (
                   <div>{schedule.en.description}</div>
                 ) : (
                   <div className={hiragino.className}>
-                    {schedule.jp.description}
+                    {formatJP(schedule.jp.description)}
                   </div>
                 )}
               </div>
@@ -137,12 +145,12 @@ export default function ScheduleCard({ schedule, language }: any) {
                     className="min-w-5"
                   />
                 </div>
-                <div className="text-en break-keep">
+                <div className="text-en">
                   {language == "english" ? (
                     <div>{schedule.en.location}</div>
                   ) : (
                     <div className={`${hiragino.className}`}>
-                      {schedule.jp.location}
+                      {formatJP(schedule.jp.location)}
                     </div>
                   )}
                 </div>
@@ -155,7 +163,9 @@ export default function ScheduleCard({ schedule, language }: any) {
               {language == "english" ? (
                 <tbody>{schedule.en.performer ? performerListEN : ""}</tbody>
               ) : (
-                <tbody className={hiragino.className}>{schedule.jp.performer ? performerListJP : ""}</tbody>
+                <tbody className={hiragino.className}>
+                  {schedule.jp.performer ? performerListJP : ""}
+                </tbody>
               )}
             </table>
           </div>

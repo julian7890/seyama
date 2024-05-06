@@ -40,7 +40,7 @@ export default function Schedule({ language }: propsType) {
   }
 
   return (
-    <div className="p-4">
+    <div className="p-4 w-full overflow-x-hidden">
       <div className="w-full flex justify-start">
         <div
           className={`transition duration-1000 ${

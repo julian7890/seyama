@@ -3,5 +3,5 @@ export default function AdminLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <section className="bg-slate-800/50 min-h-full">{children}</section>;
+  return <section className="bg-slate-600/50 min-h-full">{children}</section>;
 }

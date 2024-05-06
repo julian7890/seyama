@@ -14,7 +14,7 @@ type propType = {
 export default function Navbar({ language }: propType) {
   const handleScroll = (e: any) => {
     e.preventDefault();
-    console.log(e.target);
+    // console.log(e.target);
     const elem = document.getElementById(e.target.value);
     elem?.scrollIntoView({ behavior: "smooth" });
   };

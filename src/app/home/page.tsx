@@ -24,7 +24,6 @@ export default function Home() {
       setSlide((prevState) => prevState + 1);
     }
     setSlideActive(true);
-    console.log(slide);
   };
 
   const decSlide = (e: any) => {
@@ -33,7 +32,6 @@ export default function Home() {
       setSlide((prevState) => prevState - 1);
     }
     setSlideActive(true);
-    console.log(slide);
   };
 
   useEffect(() => {
@@ -74,7 +72,35 @@ export default function Home() {
         }`}
       >
         <div className="relative flex bg-black overflow-hidden">
+        <Image
+            src="/resources/img/top1.jpg"
+            width={1920}
+            height={1080}
+            alt="seyama1"
+            className={`w-full transition duration-700 ${
+              slide == 0 ? "inline-block translate-x-0" : ""
+            } ${slide > 0 ? "-translate-x-full" : ""}`}
+            priority
+          />
           <Image
+            src="/resources/img/top2.jpg"
+            width={1920}
+            height={1080}
+            alt="seyama2"
+            className={`w-full absolute transition duration-700 ${
+              slide == 1 ? "inline-block translate-x-0" : "translate-x-full"
+            } ${slide > 1 ? " !-translate-x-full" : ""}`}
+          />
+          <Image
+            src="/resources/img/top3.jpg"
+            width={1920}
+            height={1080}
+            alt="seyama3"
+            className={`w-full absolute transition duration-700 ${
+              slide == 2 ? "inline-block translate-x-0" : "translate-x-full"
+            } ${slide > 2 ? " !-translate-x-full" : ""}`}
+          />
+          {/* <Image
             src="/resources/img/forest2_edit.jpg"
             width={1920}
             height={1080}
@@ -82,7 +108,7 @@ export default function Home() {
             className={`w-full transition duration-700 ${
               slide == 0 ? "inline-block translate-x-0" : ""
             } ${slide > 0 ? "-translate-x-full" : ""}`}
-            loading="lazy"
+            priority
           />
           <Image
             src="/resources/img/headshot2.jpg"
@@ -101,7 +127,7 @@ export default function Home() {
             className={`w-full absolute transition duration-700 ${
               slide == 2 ? "inline-block translate-x-0" : "translate-x-full"
             } ${slide > 2 ? " !-translate-x-[200%]" : ""}`}
-          />
+          /> */}
         </div>
         <div className="flex absolute top-0 right-0 h-full w-fit justify-center text-4xl">
           <Title

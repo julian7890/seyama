@@ -125,7 +125,7 @@ export default function NewSchedule() {
             type="text"
             id={`roleJP${i}`}
             name={`roleJP${i}`}
-            size={10}
+            size={9}
             onChange={performerHandler}
           />
         </div>
@@ -135,6 +135,7 @@ export default function NewSchedule() {
             type="text"
             id={`nameJP${i}`}
             name={`nameJP${i}`}
+            size={19}
             onChange={performerHandler}
           />
         </div>
@@ -151,7 +152,7 @@ export default function NewSchedule() {
             type="text"
             id={`roleEN${i}`}
             name={`roleEN${i}`}
-            size={10}
+            size={9}
             onChange={performerHandler}
           />
         </div>
@@ -161,6 +162,7 @@ export default function NewSchedule() {
             type="text"
             id={`nameEN${i}`}
             name={`nameEN${i}`}
+            size={19}
             onChange={performerHandler}
           />
         </div>
@@ -175,7 +177,7 @@ export default function NewSchedule() {
         <div className="flex gap-4">
           <div className="flex flex-col">
             <label htmlFor="date">日時</label>
-            <input type="date" id="date" onChange={inputHandler} />
+            <input type="date" id="date" name='date' onChange={inputHandler} />
           </div>
           <div className="flex flex-col">
             <label htmlFor="url">リンク</label>
@@ -188,7 +190,7 @@ export default function NewSchedule() {
           </div>
         </div>
         <div className="flex flex-col gap-8 justify-center items-center py-4">
-          <div className="flex gap-2">
+          <div className="flex flex-col gap-2 w-full">
             <div className="flex flex-col">
               <label htmlFor="descriptionJP">タイトル(日本語)</label>
               <textarea
@@ -214,7 +216,7 @@ export default function NewSchedule() {
             <label htmlFor="roleJP0">出演者（日本語）</label>
             {castInputJP}
             <button
-              className="bg-red-300 rounded-3xl px-6 pb-1"
+              className="bg-red-300 hover:bg-red-200 rounded-3xl px-6 pb-1"
               onClick={increaseCast}
             >
               +
@@ -223,7 +225,7 @@ export default function NewSchedule() {
         </div>
 
         <div className="flex flex-col gap-8 justify-center items-center py-4">
-          <div className="flex gap-2">
+          <div className="flex flex-col gap-2 w-full">
             <div className="flex flex-col">
               <label htmlFor="descriptionEN">Title</label>
               <textarea
@@ -250,7 +252,7 @@ export default function NewSchedule() {
             <label htmlFor="roleEN0">Cast</label>
             {castInputEN}
             <button
-              className="bg-red-300 rounded-3xl px-6 pb-1"
+              className="bg-red-300 hover:bg-red-200 rounded-3xl px-6 pb-1"
               onClick={increaseCast}
             >
               +
@@ -259,7 +261,7 @@ export default function NewSchedule() {
         </div>
 
         <button
-          className="bg-green-500 px-4 py-2 rounded-xl"
+          className="bg-amber-200 hover:bg-amber-100 px-4 py-2 rounded-xl"
           onClick={formHandler}
         >
           作成／Create
