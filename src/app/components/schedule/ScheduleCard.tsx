@@ -159,7 +159,7 @@ export default function ScheduleCard({ schedule, language }: any) {
                   </div>
                 )}
               </div>
-              <div className="w-2/3 flex gap-2 justify-end self-end items-center">
+              <div className="w-3/4 flex gap-2 justify-end self-end items-center">
                 <div>
                   <Image
                     src={"/resources/img/location.png"}
