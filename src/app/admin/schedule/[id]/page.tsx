@@ -14,6 +14,6 @@ export default function EditSchedule({ params }: { params: { id: string } }) {
       setSchedule(data);
     };
     getSchedule();
-  }, []);
+  }, [params.id]);
   return <div>{schedule?.id}</div>;
 }

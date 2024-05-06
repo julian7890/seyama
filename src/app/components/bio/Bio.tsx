@@ -2,6 +2,11 @@ import Image from "next/image";
 import bioPhoto from "../../../../public/resources/img/bwportrait3_edit.jpg";
 
 import { EB_Garamond, Murecho } from "next/font/google";
+import localFont from "next/font/local";
+
+const hiragino = localFont({
+  src: "../../../../public/resources/font/hiragino_mincho.otf",
+});
 
 type propType = {
   language: string;
@@ -26,7 +31,7 @@ export default function Bio({ language }: propType) {
           <div
             className={`absolute top-2 w-full text-end px-4 text-2xl transition duration-700  ${
               language == "english" ? "opacity-0" : "opacity-100"
-            } ${murecho.className}`}
+            } ${hiragino.className}`}
           >
             <div>プロフィール</div>
             <div className="text-base">瀬山 智博 / 指揮者</div>
@@ -103,7 +108,7 @@ export default function Bio({ language }: propType) {
         </div>
         <div
           className={`flex flex-col absolute top-0 gap-8 p-4 pt-8 pb-10 transition duration-700 text-sm ${
-            murecho.className
+            hiragino.className
           } ${language == "english" ? "opacity-0" : "opacity-100"}`}
         >
           <div>

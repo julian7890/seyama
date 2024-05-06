@@ -12,6 +12,10 @@ const seasons = localFont({
   src: "../../../../public/resources/font/seasons.ttf",
 });
 
+const hiragino = localFont({
+  src: "../../../../public/resources/font/hiragino_mincho.otf",
+});
+
 export default function Title({ show, onLanguageChange, language }: any) {
   return (
     <div
@@ -32,8 +36,8 @@ export default function Title({ show, onLanguageChange, language }: any) {
         </div>
         <div
           className={`${
-            zen.className
-          } px-8 font-bold absolute top-0 transition duration-1000 ${
+            hiragino.className
+          } px-8 absolute top-0 transition duration-1000 ${
             language == "japanese" ? "opacity-100" : "opacity-0"
           }`}
         >

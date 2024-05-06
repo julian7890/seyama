@@ -1,4 +1,9 @@
 import { Murecho } from "next/font/google";
+import localFont from "next/font/local";
+
+const hiragino = localFont({
+  src: "../../../../public/resources/font/hiragino_mincho.otf",
+});
 
 const murecho = Murecho({ subsets: ["latin"] });
 
@@ -27,7 +32,7 @@ export default function Navbar({ language }: propType) {
           </div>
           <div
             className={`top-0 text-lg transition duration-1000 ${
-              murecho.className
+              hiragino.className
             } ${language == "english" ? "opacity-0" : "opacity-100"}`}
           >
             スケジュール
@@ -45,7 +50,7 @@ export default function Navbar({ language }: propType) {
           </div>
           <div
             className={`top-0 text-lg transition duration-1000 ${
-              murecho.className
+              hiragino.className
             } ${language == "english" ? "opacity-0" : "opacity-100"}`}
           >
             プロフィール
@@ -63,7 +68,7 @@ export default function Navbar({ language }: propType) {
           </div>
           <div
             className={`top-0 text-lg transition duration-1000 ${
-              murecho.className
+              hiragino.className
             }  ${language == "english" ? "opacity-0" : "opacity-100"}`}
           >
             ブログ

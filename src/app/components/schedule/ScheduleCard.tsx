@@ -1,6 +1,12 @@
 import Image from "next/image";
 import classes from "./ScheduleCard.module.css";
 import { Murecho } from "next/font/google";
+import localFont from "next/font/local";
+
+const hiragino = localFont({
+  src: "../../../../public/resources/font/hiragino_mincho.otf",
+});
+
 
 const murecho = Murecho({ subsets: ["latin"] });
 
@@ -90,7 +96,7 @@ export default function ScheduleCard({ schedule, language }: any) {
 
               <div
                 className={`absolute translation duration-700 ${
-                  murecho.className
+                  hiragino.className
                 } ${language == "english" ? "opacity-0" : "opacity-100"}`}
               >
                 <div className="flex flex-col items-center">
@@ -116,7 +122,7 @@ export default function ScheduleCard({ schedule, language }: any) {
                 {language == "english" ? (
                   <div>{schedule.en.description}</div>
                 ) : (
-                  <div className={murecho.className}>
+                  <div className={hiragino.className}>
                     {schedule.jp.description}
                   </div>
                 )}
@@ -135,7 +141,7 @@ export default function ScheduleCard({ schedule, language }: any) {
                   {language == "english" ? (
                     <div>{schedule.en.location}</div>
                   ) : (
-                    <div className={`${murecho.className}`}>
+                    <div className={`${hiragino.className}`}>
                       {schedule.jp.location}
                     </div>
                   )}
@@ -149,14 +155,14 @@ export default function ScheduleCard({ schedule, language }: any) {
               {language == "english" ? (
                 <tbody>{schedule.en.performer ? performerListEN : ""}</tbody>
               ) : (
-                <tbody>{schedule.jp.performer ? performerListJP : ""}</tbody>
+                <tbody className={hiragino.className}>{schedule.jp.performer ? performerListJP : ""}</tbody>
               )}
             </table>
           </div>
 
-          {schedule.link ? (
+          {schedule.url ? (
             <div className="w-full flex justify-end items-center pt-4 font-semibold text-2xl text-amber-600">
-              <a href={schedule.link} target="_blank">
+              <a href={schedule.url} target="_blank">
                 <div className="flex items-center  hover:translate-x-2 transition duration-200 select-none">
                   <div className="relative flex justify-end items-center">
                     <div
@@ -168,7 +174,7 @@ export default function ScheduleCard({ schedule, language }: any) {
                     </div>
                     <div
                       className={`absolute text-xl transition duration-1000 pb-[3px] ${
-                        murecho.className
+                        hiragino.className
                       } ${language == "english" ? "opacity-0" : "opacity-100"}`}
                     >
                       詳細

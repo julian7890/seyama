@@ -3,6 +3,12 @@
 import { useEffect, useState } from "react";
 import ScheduleCard from "./ScheduleCard";
 import { Murecho } from "next/font/google";
+import localFont from "next/font/local";
+
+const hiragino = localFont({
+  src: "../../../../public/resources/font/hiragino_mincho.otf",
+});
+
 
 type propsType = {
   language: string;
@@ -45,7 +51,7 @@ export default function Schedule({ language }: propsType) {
         </div>
         <div
           className={`absolute text-2xl transition duration-1000 pt-2 ${
-            murecho.className
+            hiragino.className
           } ${language == "english" ? "opacity-0" : "opacity-100"}`}
         >
           公演スケジュール
