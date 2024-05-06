@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 
-export default function editSchedule({ params }: { params: { id: string } }) {
+export default function EditSchedule({ params }: { params: { id: string } }) {
   const [schedule, setSchedule]: any = useState();
 
   useEffect(() => {

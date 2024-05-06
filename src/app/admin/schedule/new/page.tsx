@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-export default function newSchedule() {
+export default function NewSchedule() {
   const router = useRouter();
   const [castNumberJP, setcastNumberJP] = useState(1);
   const [castNumberEN, setcastNumberEN] = useState(1);
