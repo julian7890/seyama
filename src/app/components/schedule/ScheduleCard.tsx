@@ -19,8 +19,15 @@ export default function ScheduleCard({ schedule, language }: any) {
   const formatJP = (str: string) => {
     const resultArr = [];
     const splitString = str.split(/\s/g);
+    let keyInd = 0;
+
     for (let section of splitString) {
-      resultArr.push(<span className="inline-block">{section}</span>);
+      resultArr.push(
+        <span className="inline-block" key={section + keyInd}>
+          {section}
+        </span>
+      );
+      keyInd++;
     }
     return resultArr;
   };
@@ -28,8 +35,14 @@ export default function ScheduleCard({ schedule, language }: any) {
   const formatEN = (str: string) => {
     const resultArr = [];
     const splitString = str.split("<br>");
+    let keyInd = 0;
     for (let section of splitString) {
-      resultArr.push(<span className="inline-block">{section}</span>);
+      resultArr.push(
+        <span className="inline-block" key={section + keyInd}>
+          {section}
+        </span>
+      );
+      keyInd++;
     }
     return resultArr;
   };
@@ -113,9 +126,9 @@ export default function ScheduleCard({ schedule, language }: any) {
                 </div>
               ) : (
                 <div
-                  className={`translation duration-700 ${
-                    hiragino.className
-                  } ${language == "english" ? "opacity-0" : "opacity-100"}`}
+                  className={`translation duration-700 ${hiragino.className} ${
+                    language == "english" ? "opacity-0" : "opacity-100"
+                  }`}
                 >
                   <div className="flex flex-col items-center">
                     <div className="flex justify-center">
