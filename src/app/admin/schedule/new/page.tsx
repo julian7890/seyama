@@ -197,7 +197,7 @@ export default function NewSchedule() {
                 name="descriptionJP"
                 id="descriptionJP"
                 rows={3}
-                placeholder="タイトル未設定の場合はホームページ内で表示されません。"
+                placeholder="タイトル未設定の場合はホームページ内で表示されません。半角・全角スペースは改行候補になります。"
                 onChange={inputHandler}
               ></textarea>
             </div>
@@ -232,7 +232,7 @@ export default function NewSchedule() {
                 name="descriptionEN"
                 id="descriptionEN"
                 rows={3}
-                placeholder="Schedule will not be displayed when title is empty."
+                placeholder="Schedule will not be displayed when title is empty. Use <br> for implied line break."
                 onChange={inputHandler}
               ></textarea>
             </div>

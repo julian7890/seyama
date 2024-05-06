@@ -25,6 +25,15 @@ export default function ScheduleCard({ schedule, language }: any) {
     return resultArr;
   };
 
+  const formatEN = (str: string) => {
+    const resultArr = [];
+    const splitString = str.split("<br>");
+    for (let section of splitString) {
+      resultArr.push(<span className="inline-block">{section}</span>);
+    }
+    return resultArr;
+  };
+
   const monthConverter = (dateMonth: number) => {
     switch (dateMonth) {
       case 0:
@@ -87,50 +96,52 @@ export default function ScheduleCard({ schedule, language }: any) {
         <div className="flex flex-col mt-4 pr-2 ml-4 border border-amber-300/50 rounded-md">
           <div className="flex">
             <div className="relative flex justify-center items-center p-2 h-fit rounded-md border border-amber-300/50 shadow-lg shadow-amber-800 bg-white -translate-x-4 -translate-y-3">
-              <div
-                className={`flex flex-col transition duration-1000 ${
-                  language == "english" ? "opacity-100" : "opacity-0"
-                }`}
-              >
-                <div className="flex gap-1 items-baseline">
-                  <div className="text-4xl">
-                    <div>{dateDay < 10 ? "0" + dateDay : dateDay}</div>
-                  </div>
-                  <div className="text-2xl">{monthConverter(dateMonth)}</div>
-                </div>
-                <hr />
-                <div className="text-2xl text-center">{dateYear}</div>
-              </div>
-
-              <div
-                className={`absolute translation duration-700 ${
-                  hiragino.className
-                } ${language == "english" ? "opacity-0" : "opacity-100"}`}
-              >
-                <div className="flex flex-col items-center">
-                  <div className="flex justify-center">
-                    <div className="flex items-baseline">
-                      <div className="text-2xl">{dateMonth + 1}</div>
-                      <div className="text-xl">月</div>
+              {language == "english" ? (
+                <div
+                  className={`flex flex-col transition duration-1000 ${
+                    language == "english" ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  <div className="flex gap-1 items-baseline">
+                    <div className="text-4xl">
+                      <div>{dateDay < 10 ? "0" + dateDay : dateDay}</div>
                     </div>
-
-                    <div className="flex items-baseline">
-                      <div className="text-2xl">{dateDay}</div>
-                      <div className="text-xl">日</div>
-                    </div>
+                    <div className="text-2xl">{monthConverter(dateMonth)}</div>
                   </div>
-                  <hr className="border-t-slate-300 rounded-xl w-full" />
-                  <div className="text-2xl">{dateYear}</div>
+                  <hr />
+                  <div className="text-2xl text-center">{dateYear}</div>
                 </div>
-              </div>
+              ) : (
+                <div
+                  className={`translation duration-700 ${
+                    hiragino.className
+                  } ${language == "english" ? "opacity-0" : "opacity-100"}`}
+                >
+                  <div className="flex flex-col items-center">
+                    <div className="flex justify-center">
+                      <div className="flex items-baseline">
+                        <div className="text-2xl">{dateMonth + 1}</div>
+                        <div className="text-xl">月</div>
+                      </div>
+
+                      <div className="flex items-baseline">
+                        <div className="text-2xl">{dateDay}</div>
+                        <div className="text-xl">日</div>
+                      </div>
+                    </div>
+                    <hr className="border-t-slate-300 rounded-xl w-full" />
+                    <div className="text-2xl">{dateYear}</div>
+                  </div>
+                </div>
+              )}
             </div>
 
             <div className="flex flex-col">
               <div className="font-semibold pt-2">
                 {language == "english" ? (
-                  <div>{schedule.en.description}</div>
+                  <div>{formatEN(schedule.en.description)}</div>
                 ) : (
-                  <div className={hiragino.className}>
+                  <div className={`${hiragino.className}`}>
                     {formatJP(schedule.jp.description)}
                   </div>
                 )}
@@ -145,11 +156,15 @@ export default function ScheduleCard({ schedule, language }: any) {
                     className="min-w-5"
                   />
                 </div>
-                <div className="text-en">
+                <div>
                   {language == "english" ? (
-                    <div>{schedule.en.location}</div>
+                    <div className="w-fit flex flex-col">
+                      {formatEN(schedule.en.location)}
+                    </div>
                   ) : (
-                    <div className={`${hiragino.className}`}>
+                    <div
+                      className={`${hiragino.className} w-fit flex flex-col`}
+                    >
                       {formatJP(schedule.jp.location)}
                     </div>
                   )}
