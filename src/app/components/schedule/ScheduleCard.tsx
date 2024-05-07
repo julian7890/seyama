@@ -23,7 +23,7 @@ export default function ScheduleCard({ schedule, language }: any) {
 
     for (let section of splitString) {
       resultArr.push(
-        <span className="inline-block" key={section + keyInd}>
+        <span className="block" key={section + keyInd}>
           {section}
         </span>
       );
@@ -38,7 +38,7 @@ export default function ScheduleCard({ schedule, language }: any) {
     let keyInd = 0;
     for (let section of splitString) {
       resultArr.push(
-        <span className="inline-block" key={section + keyInd}>
+        <span className="block w-fit" key={section + keyInd}>
           {section}
         </span>
       );
@@ -105,7 +105,7 @@ export default function ScheduleCard({ schedule, language }: any) {
         language == "japanese" && schedule.jp.description == "" ? "hidden" : ""
       }`}
     >
-      <div className="flex">
+      <div className="flex justify-center">
         <div className="flex flex-col mt-4 pr-2 ml-4 border border-amber-300/50 rounded-md">
           <div className="flex">
             <div className="relative flex justify-center items-center p-2 h-fit rounded-md border border-amber-300/50 shadow-lg shadow-amber-800 bg-white -translate-x-4 -translate-y-3">
@@ -159,7 +159,7 @@ export default function ScheduleCard({ schedule, language }: any) {
                   </div>
                 )}
               </div>
-              <div className="w-3/4 flex gap-2 justify-end self-end items-center">
+              <div className="flex gap-2 justify-end self-end items-center">
                 <div>
                   <Image
                     src={"/resources/img/location.png"}

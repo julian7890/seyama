@@ -9,7 +9,6 @@ const hiragino = localFont({
   src: "../../../../public/resources/font/hiragino_mincho.otf",
 });
 
-
 type propsType = {
   language: string;
 };
@@ -18,6 +17,7 @@ const murecho = Murecho({ subsets: ["latin"] });
 
 export default function Schedule({ language }: propsType) {
   const [scheduleData, setScheduleData]: any = useState([]);
+  const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
     const getSchedule = async () => {
@@ -39,8 +39,39 @@ export default function Schedule({ language }: propsType) {
     );
   }
 
+  const paginationLimit = 2;
+  const pageCount = scheduleList.length / paginationLimit;
+
+  const schedulePageList = [];
+
+  for (let i = 0; i < pageCount; i++) {
+    schedulePageList.push(
+      <div
+        className={`min-w-full pr-2 flex flex-wrap justify-around`}
+        key={`pagination${i}`}
+      >
+        {scheduleList[2 * i]}
+        {scheduleList[2 * i + 1]}
+      </div>
+    );
+  }
+
+  const incPage = (e: any) => {
+    e.preventDefault();
+    if (currentPage < pageCount) {
+      setCurrentPage((prevPage) => prevPage + 1);
+    }
+  };
+
+  const decPage = (e: any) => {
+    e.preventDefault();
+    if (currentPage > 0) {
+      setCurrentPage((prevPage) => prevPage - 1);
+    }
+  };
+
   return (
-    <div className="p-4 w-full overflow-x-hidden">
+    <div className="p-4 w-full">
       <div className="w-full flex justify-start">
         <div
           className={`transition duration-1000 ${
@@ -57,9 +88,36 @@ export default function Schedule({ language }: propsType) {
           公演スケジュール
         </div>
       </div>
-      <ul className="flex gap-8 flex-wrap justify-center items-start">
-        {scheduleList}
+      <ul className={`w-full overflow-x-hidden`}>
+        {/* {scheduleList} */}
+        <div
+          className={`w-full flex gap-2 transition duration-700 ${
+            currentPage > 0 ? "-translate-x-full" : ""
+          }`}
+        >
+          {schedulePageList}
+        </div>
       </ul>
+      {pageCount > 1 ? (
+        <div className="flex justify-center gap-8 pt-2 text-amber-600">
+          <button
+            onClick={decPage}
+            className={`px-2 py-1 ${currentPage == 0 ? "invisible" : ""}`}
+          >
+            &#10094;
+          </button>
+          <button
+            className={`px-2 py-1 ${
+              currentPage == pageCount - 1 ? "invisible" : ""
+            }`}
+            onClick={incPage}
+          >
+            &#10095;
+          </button>
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 }

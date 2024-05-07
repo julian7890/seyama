@@ -72,7 +72,7 @@ export default function Home() {
         }`}
       >
         <div className="relative flex bg-black overflow-hidden">
-        <Image
+          <Image
             src="/resources/img/top1.jpg"
             width={1920}
             height={1080}
@@ -186,7 +186,7 @@ export default function Home() {
         }`}
         id="blog"
       >
-        <Blog />
+        <Blog language={language} />
         <Footer />
       </div>
     </div>
