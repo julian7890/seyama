@@ -1,5 +1,5 @@
 import Image from "next/image";
-import bioPhoto from "../../../../public/resources/img/bwportrait3_edit.jpg";
+import bioPhoto from "../../../../public/resources/img/bwportrait3_edit_cr.jpg";
 
 import { EB_Garamond, Murecho } from "next/font/google";
 import localFont from "next/font/local";

@@ -47,7 +47,7 @@ export default function Schedule({ language }: propsType) {
   for (let i = 0; i < pageCount; i++) {
     schedulePageList.push(
       <div
-        className={`min-w-full pr-2 flex flex-wrap justify-around`}
+        className={`min-w-full pr-2 pl-1 flex flex-wrap justify-around`}
         key={`pagination${i}`}
       >
         {scheduleList[2 * i]}
@@ -58,7 +58,7 @@ export default function Schedule({ language }: propsType) {
 
   const incPage = (e: any) => {
     e.preventDefault();
-    if (currentPage < pageCount) {
+    if (currentPage < pageCount - 1) {
       setCurrentPage((prevPage) => prevPage + 1);
     }
   };
@@ -74,7 +74,7 @@ export default function Schedule({ language }: propsType) {
     <div className="p-4 w-full">
       <div className="w-full flex justify-start">
         <div
-          className={`transition duration-1000 ${
+          className={`transition duration-1000  ${
             language == "english" ? "opacity-100" : "opacity-0"
           } pb-2 w-32 text-3xl leading-6`}
         >
@@ -102,13 +102,13 @@ export default function Schedule({ language }: propsType) {
         <div className="flex justify-center gap-8 pt-2 text-amber-600">
           <button
             onClick={decPage}
-            className={`px-2 py-1 ${currentPage == 0 ? "invisible" : ""}`}
+            className={`px-2 py-1 ${currentPage == 0 ? "opacity-50" : ""}`}
           >
             &#10094;
           </button>
           <button
             className={`px-2 py-1 ${
-              currentPage == pageCount - 1 ? "invisible" : ""
+              currentPage == pageCount - 1 ? "opacity-50" : ""
             }`}
             onClick={incPage}
           >
