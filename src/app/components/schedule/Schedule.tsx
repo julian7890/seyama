@@ -42,12 +42,15 @@ export default function Schedule({ language }: propsType) {
   const paginationLimit = 2;
   const pageCount = scheduleList.length / paginationLimit;
 
+  console.log("schedulecount", scheduleList.length);
+  console.log("pagecount", pageCount);
+
   const schedulePageList = [];
 
   for (let i = 0; i < pageCount; i++) {
     schedulePageList.push(
       <div
-        className={`min-w-full pr-2 pl-1 flex flex-wrap justify-around`}
+        className={`min-w-full pr-2 flex flex-wrap justify-around`}
         key={`pagination${i}`}
       >
         {scheduleList[2 * i]}
@@ -92,7 +95,7 @@ export default function Schedule({ language }: propsType) {
         {/* {scheduleList} */}
         <div
           className={`w-full flex gap-2 transition duration-700 ${
-            currentPage > 0 ? "-translate-x-full" : ""
+            currentPage > 0 ? `-translate-x-[${currentPage * 100}%]` : ""
           }`}
         >
           {schedulePageList}

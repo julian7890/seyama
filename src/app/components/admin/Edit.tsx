@@ -3,15 +3,12 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-export default function NewSchedule() {
+export default function EditSchedule({ schedule }: any) {
   const router = useRouter();
+
   const [castNumberJP, setcastNumberJP] = useState(1);
   const [castNumberEN, setcastNumberEN] = useState(1);
-  const [formData, setFormData] = useState({
-    url: "",
-    jp: { location: "", performer: [] },
-    en: { location: "", performer: [] },
-  });
+  const [formData, setFormData] = useState(schedule);
   const [performerListJP, setPerformerListJP]: any = useState([]);
   const [performerListEN, setPerformerListEN]: any = useState([]);
 
@@ -26,18 +23,18 @@ export default function NewSchedule() {
     const fieldValue = e.target.value;
     if (fieldName.includes("JP")) {
       const newfieldName = fieldName.replace("JP", "");
-      setFormData((prevState) => ({
+      setFormData((prevState: { jp: any }) => ({
         ...prevState,
         jp: { ...prevState?.jp, [newfieldName]: fieldValue },
       }));
     } else if (fieldName.includes("EN")) {
       const newfieldName = fieldName.replace("EN", "");
-      setFormData((prevState) => ({
+      setFormData((prevState: { en: any }) => ({
         ...prevState,
         en: { ...prevState?.en, [newfieldName]: fieldValue },
       }));
     } else {
-      setFormData((prevState) => ({
+      setFormData((prevState: any) => ({
         ...prevState,
         [fieldName]: fieldValue,
       }));
@@ -103,6 +100,7 @@ export default function NewSchedule() {
     formData.jp.performer = performerListJP;
     formData.en.performer = performerListEN;
     const uploadData = async () => {
+      formData.id = schedule.id;
       const res = await fetch("/api/schedule", {
         method: "POST",
         body: JSON.stringify(formData),
@@ -112,6 +110,24 @@ export default function NewSchedule() {
     console.log(formData);
     uploadData();
     router.push("/admin/schedule");
+  };
+
+  const deleteHandler = (e: any) => {
+    e.preventDefault();
+    const deleteSchedule = async () => {
+      const res = await fetch("/api/schedule", {
+        method: "DELETE",
+        body: JSON.stringify(formData.id),
+      });
+    };
+    if (
+      confirm(
+        `このスケジュールを削除しますか？\n Are you sure you want to delete this schedule?`
+      )
+    ) {
+      deleteSchedule();
+      router.push("/admin/schedule");
+    }
   };
 
   const castInputJP = [];
@@ -127,6 +143,9 @@ export default function NewSchedule() {
             id={`roleJP${i}`}
             name={`roleJP${i}`}
             size={9}
+            value={
+              formData.jp.performer[i] ? formData.jp.performer[i].role : ""
+            }
             onChange={performerHandler}
           />
         </div>
@@ -137,6 +156,9 @@ export default function NewSchedule() {
             id={`nameJP${i}`}
             name={`nameJP${i}`}
             size={19}
+            value={
+              formData.jp.performer[i] ? formData.jp.performer[i].name : ""
+            }
             onChange={performerHandler}
           />
         </div>
@@ -154,6 +176,9 @@ export default function NewSchedule() {
             id={`roleEN${i}`}
             name={`roleEN${i}`}
             size={9}
+            value={
+              formData.en.performer[i] ? formData.en.performer[i].role : ""
+            }
             onChange={performerHandler}
           />
         </div>
@@ -164,6 +189,9 @@ export default function NewSchedule() {
             id={`nameEN${i}`}
             name={`nameEN${i}`}
             size={19}
+            value={
+              formData.en.performer[i] ? formData.en.performer[i].name : ""
+            }
             onChange={performerHandler}
           />
         </div>
@@ -171,14 +199,41 @@ export default function NewSchedule() {
     );
   }
 
+  // useEffect(() => {
+  //   const getSchedule = async () => {
+  //     const res = await fetch("/api/schedule", {
+  //       method: "POST",
+  //       body: JSON.stringify({ id: params.id }),
+  //     });
+  //     const data = await res.json();
+  //     const dateData = new Date(data.date);
+  //     const year = dateData.getFullYear();
+  //     const month = String(dateData.getMonth() + 1).padStart(2, "0");
+  //     const day = String(dateData.getDate()).padStart(2, "0");
+  //     const formattedDate = `${year}-${month}-${day}`;
+  //     data.date = formattedDate;
+  //     setSchedule(data);
+  //     setFormData(data);
+  //     setcastNumberJP(data.jp.performer.length);
+  //     setcastNumberEN(data.en.performer.length);
+  //   };
+  //   getSchedule();
+  // }, [params.id]);
+
   return (
     <div>
-      <div className="text-2xl text-center p-4">新規スケジュール作成</div>
+      <div className="text-2xl text-center p-4">スケジュール編集</div>
       <form className="flex flex-col gap-4 justify-center items-center">
         <div className="flex gap-4">
           <div className="flex flex-col">
             <label htmlFor="date">日時</label>
-            <input type="date" id="date" name="date" onChange={inputHandler} />
+            <input
+              type="date"
+              id="date"
+              name="date"
+              value={formData?.date}
+              onChange={inputHandler}
+            />
           </div>
           <div className="flex flex-col">
             <label htmlFor="url">リンク</label>
@@ -186,6 +241,7 @@ export default function NewSchedule() {
               name="url"
               id="url"
               className="min-h-8"
+              value={formData?.url ? formData.url : ""}
               onChange={inputHandler}
             ></textarea>
           </div>
@@ -199,6 +255,7 @@ export default function NewSchedule() {
                 id="descriptionJP"
                 rows={3}
                 placeholder="タイトル未設定の場合はホームページ内で表示されません。半角・全角スペースは強制改行になります。"
+                value={formData?.jp.description ? formData?.jp.description : ""}
                 onChange={inputHandler}
               ></textarea>
             </div>
@@ -209,6 +266,7 @@ export default function NewSchedule() {
                 id="locationJP"
                 rows={3}
                 className="min-h-8"
+                value={formData?.jp.location}
                 onChange={inputHandler}
               ></textarea>
             </div>
@@ -234,6 +292,7 @@ export default function NewSchedule() {
                 id="descriptionEN"
                 rows={3}
                 placeholder="Schedule will not be displayed when title is empty. Use <br> to force line break."
+                value={formData?.en.description ? formData?.en.description : ""}
                 onChange={inputHandler}
               ></textarea>
             </div>
@@ -244,6 +303,7 @@ export default function NewSchedule() {
                 id="locationEN"
                 rows={3}
                 className="min-h-8"
+                value={formData?.en.location}
                 onChange={inputHandler}
               ></textarea>
             </div>
@@ -260,13 +320,21 @@ export default function NewSchedule() {
             </button>
           </div>
         </div>
+        <div className="flex justify-center gap-10">
+          <button
+            className="bg-amber-200 hover:bg-amber-100 px-4 py-2 rounded-xl"
+            onClick={formHandler}
+          >
+            編集／Update
+          </button>
 
-        <button
-          className="bg-amber-200 hover:bg-amber-100 px-4 py-2 rounded-xl"
-          onClick={formHandler}
-        >
-          作成／Create
-        </button>
+          <button
+            className="bg-red-600/70 hover:bg-red-600 text-white px-4 py-2 rounded-xl"
+            onClick={deleteHandler}
+          >
+            削除／Delete
+          </button>
+        </div>
       </form>
       <div className="flex justify-center pt-24 pb-8">
         <Link href={"/admin/schedule"}>

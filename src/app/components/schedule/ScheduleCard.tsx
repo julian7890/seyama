@@ -17,6 +17,7 @@ export default function ScheduleCard({ schedule, language }: any) {
   const dateYear = dateData.getFullYear();
 
   const formatJP = (str: string) => {
+    if (!str) return "";
     const resultArr = [];
     const splitString = str.split(/\s/g);
     let keyInd = 0;
@@ -33,6 +34,7 @@ export default function ScheduleCard({ schedule, language }: any) {
   };
 
   const formatEN = (str: string) => {
+    if (!str) return "";
     const resultArr = [];
     const splitString = str.split("<br>");
     let keyInd = 0;

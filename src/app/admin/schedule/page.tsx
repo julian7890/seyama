@@ -27,7 +27,18 @@ export default function EditSchedule() {
           key={schedule.id}
         >
           <div className="p-4">{date.toLocaleDateString()}</div>
-          <div className="p-4">{schedule.jp.description}</div>
+          <div className="flex flex-col">
+            <div className="p-4">
+              {schedule.jp.description
+                ? schedule.jp.description
+                : "-"}
+            </div>
+            <div className="p-4">
+              {schedule.en.description
+                ? schedule.en.description?.replace("<br>", "")
+                : "-"}
+            </div>
+          </div>
         </div>
       </Link>
     );
@@ -47,7 +58,7 @@ export default function EditSchedule() {
           </div>
         </Link>
       </div>
-      <div className="flex justify-center pt-8">
+      <div className="flex justify-center py-8">
         <Link href={"/admin"}>
           <div className="bg-amber-500 hover:bg-amber-500/80 rounded-xl px-4 py-2">
             戻る
