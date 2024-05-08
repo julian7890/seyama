@@ -39,7 +39,7 @@ export default function Bio({ language }: propType) {
         </div>
       </div>
 
-      <div className={`absolute top-0 w-1/2 h-fit`}>
+      <div className={`absolute top-0 w-1/2 h-full pb-4`}>
         <div
           className={`flex flex-col gap-8 p-4 pt-8 transition duration-700 ${
             garamond.className
