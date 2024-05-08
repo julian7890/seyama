@@ -94,9 +94,12 @@ export default function Schedule({ language }: propsType) {
       <ul className={`w-full overflow-x-hidden`}>
         {/* {scheduleList} */}
         <div
-          className={`w-full flex gap-2 transition duration-700 ${
-            currentPage > 0 ? `-translate-x-[${currentPage * 100}%]` : ""
-          }`}
+          className={`w-full flex gap-2 transition duration-700`}
+          style={{
+            transform: `${
+              currentPage > 0 ? `translateX(-${(currentPage) * 100}%)` : ""
+            }`,
+          }}
         >
           {schedulePageList}
         </div>

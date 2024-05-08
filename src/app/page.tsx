@@ -1,4 +1,4 @@
-"use client";
+
 import { useEffect, useState } from "react";
 import Animation from "./components/ui/Animation";
 import NameAnimation from "./components/ui/NameAnimation";
