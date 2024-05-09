@@ -1,5 +1,5 @@
-
-import { useEffect, useState } from "react";
+"use client";
+import { useEffect } from "react";
 import Animation from "./components/ui/Animation";
 import NameAnimation from "./components/ui/NameAnimation";
 
