@@ -13,8 +13,12 @@ export default function EditSchedule({ schedule }: any) {
     schedule.jp.performer.length
   );
   const [formData, setFormData] = useState(schedule);
-  const [performerListJP, setPerformerListJP]: any = useState([]);
-  const [performerListEN, setPerformerListEN]: any = useState([]);
+  const [performerListJP, setPerformerListJP]: any = useState(
+    schedule.jp.performer
+  );
+  const [performerListEN, setPerformerListEN]: any = useState(
+    schedule.en.performer
+  );
 
   const increaseCast = (e: any) => {
     e.preventDefault();
@@ -49,6 +53,10 @@ export default function EditSchedule({ schedule }: any) {
     const fieldName = e.target.id;
     const fieldValue = e.target.value;
     const index = fieldName.match(/\d/)[0];
+
+    console.log(fieldName);
+    console.log(fieldValue);
+    console.log(index);
 
     if (fieldName.includes("JP")) {
       const newFieldName = fieldName.replace("JP", "").replace(/\d/, "");
@@ -147,9 +155,7 @@ export default function EditSchedule({ schedule }: any) {
             id={`roleJP${i}`}
             name={`roleJP${i}`}
             size={9}
-            value={
-              formData.jp.performer[i] ? formData.jp.performer[i].role : ""
-            }
+            value={performerListJP[i]?.role}
             onChange={performerHandler}
           />
         </div>
@@ -160,9 +166,7 @@ export default function EditSchedule({ schedule }: any) {
             id={`nameJP${i}`}
             name={`nameJP${i}`}
             size={19}
-            value={
-              formData.jp.performer[i] ? formData.jp.performer[i].name : ""
-            }
+            value={performerListJP[i]?.name}
             onChange={performerHandler}
           />
         </div>
@@ -180,9 +184,7 @@ export default function EditSchedule({ schedule }: any) {
             id={`roleEN${i}`}
             name={`roleEN${i}`}
             size={9}
-            value={
-              formData.en.performer[i] ? formData.en.performer[i].role : ""
-            }
+            value={performerListEN[i]?.role}
             onChange={performerHandler}
           />
         </div>
@@ -193,9 +195,7 @@ export default function EditSchedule({ schedule }: any) {
             id={`nameEN${i}`}
             name={`nameEN${i}`}
             size={19}
-            value={
-              formData.en.performer[i] ? formData.en.performer[i].name : ""
-            }
+            value={performerListEN[i]?.name}
             onChange={performerHandler}
           />
         </div>

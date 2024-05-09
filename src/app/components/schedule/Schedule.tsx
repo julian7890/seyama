@@ -29,8 +29,6 @@ export default function Schedule({ language }: propsType) {
     getSchedule();
   }, []);
 
-  useEffect(() => {}, [language]);
-
   const scheduleList = [];
 
   for (let schedule of scheduleData) {
@@ -58,14 +56,18 @@ export default function Schedule({ language }: propsType) {
   }
 
   const paginationLimit = 2;
-  const pageCount = scheduleList.length / paginationLimit;
+  const pageCount = Math.ceil(scheduleList.length / paginationLimit);
+
+  if (currentPage > pageCount) {
+    setCurrentPage(pageCount - 1);
+  }
 
   const schedulePageList = [];
 
   for (let i = 0; i < pageCount; i++) {
     schedulePageList.push(
       <div
-        className={`min-w-full pr-2 flex flex-wrap justify-around`}
+        className={`min-w-full px-2 flex flex-wrap justify-around`}
         key={`pagination${i}`}
       >
         {scheduleList[2 * i]}
@@ -89,10 +91,10 @@ export default function Schedule({ language }: propsType) {
   };
 
   return (
-    <div className="p-4 w-full">
-      <div className="w-full flex justify-start">
+    <div className="w-full">
+      <div className="w-full flex justify-start px-4 pt-4">
         <div
-          className={`transition duration-1000  ${
+          className={`transition duration-1000 ${
             language == "english" ? "opacity-100" : "opacity-0"
           } pb-2 w-32 text-3xl leading-6`}
         >
@@ -109,7 +111,7 @@ export default function Schedule({ language }: propsType) {
       <ul className={`w-full overflow-x-hidden`}>
         {/* {scheduleList} */}
         <div
-          className={`w-full flex gap-2 transition duration-700`}
+          className={`w-full flex transition duration-700`}
           style={{
             transform: `${
               currentPage > 0 ? `translateX(-${currentPage * 100}%)` : ""

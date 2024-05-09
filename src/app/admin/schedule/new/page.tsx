@@ -108,10 +108,12 @@ export default function NewSchedule() {
         body: JSON.stringify(formData),
       });
       console.log(res);
+      if (res) {
+        router.push("/admin/schedule");
+      }
     };
     console.log(formData);
     uploadData();
-    router.push("/admin/schedule");
   };
 
   const castInputJP = [];
