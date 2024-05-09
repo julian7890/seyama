@@ -6,16 +6,20 @@ import { useRouter } from "next/navigation";
 export default function EditSchedule({ schedule }: any) {
   const router = useRouter();
 
-  const [castNumberJP, setcastNumberJP] = useState(1);
-  const [castNumberEN, setcastNumberEN] = useState(1);
+  const [castNumberJP, setcastNumberJP] = useState(
+    schedule.jp.performer.length
+  );
+  const [castNumberEN, setcastNumberEN] = useState(
+    schedule.jp.performer.length
+  );
   const [formData, setFormData] = useState(schedule);
   const [performerListJP, setPerformerListJP]: any = useState([]);
   const [performerListEN, setPerformerListEN]: any = useState([]);
 
   const increaseCast = (e: any) => {
     e.preventDefault();
-    setcastNumberJP((prevState) => prevState + 1);
-    setcastNumberEN((prevState) => prevState + 1);
+    setcastNumberJP((prevState: number) => prevState + 1);
+    setcastNumberEN((prevState: number) => prevState + 1);
   };
 
   const inputHandler = (e: any) => {

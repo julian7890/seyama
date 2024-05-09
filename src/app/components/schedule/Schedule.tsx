@@ -29,21 +29,36 @@ export default function Schedule({ language }: propsType) {
     getSchedule();
   }, []);
 
+  useEffect(() => {}, [language]);
+
   const scheduleList = [];
 
   for (let schedule of scheduleData) {
-    scheduleList.push(
-      <div key={schedule.id}>
-        <ScheduleCard schedule={schedule} language={language} />
-      </div>
-    );
+    if (language == "english") {
+      if (schedule.en.description) {
+        scheduleList.push(
+          <ScheduleCard
+            schedule={schedule}
+            language={language}
+            key={schedule.id}
+          />
+        );
+      }
+    } else if (language == "japanese") {
+      if (schedule.jp.description) {
+        scheduleList.push(
+          <ScheduleCard
+            schedule={schedule}
+            language={language}
+            key={schedule.id}
+          />
+        );
+      }
+    }
   }
 
   const paginationLimit = 2;
   const pageCount = scheduleList.length / paginationLimit;
-
-  console.log("schedulecount", scheduleList.length);
-  console.log("pagecount", pageCount);
 
   const schedulePageList = [];
 
@@ -97,7 +112,7 @@ export default function Schedule({ language }: propsType) {
           className={`w-full flex gap-2 transition duration-700`}
           style={{
             transform: `${
-              currentPage > 0 ? `translateX(-${(currentPage) * 100}%)` : ""
+              currentPage > 0 ? `translateX(-${currentPage * 100}%)` : ""
             }`,
           }}
         >
