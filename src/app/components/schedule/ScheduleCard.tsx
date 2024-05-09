@@ -19,7 +19,7 @@ export default function ScheduleCard({ schedule, language }: any) {
   const formatJP = (str: string) => {
     if (!str) return "";
     const resultArr = [];
-    const splitString = str.split(/\s/g);
+    const splitString = str.split(/\h+(?=([^「」]*「[^「」]*」)*[^「」]*$)/gm);
     let keyInd = 0;
 
     for (let section of splitString) {
