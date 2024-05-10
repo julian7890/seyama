@@ -57,21 +57,21 @@ export default function Navbar({ language }: propType) {
           </div>
         </div>
       </button>
-      <button value="blog" onClick={handleScroll}>
+      <button value="news" onClick={handleScroll}>
         <div className="pointer-events-none flex justify-center">
           <div
             className={`absolute transition duration-1000 ${
               language == "english" ? "opacity-100" : "opacity-0"
             }`}
           >
-            Blog
+            News
           </div>
           <div
             className={`top-0 text-lg transition duration-1000 ${
               hiragino.className
             }  ${language == "english" ? "opacity-0" : "opacity-100"}`}
           >
-            ブログ
+            ニュース
           </div>
         </div>
       </button>

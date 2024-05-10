@@ -120,6 +120,12 @@ exports.Prisma.ScheduleScalarFieldEnum = {
   url: 'url'
 };
 
+exports.Prisma.ProfileScalarFieldEnum = {
+  id: 'id',
+  jpData: 'jpData',
+  enData: 'enData'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -132,7 +138,8 @@ exports.Prisma.QueryMode = {
 
 
 exports.Prisma.ModelName = {
-  schedule: 'schedule'
+  schedule: 'schedule',
+  profile: 'profile'
 };
 
 /**

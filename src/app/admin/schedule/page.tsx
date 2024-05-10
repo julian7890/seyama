@@ -46,7 +46,7 @@ export default function EditSchedule() {
 
   return (
     <div>
-      <div className="text-center text-2xl p-4">スケジュール編集</div>
+      <div className="text-center text-2xl p-4">スケジュール編集 / Schedule Edit</div>
       <div className="flex flex-col justify-center items-center p-4">
         {scheduleList}
       </div>

@@ -175,7 +175,7 @@ export default function NewSchedule() {
 
   return (
     <div>
-      <div className="text-2xl text-center p-4">新規スケジュール作成</div>
+      <div className="text-2xl text-center p-4">新規スケジュール作成 / Create New Schedule</div>
       <form className="flex flex-col gap-4 justify-center items-center">
         <div className="flex gap-4">
           <div className="flex flex-col">

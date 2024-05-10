@@ -1,6 +1,6 @@
 "use client";
-import BlogCard from "./BlogCard";
-import classes from "./Blog.module.css";
+import NewsCard from "./NewsCard";
+import classes from "./News.module.css";
 
 import localFont from "next/font/local";
 
@@ -12,7 +12,7 @@ type propType = {
   language: string;
 };
 
-export default function Blog({ language }: propType) {
+export default function News({ language }: propType) {
   return (
     <div className={`${classes.bgViolin} `}>
       <div className="sticky top-0 left-0">
@@ -22,33 +22,33 @@ export default function Blog({ language }: propType) {
               language == "english" ? "opacity-100" : "opacity-0"
             }`}
           >
-            BLOG
+            NEWS
           </div>
           <div
             className={`absolute top-0 translate-y-1/2 text-3xl transition duration-1000 ${
               hiragino.className
             } ${language == "english" ? "opacity-0" : "opacity-190"}`}
           >
-            ブログ
+            ニュース
           </div>
         </div>
         <div className="flex flex-wrap justify-around gap-4 py-8">
-          <BlogCard
+          <NewsCard
             title={"First Blog"}
             date={"4/28/24"}
             pic={"/resources/img/outshot.jpg"}
           />
-          <BlogCard
+          <NewsCard
             title={"Second Blog"}
             date={"4/29/24"}
             pic={"/resources/img/archway.webp"}
           />
-          <BlogCard
+          <NewsCard
             title={"Third Blog"}
             date={"4/30/24"}
             pic={"/resources/img/headshot1.jpeg"}
           />
-          <BlogCard
+          <NewsCard
             title={"Fourth Blog"}
             date={"5/1/24"}
             pic={"/resources/img/sofa.jpg"}

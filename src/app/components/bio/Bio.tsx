@@ -8,14 +8,23 @@ const hiragino = localFont({
   src: "../../../../public/resources/font/hiragino_mincho.otf",
 });
 
-type propType = {
-  language: string;
-};
-
 const garamond = EB_Garamond({ subsets: ["latin"] });
 const murecho = Murecho({ subsets: ["latin"] });
 
-export default function Bio({ language }: propType) {
+export default function Bio({ language, bioData }: any) {
+  const bioEN: any = [];
+  const bioJP: any = [];
+
+  const formatBio = (data: any, arr: any) => {
+    const splitData = data.split(/\n/);
+    for (let segment of splitData) {
+      if (segment) {
+        arr.push(<div key={segment}>{segment}</div>);
+      }
+    }
+  };
+  formatBio(bioData.enData, bioEN);
+  formatBio(bioData.jpData, bioJP);
   return (
     <div className="w-full relative overflow-y-scroll">
       <div className="sticky top-0 -z-10">
@@ -49,7 +58,7 @@ export default function Bio({ language }: propType) {
               : "opacity-0 pb-8 hidden"
           }`}
         >
-          <div>
+          {/* <div>
             Tomohiro Seyama / Conductor has conducted in opera houses such as
             the Magdeburg Opera House in Germany, the Dessau Anhalt State Opera
             House, and the Winterthur Opera House in Switzerland, and continues
@@ -104,7 +113,8 @@ export default function Bio({ language }: propType) {
             conducting from the Accademia Musicale Chigiana in Siena. He was a
             Semi-finalist of the Chicago Georg Solti Conducting Competition and
             finalist of the Besançon International Conductor Competition.
-          </div>
+          </div> */}
+          {bioEN}
         </div>
         <div
           className={`flex flex-col absolute top-0 gap-8 p-4 pt-8 pb-10 transition duration-700 text-sm ${

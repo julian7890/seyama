@@ -13,12 +13,12 @@ export default function Admin() {
             スケジュール編集
           </div>
         </Link>
-        <Link href="/admin/blog">
+        <Link href="/admin/news">
           <div className="bg-amber-500 hover:bg-amber-500/80 rounded-xl p-4">
-            ブログ編集
+            ニュース編集
           </div>
         </Link>
-        <Link href="/admin/profile">
+        <Link href="/admin/bio">
           <div className="bg-amber-500 hover:bg-amber-500/80 rounded-xl p-4">
             プロフィール編集
           </div>
