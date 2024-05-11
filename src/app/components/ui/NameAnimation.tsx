@@ -28,7 +28,7 @@ export default function NameAnimation() {
   useEffect(() => {
     setTimeout(() => {
       router.push("/home");
-    }, 3000);
+    }, 4000);
   }, [router]);
 //8000
 
