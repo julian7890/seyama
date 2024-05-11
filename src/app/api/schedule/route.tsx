@@ -14,6 +14,7 @@ export async function POST(req: any) {
       where: { id: res.id },
       data: { ...res, id: undefined },
     });
+    revalidatePath("/admin/schedule");
     return NextResponse.json(result);
   } else if (!res.id) {
     const result = await prisma.schedule.create({ data: res });
