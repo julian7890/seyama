@@ -22,7 +22,7 @@ export default function NameAnimation() {
         setFade(true);
       }, 1000);
     }, 2000);
-  }, 0);
+  }, 1000);
 //5000
 
   useEffect(() => {
