@@ -1,16 +1,16 @@
-"use client";
-import { useEffect } from "react";
-import Animation from "./components/ui/Animation";
+// "use client";
+// import { useEffect } from "react";
+// import Animation from "./components/ui/Animation";
 import NameAnimation from "./components/ui/NameAnimation";
 
 export default function Home() {
-  useEffect(() => {
-    if (window.visualViewport) {
-      const height = window.innerHeight;
-      const element = document.getElementById("animationContainer");
-      element?.setAttribute("style", `height: ${height}px`);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (window.visualViewport) {
+  //     const height = window.innerHeight;
+  //     const element = document.getElementById("animationContainer");
+  //     element?.setAttribute("style", `height: ${height}px`);
+  //   }
+  // }, []);
 
   return (
     <div
