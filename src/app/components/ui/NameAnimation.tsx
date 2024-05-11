@@ -21,7 +21,7 @@ export default function NameAnimation() {
       setTimeout(() => {
         setFade(true);
       }, 1000);
-    }, 1000);
+    }, 2000);
   }, 0);
 //5000
 
