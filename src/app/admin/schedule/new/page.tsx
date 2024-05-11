@@ -175,7 +175,10 @@ export default function NewSchedule() {
 
   return (
     <div>
-      <div className="text-2xl text-center p-4">新規スケジュール作成 / Create New Schedule</div>
+      <div className="text-2xl text-center flex flex-col p-4">
+        <div>新規スケジュール作成</div>
+        <div>Create New Schedule</div>
+      </div>
       <form className="flex flex-col gap-4 justify-center items-center">
         <div className="flex gap-4">
           <div className="flex flex-col">
@@ -200,7 +203,7 @@ export default function NewSchedule() {
                 name="descriptionJP"
                 id="descriptionJP"
                 rows={3}
-                placeholder="タイトル未設定の場合はホームページ内で表示されません。半角・全角スペースは強制改行になります。"
+                placeholder="タイトル未設定の場合はホームページ内で表示されません。<br>で強制改行が行えます。"
                 onChange={inputHandler}
               ></textarea>
             </div>
@@ -264,7 +267,7 @@ export default function NewSchedule() {
         </div>
 
         <button
-          className="bg-amber-200 hover:bg-amber-100 px-4 py-2 rounded-xl"
+          className="bg-green-800 hover:bg-green-700 px-4 py-2 rounded-md text-white"
           onClick={formHandler}
         >
           作成／Create

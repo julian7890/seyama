@@ -22,7 +22,7 @@ export default function News({ language }: propType) {
               language == "english" ? "opacity-100" : "opacity-0"
             }`}
           >
-            NEWS
+            Latest News
           </div>
           <div
             className={`absolute top-0 translate-y-1/2 text-3xl transition duration-1000 ${

@@ -19,7 +19,8 @@ export default function ScheduleCard({ schedule, language }: any) {
   const formatJP = (str: string) => {
     if (!str) return "";
     const resultArr = [];
-    const splitString = str.split(/\h+(?=([^「」]*「[^「」]*」)*[^「」]*$)/gm);
+    const splitString = str.split("<br>");
+    console.log(splitString);
     let keyInd = 0;
 
     for (let section of splitString) {
@@ -40,7 +41,7 @@ export default function ScheduleCard({ schedule, language }: any) {
     let keyInd = 0;
     for (let section of splitString) {
       resultArr.push(
-        <span className="block w-fit" key={section + keyInd}>
+        <span className="block" key={section + keyInd}>
           {section}
         </span>
       );
@@ -100,7 +101,7 @@ export default function ScheduleCard({ schedule, language }: any) {
   }
 
   return (
-    <li>
+    <li className="md:w-1/2">
       <div className="flex justify-center">
         <div className="flex flex-col mt-4 pr-2 ml-4 border border-amber-300/50 rounded-md">
           <div className="flex">
