@@ -22,13 +22,15 @@ export default function NameAnimation() {
         setFade(true);
       }, 1000);
     }, 1000);
-  }, 5000);
+  }, 0);
+//5000
 
   useEffect(() => {
     setTimeout(() => {
       router.push("/home");
-    }, 8000);
+    }, 3000);
   }, [router]);
+//8000
 
   return (
     <div
