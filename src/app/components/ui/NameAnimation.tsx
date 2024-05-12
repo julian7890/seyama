@@ -23,14 +23,14 @@ export default function NameAnimation() {
       }, 1000);
     }, 2000);
   }, 1000);
-//5000
+  //5000
 
   useEffect(() => {
     setTimeout(() => {
       router.push("/home");
-    }, 4000);
+    }, 5000);
   }, [router]);
-//8000
+  //8000
 
   return (
     <div
@@ -41,9 +41,9 @@ export default function NameAnimation() {
       }`}
     >
       <div
-        className={`flex flex-col items-start text-black transition-all duration-700 pt-1 ${
+        className={`flex flex-col items-start text-black transition-all duration-700 pt-1 text-4xl lg:text-5xl ${
           seasons.className
-        } ${position ? "text-4xl lg:text-5xl" : "text-5xl lg:text-8xl"} ${
+        } ${position ? "scale-100" : "scale-125"} ${
           fade ? "opacity-0" : "opacity-100"
         }`}
       >
