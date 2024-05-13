@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import { CldUploadWidget } from "next-cloudinary";
+import { CldUploadWidget, CldImage } from "next-cloudinary";
 
 export default function CreateNews() {
   const [formData, setFormData] = useState(null);
@@ -39,6 +39,7 @@ export default function CreateNews() {
 
   return (
     <div className="min-h-svh">
+      <CldImage width={600} height={500} src="cld-sample" alt="test" />
       <div className="flex flex-col items-center p-4 text-2xl">
         <div>新規ニュース作成</div>
         <div>Create News</div>
