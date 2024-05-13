@@ -21,3 +21,12 @@ model profile {
   jpData String
   enData String
 }
+
+model news {
+  id    String  @id @default(auto()) @map("_id") @db.ObjectId
+  date  String
+  en    Json?
+  jp    Json?
+  url   String?
+  image String?
+}

@@ -23,6 +23,11 @@ export type schedule = $Result.DefaultSelection<Prisma.$schedulePayload>
  * 
  */
 export type profile = $Result.DefaultSelection<Prisma.$profilePayload>
+/**
+ * Model news
+ * 
+ */
+export type news = $Result.DefaultSelection<Prisma.$newsPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -133,6 +138,16 @@ export class PrismaClient<
     * ```
     */
   get profile(): Prisma.profileDelegate<ExtArgs>;
+
+  /**
+   * `prisma.news`: Exposes CRUD operations for the **news** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more News
+    * const news = await prisma.news.findMany()
+    * ```
+    */
+  get news(): Prisma.newsDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -611,7 +626,8 @@ export namespace Prisma {
 
   export const ModelName: {
     schedule: 'schedule',
-    profile: 'profile'
+    profile: 'profile',
+    news: 'news'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -628,7 +644,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     meta: {
-      modelProps: 'schedule' | 'profile'
+      modelProps: 'schedule' | 'profile' | 'news'
       txIsolationLevel: never
     },
     model: {
@@ -777,6 +793,80 @@ export namespace Prisma {
           count: {
             args: Prisma.profileCountArgs<ExtArgs>,
             result: $Utils.Optional<ProfileCountAggregateOutputType> | number
+          }
+        }
+      }
+      news: {
+        payload: Prisma.$newsPayload<ExtArgs>
+        fields: Prisma.newsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.newsFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$newsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.newsFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$newsPayload>
+          }
+          findFirst: {
+            args: Prisma.newsFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$newsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.newsFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$newsPayload>
+          }
+          findMany: {
+            args: Prisma.newsFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$newsPayload>[]
+          }
+          create: {
+            args: Prisma.newsCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$newsPayload>
+          }
+          createMany: {
+            args: Prisma.newsCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.newsDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$newsPayload>
+          }
+          update: {
+            args: Prisma.newsUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$newsPayload>
+          }
+          deleteMany: {
+            args: Prisma.newsDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.newsUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.newsUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$newsPayload>
+          }
+          aggregate: {
+            args: Prisma.NewsAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateNews>
+          }
+          groupBy: {
+            args: Prisma.newsGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<NewsGroupByOutputType>[]
+          }
+          findRaw: {
+            args: Prisma.newsFindRawArgs<ExtArgs>,
+            result: Prisma.JsonObject
+          }
+          aggregateRaw: {
+            args: Prisma.newsAggregateRawArgs<ExtArgs>,
+            result: Prisma.JsonObject
+          }
+          count: {
+            args: Prisma.newsCountArgs<ExtArgs>,
+            result: $Utils.Optional<NewsCountAggregateOutputType> | number
           }
         }
       }
@@ -2719,6 +2809,920 @@ export namespace Prisma {
 
 
   /**
+   * Model news
+   */
+
+  export type AggregateNews = {
+    _count: NewsCountAggregateOutputType | null
+    _min: NewsMinAggregateOutputType | null
+    _max: NewsMaxAggregateOutputType | null
+  }
+
+  export type NewsMinAggregateOutputType = {
+    id: string | null
+    date: string | null
+    url: string | null
+    image: string | null
+  }
+
+  export type NewsMaxAggregateOutputType = {
+    id: string | null
+    date: string | null
+    url: string | null
+    image: string | null
+  }
+
+  export type NewsCountAggregateOutputType = {
+    id: number
+    date: number
+    en: number
+    jp: number
+    url: number
+    image: number
+    _all: number
+  }
+
+
+  export type NewsMinAggregateInputType = {
+    id?: true
+    date?: true
+    url?: true
+    image?: true
+  }
+
+  export type NewsMaxAggregateInputType = {
+    id?: true
+    date?: true
+    url?: true
+    image?: true
+  }
+
+  export type NewsCountAggregateInputType = {
+    id?: true
+    date?: true
+    en?: true
+    jp?: true
+    url?: true
+    image?: true
+    _all?: true
+  }
+
+  export type NewsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which news to aggregate.
+     */
+    where?: newsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of news to fetch.
+     */
+    orderBy?: newsOrderByWithRelationInput | newsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: newsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` news from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` news.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned news
+    **/
+    _count?: true | NewsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: NewsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: NewsMaxAggregateInputType
+  }
+
+  export type GetNewsAggregateType<T extends NewsAggregateArgs> = {
+        [P in keyof T & keyof AggregateNews]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateNews[P]>
+      : GetScalarType<T[P], AggregateNews[P]>
+  }
+
+
+
+
+  export type newsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: newsWhereInput
+    orderBy?: newsOrderByWithAggregationInput | newsOrderByWithAggregationInput[]
+    by: NewsScalarFieldEnum[] | NewsScalarFieldEnum
+    having?: newsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: NewsCountAggregateInputType | true
+    _min?: NewsMinAggregateInputType
+    _max?: NewsMaxAggregateInputType
+  }
+
+  export type NewsGroupByOutputType = {
+    id: string
+    date: string
+    en: JsonValue | null
+    jp: JsonValue | null
+    url: string | null
+    image: string | null
+    _count: NewsCountAggregateOutputType | null
+    _min: NewsMinAggregateOutputType | null
+    _max: NewsMaxAggregateOutputType | null
+  }
+
+  type GetNewsGroupByPayload<T extends newsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<NewsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof NewsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], NewsGroupByOutputType[P]>
+            : GetScalarType<T[P], NewsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type newsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    date?: boolean
+    en?: boolean
+    jp?: boolean
+    url?: boolean
+    image?: boolean
+  }, ExtArgs["result"]["news"]>
+
+  export type newsSelectScalar = {
+    id?: boolean
+    date?: boolean
+    en?: boolean
+    jp?: boolean
+    url?: boolean
+    image?: boolean
+  }
+
+
+
+  export type $newsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "news"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      date: string
+      en: Prisma.JsonValue | null
+      jp: Prisma.JsonValue | null
+      url: string | null
+      image: string | null
+    }, ExtArgs["result"]["news"]>
+    composites: {}
+  }
+
+
+  type newsGetPayload<S extends boolean | null | undefined | newsDefaultArgs> = $Result.GetResult<Prisma.$newsPayload, S>
+
+  type newsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<newsFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: NewsCountAggregateInputType | true
+    }
+
+  export interface newsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['news'], meta: { name: 'news' } }
+    /**
+     * Find zero or one News that matches the filter.
+     * @param {newsFindUniqueArgs} args - Arguments to find a News
+     * @example
+     * // Get one News
+     * const news = await prisma.news.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends newsFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, newsFindUniqueArgs<ExtArgs>>
+    ): Prisma__newsClient<$Result.GetResult<Prisma.$newsPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one News that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {newsFindUniqueOrThrowArgs} args - Arguments to find a News
+     * @example
+     * // Get one News
+     * const news = await prisma.news.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends newsFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, newsFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__newsClient<$Result.GetResult<Prisma.$newsPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first News that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {newsFindFirstArgs} args - Arguments to find a News
+     * @example
+     * // Get one News
+     * const news = await prisma.news.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends newsFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, newsFindFirstArgs<ExtArgs>>
+    ): Prisma__newsClient<$Result.GetResult<Prisma.$newsPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first News that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {newsFindFirstOrThrowArgs} args - Arguments to find a News
+     * @example
+     * // Get one News
+     * const news = await prisma.news.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends newsFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, newsFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__newsClient<$Result.GetResult<Prisma.$newsPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more News that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {newsFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all News
+     * const news = await prisma.news.findMany()
+     * 
+     * // Get first 10 News
+     * const news = await prisma.news.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const newsWithIdOnly = await prisma.news.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends newsFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, newsFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$newsPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a News.
+     * @param {newsCreateArgs} args - Arguments to create a News.
+     * @example
+     * // Create one News
+     * const News = await prisma.news.create({
+     *   data: {
+     *     // ... data to create a News
+     *   }
+     * })
+     * 
+    **/
+    create<T extends newsCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, newsCreateArgs<ExtArgs>>
+    ): Prisma__newsClient<$Result.GetResult<Prisma.$newsPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many News.
+     *     @param {newsCreateManyArgs} args - Arguments to create many News.
+     *     @example
+     *     // Create many News
+     *     const news = await prisma.news.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends newsCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, newsCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a News.
+     * @param {newsDeleteArgs} args - Arguments to delete one News.
+     * @example
+     * // Delete one News
+     * const News = await prisma.news.delete({
+     *   where: {
+     *     // ... filter to delete one News
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends newsDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, newsDeleteArgs<ExtArgs>>
+    ): Prisma__newsClient<$Result.GetResult<Prisma.$newsPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one News.
+     * @param {newsUpdateArgs} args - Arguments to update one News.
+     * @example
+     * // Update one News
+     * const news = await prisma.news.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends newsUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, newsUpdateArgs<ExtArgs>>
+    ): Prisma__newsClient<$Result.GetResult<Prisma.$newsPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more News.
+     * @param {newsDeleteManyArgs} args - Arguments to filter News to delete.
+     * @example
+     * // Delete a few News
+     * const { count } = await prisma.news.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends newsDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, newsDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more News.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {newsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many News
+     * const news = await prisma.news.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends newsUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, newsUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one News.
+     * @param {newsUpsertArgs} args - Arguments to update or create a News.
+     * @example
+     * // Update or create a News
+     * const news = await prisma.news.upsert({
+     *   create: {
+     *     // ... data to create a News
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the News we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends newsUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, newsUpsertArgs<ExtArgs>>
+    ): Prisma__newsClient<$Result.GetResult<Prisma.$newsPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Find zero or more News that matches the filter.
+     * @param {newsFindRawArgs} args - Select which filters you would like to apply.
+     * @example
+     * const news = await prisma.news.findRaw({
+     *   filter: { age: { $gt: 25 } } 
+     * })
+    **/
+    findRaw(
+      args?: newsFindRawArgs
+    ): Prisma.PrismaPromise<JsonObject>
+
+    /**
+     * Perform aggregation operations on a News.
+     * @param {newsAggregateRawArgs} args - Select which aggregations you would like to apply.
+     * @example
+     * const news = await prisma.news.aggregateRaw({
+     *   pipeline: [
+     *     { $match: { status: "registered" } },
+     *     { $group: { _id: "$country", total: { $sum: 1 } } }
+     *   ]
+     * })
+    **/
+    aggregateRaw(
+      args?: newsAggregateRawArgs
+    ): Prisma.PrismaPromise<JsonObject>
+
+    /**
+     * Count the number of News.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {newsCountArgs} args - Arguments to filter News to count.
+     * @example
+     * // Count the number of News
+     * const count = await prisma.news.count({
+     *   where: {
+     *     // ... the filter for the News we want to count
+     *   }
+     * })
+    **/
+    count<T extends newsCountArgs>(
+      args?: Subset<T, newsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], NewsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a News.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NewsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends NewsAggregateArgs>(args: Subset<T, NewsAggregateArgs>): Prisma.PrismaPromise<GetNewsAggregateType<T>>
+
+    /**
+     * Group by News.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {newsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends newsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: newsGroupByArgs['orderBy'] }
+        : { orderBy?: newsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, newsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetNewsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the news model
+   */
+  readonly fields: newsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for news.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__newsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the news model
+   */ 
+  interface newsFieldRefs {
+    readonly id: FieldRef<"news", 'String'>
+    readonly date: FieldRef<"news", 'String'>
+    readonly en: FieldRef<"news", 'Json'>
+    readonly jp: FieldRef<"news", 'Json'>
+    readonly url: FieldRef<"news", 'String'>
+    readonly image: FieldRef<"news", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * news findUnique
+   */
+  export type newsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the news
+     */
+    select?: newsSelect<ExtArgs> | null
+    /**
+     * Filter, which news to fetch.
+     */
+    where: newsWhereUniqueInput
+  }
+
+  /**
+   * news findUniqueOrThrow
+   */
+  export type newsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the news
+     */
+    select?: newsSelect<ExtArgs> | null
+    /**
+     * Filter, which news to fetch.
+     */
+    where: newsWhereUniqueInput
+  }
+
+  /**
+   * news findFirst
+   */
+  export type newsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the news
+     */
+    select?: newsSelect<ExtArgs> | null
+    /**
+     * Filter, which news to fetch.
+     */
+    where?: newsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of news to fetch.
+     */
+    orderBy?: newsOrderByWithRelationInput | newsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for news.
+     */
+    cursor?: newsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` news from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` news.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of news.
+     */
+    distinct?: NewsScalarFieldEnum | NewsScalarFieldEnum[]
+  }
+
+  /**
+   * news findFirstOrThrow
+   */
+  export type newsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the news
+     */
+    select?: newsSelect<ExtArgs> | null
+    /**
+     * Filter, which news to fetch.
+     */
+    where?: newsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of news to fetch.
+     */
+    orderBy?: newsOrderByWithRelationInput | newsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for news.
+     */
+    cursor?: newsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` news from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` news.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of news.
+     */
+    distinct?: NewsScalarFieldEnum | NewsScalarFieldEnum[]
+  }
+
+  /**
+   * news findMany
+   */
+  export type newsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the news
+     */
+    select?: newsSelect<ExtArgs> | null
+    /**
+     * Filter, which news to fetch.
+     */
+    where?: newsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of news to fetch.
+     */
+    orderBy?: newsOrderByWithRelationInput | newsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing news.
+     */
+    cursor?: newsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` news from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` news.
+     */
+    skip?: number
+    distinct?: NewsScalarFieldEnum | NewsScalarFieldEnum[]
+  }
+
+  /**
+   * news create
+   */
+  export type newsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the news
+     */
+    select?: newsSelect<ExtArgs> | null
+    /**
+     * The data needed to create a news.
+     */
+    data: XOR<newsCreateInput, newsUncheckedCreateInput>
+  }
+
+  /**
+   * news createMany
+   */
+  export type newsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many news.
+     */
+    data: newsCreateManyInput | newsCreateManyInput[]
+  }
+
+  /**
+   * news update
+   */
+  export type newsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the news
+     */
+    select?: newsSelect<ExtArgs> | null
+    /**
+     * The data needed to update a news.
+     */
+    data: XOR<newsUpdateInput, newsUncheckedUpdateInput>
+    /**
+     * Choose, which news to update.
+     */
+    where: newsWhereUniqueInput
+  }
+
+  /**
+   * news updateMany
+   */
+  export type newsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update news.
+     */
+    data: XOR<newsUpdateManyMutationInput, newsUncheckedUpdateManyInput>
+    /**
+     * Filter which news to update
+     */
+    where?: newsWhereInput
+  }
+
+  /**
+   * news upsert
+   */
+  export type newsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the news
+     */
+    select?: newsSelect<ExtArgs> | null
+    /**
+     * The filter to search for the news to update in case it exists.
+     */
+    where: newsWhereUniqueInput
+    /**
+     * In case the news found by the `where` argument doesn't exist, create a new news with this data.
+     */
+    create: XOR<newsCreateInput, newsUncheckedCreateInput>
+    /**
+     * In case the news was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<newsUpdateInput, newsUncheckedUpdateInput>
+  }
+
+  /**
+   * news delete
+   */
+  export type newsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the news
+     */
+    select?: newsSelect<ExtArgs> | null
+    /**
+     * Filter which news to delete.
+     */
+    where: newsWhereUniqueInput
+  }
+
+  /**
+   * news deleteMany
+   */
+  export type newsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which news to delete
+     */
+    where?: newsWhereInput
+  }
+
+  /**
+   * news findRaw
+   */
+  export type newsFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The query predicate filter. If unspecified, then all documents in the collection will match the predicate. ${@link https://docs.mongodb.com/manual/reference/operator/query MongoDB Docs}.
+     */
+    filter?: InputJsonValue
+    /**
+     * Additional options to pass to the `find` command ${@link https://docs.mongodb.com/manual/reference/command/find/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * news aggregateRaw
+   */
+  export type newsAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * An array of aggregation stages to process and transform the document stream via the aggregation pipeline. ${@link https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline MongoDB Docs}.
+     */
+    pipeline?: InputJsonValue[]
+    /**
+     * Additional options to pass to the `aggregate` command ${@link https://docs.mongodb.com/manual/reference/command/aggregate/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * news without action
+   */
+  export type newsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the news
+     */
+    select?: newsSelect<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -2740,6 +3744,18 @@ export namespace Prisma {
   };
 
   export type ProfileScalarFieldEnum = (typeof ProfileScalarFieldEnum)[keyof typeof ProfileScalarFieldEnum]
+
+
+  export const NewsScalarFieldEnum: {
+    id: 'id',
+    date: 'date',
+    en: 'en',
+    jp: 'jp',
+    url: 'url',
+    image: 'image'
+  };
+
+  export type NewsScalarFieldEnum = (typeof NewsScalarFieldEnum)[keyof typeof NewsScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -2895,6 +3911,63 @@ export namespace Prisma {
     enData?: StringWithAggregatesFilter<"profile"> | string
   }
 
+  export type newsWhereInput = {
+    AND?: newsWhereInput | newsWhereInput[]
+    OR?: newsWhereInput[]
+    NOT?: newsWhereInput | newsWhereInput[]
+    id?: StringFilter<"news"> | string
+    date?: StringFilter<"news"> | string
+    en?: JsonNullableFilter<"news">
+    jp?: JsonNullableFilter<"news">
+    url?: StringNullableFilter<"news"> | string | null
+    image?: StringNullableFilter<"news"> | string | null
+  }
+
+  export type newsOrderByWithRelationInput = {
+    id?: SortOrder
+    date?: SortOrder
+    en?: SortOrder
+    jp?: SortOrder
+    url?: SortOrder
+    image?: SortOrder
+  }
+
+  export type newsWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: newsWhereInput | newsWhereInput[]
+    OR?: newsWhereInput[]
+    NOT?: newsWhereInput | newsWhereInput[]
+    date?: StringFilter<"news"> | string
+    en?: JsonNullableFilter<"news">
+    jp?: JsonNullableFilter<"news">
+    url?: StringNullableFilter<"news"> | string | null
+    image?: StringNullableFilter<"news"> | string | null
+  }, "id">
+
+  export type newsOrderByWithAggregationInput = {
+    id?: SortOrder
+    date?: SortOrder
+    en?: SortOrder
+    jp?: SortOrder
+    url?: SortOrder
+    image?: SortOrder
+    _count?: newsCountOrderByAggregateInput
+    _max?: newsMaxOrderByAggregateInput
+    _min?: newsMinOrderByAggregateInput
+  }
+
+  export type newsScalarWhereWithAggregatesInput = {
+    AND?: newsScalarWhereWithAggregatesInput | newsScalarWhereWithAggregatesInput[]
+    OR?: newsScalarWhereWithAggregatesInput[]
+    NOT?: newsScalarWhereWithAggregatesInput | newsScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"news"> | string
+    date?: StringWithAggregatesFilter<"news"> | string
+    en?: JsonNullableWithAggregatesFilter<"news">
+    jp?: JsonNullableWithAggregatesFilter<"news">
+    url?: StringNullableWithAggregatesFilter<"news"> | string | null
+    image?: StringNullableWithAggregatesFilter<"news"> | string | null
+  }
+
   export type scheduleCreateInput = {
     id?: string
     date: string
@@ -2983,6 +4056,65 @@ export namespace Prisma {
   export type profileUncheckedUpdateManyInput = {
     jpData?: StringFieldUpdateOperationsInput | string
     enData?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type newsCreateInput = {
+    id?: string
+    date: string
+    en?: InputJsonValue | null
+    jp?: InputJsonValue | null
+    url?: string | null
+    image?: string | null
+  }
+
+  export type newsUncheckedCreateInput = {
+    id?: string
+    date: string
+    en?: InputJsonValue | null
+    jp?: InputJsonValue | null
+    url?: string | null
+    image?: string | null
+  }
+
+  export type newsUpdateInput = {
+    date?: StringFieldUpdateOperationsInput | string
+    en?: InputJsonValue | InputJsonValue | null
+    jp?: InputJsonValue | InputJsonValue | null
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type newsUncheckedUpdateInput = {
+    date?: StringFieldUpdateOperationsInput | string
+    en?: InputJsonValue | InputJsonValue | null
+    jp?: InputJsonValue | InputJsonValue | null
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type newsCreateManyInput = {
+    id?: string
+    date: string
+    en?: InputJsonValue | null
+    jp?: InputJsonValue | null
+    url?: string | null
+    image?: string | null
+  }
+
+  export type newsUpdateManyMutationInput = {
+    date?: StringFieldUpdateOperationsInput | string
+    en?: InputJsonValue | InputJsonValue | null
+    jp?: InputJsonValue | InputJsonValue | null
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type newsUncheckedUpdateManyInput = {
+    date?: StringFieldUpdateOperationsInput | string
+    en?: InputJsonValue | InputJsonValue | null
+    jp?: InputJsonValue | InputJsonValue | null
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -3118,6 +4250,29 @@ export namespace Prisma {
     enData?: SortOrder
   }
 
+  export type newsCountOrderByAggregateInput = {
+    id?: SortOrder
+    date?: SortOrder
+    en?: SortOrder
+    jp?: SortOrder
+    url?: SortOrder
+    image?: SortOrder
+  }
+
+  export type newsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    date?: SortOrder
+    url?: SortOrder
+    image?: SortOrder
+  }
+
+  export type newsMinOrderByAggregateInput = {
+    id?: SortOrder
+    date?: SortOrder
+    url?: SortOrder
+    image?: SortOrder
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
@@ -3239,6 +4394,10 @@ export namespace Prisma {
      * @deprecated Use profileDefaultArgs instead
      */
     export type profileArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = profileDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use newsDefaultArgs instead
+     */
+    export type newsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = newsDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany
