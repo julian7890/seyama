@@ -39,7 +39,6 @@ export default function CreateNews() {
 
   return (
     <div className="min-h-svh">
-      <CldImage width={600} height={500} src="cld-sample" alt="test" />
       <div className="flex flex-col items-center p-4 text-2xl">
         <div>新規ニュース作成</div>
         <div>Create News</div>
@@ -47,6 +46,8 @@ export default function CreateNews() {
       <form className="w-full flex flex-col justify-center items-center">
         <div className="w-fit flex flex-col gap-4 p-4">
           <div className="flex flex-col">
+            <CldImage width={600} height={500} src="cld-sample" alt="test" />
+
             <label htmlFor="img">画像</label>
             <CldUploadWidget uploadPreset="ml_default">
               {({ open }) => {
