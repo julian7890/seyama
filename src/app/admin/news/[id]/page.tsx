@@ -1,8 +1,6 @@
 import prisma from "../../../../../lib/prisma";
 import EditNewsForm from "@/app/components/admin/EditNewsForm";
 
-export const dynamic = "force-dynamic";
-
 export default async function EditNewsPage({
   params,
 }: {

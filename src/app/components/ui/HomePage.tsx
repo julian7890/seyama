@@ -8,7 +8,7 @@ import News from "../news/News";
 import Bio from "../bio/Bio";
 import Navbar from "./Navbar";
 
-export default function HomePage({ bioData, newsData }: any) {
+export default function HomePage({ bioData, newsData, scheduleData }: any) {
   const [show, setShow] = useState(false);
   const [language, setLanguage] = useState("english");
   const [slide, setSlide] = useState(0);
@@ -163,16 +163,23 @@ export default function HomePage({ bioData, newsData }: any) {
       >
         <Navbar language={language} />
       </div>
-
       <div
-        className={`flex flex-col justify-between h-fit transition duration-500 delay-[1300ms] scroll-mt-8 ${
+        className={`transition duration-500 delay-[1300ms] scroll-mt-8 ${
+          show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}
+        id="news"
+      >
+        <News language={language} newsData={newsData} />
+      </div>
+      <div
+        className={`flex flex-col justify-between h-fit transition duration-500 delay-[1600ms] scroll-mt-8 ${
           show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
         id="schedule"
       >
-        <Schedule language={language} />
+        <Schedule language={language} scheduleData={scheduleData} />
         <div
-          className={`transition duration-500 delay-[1500ms] scroll-mt-8 ${
+          className={`transition duration-500 delay-[1900ms] scroll-mt-8 ${
             show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
           id="bio"
@@ -180,13 +187,13 @@ export default function HomePage({ bioData, newsData }: any) {
           <Bio language={language} bioData={bioData} />
         </div>
       </div>
+     
       <div
-        className={`mt-auto transition duration-500 delay-[2000ms] scroll-mt-8 ${
+        className={`mt-auto transition duration-500 delay-[2200ms] scroll-mt-8 ${
           show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
-        id="news"
+        id="footer"
       >
-        <News language={language} newsData={newsData} />
         <Footer />
       </div>
     </div>

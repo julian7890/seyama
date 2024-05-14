@@ -26,7 +26,7 @@ export default function Bio({ language, bioData }: any) {
   formatBio(bioData.enData, bioEN);
   formatBio(bioData.jpData, bioJP);
   return (
-    <div className="w-full relative overflow-y-scroll">
+    <div className="w-full relative overflow-y-auto">
       <div className="sticky top-0 -z-10">
         <Image src={bioPhoto} alt="bio" priority />
         <div className="absolute top-6 right-2">

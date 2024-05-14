@@ -1,0 +1,6 @@
+.arrow {
+    mask-image: url("/resources/img/arrowRight.png");
+    -webkit-mask-image: url("/resources/img/arrowRight.png");
+    mask-size: contain;
+  }
+  

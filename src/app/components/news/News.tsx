@@ -44,7 +44,7 @@ export default function News({ language, newsData }: propType) {
           </div>
         </div>
       </div>
-      <div className="flex justify-around gap-4 py-8">{newsList}</div>
+      <div className="flex justify-around gap-4 p-8">{newsList}</div>
     </div>
   );
 }

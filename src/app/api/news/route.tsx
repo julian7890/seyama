@@ -20,8 +20,7 @@ export async function POST(req: any) {
       where: { id: res.id },
       data: { ...res, id: undefined },
     });
-    revalidatePath("/admin/news", "page");
-    revalidatePath(`/admin/news/[id]`, "page");
+    revalidatePath("/admin/news");
     return NextResponse.json(result);
   }
 }

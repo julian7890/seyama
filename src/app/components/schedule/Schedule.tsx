@@ -11,23 +11,24 @@ const hiragino = localFont({
 
 type propsType = {
   language: string;
+  scheduleData: any;
 };
 
 const murecho = Murecho({ subsets: ["latin"] });
 
-export default function Schedule({ language }: propsType) {
-  const [scheduleData, setScheduleData]: any = useState([]);
+export default function Schedule({ language, scheduleData }: propsType) {
+  // const [scheduleData, setScheduleData]: any = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
 
-  useEffect(() => {
-    const getSchedule = async () => {
-      const schedule = await fetch("/api/schedule");
-      const data = await schedule.json();
-      setScheduleData(data);
-    };
+  // useEffect(() => {
+  //   const getSchedule = async () => {
+  //     const schedule = await fetch("/api/schedule");
+  //     const data = await schedule.json();
+  //     setScheduleData(data);
+  //   };
 
-    getSchedule();
-  }, []);
+  //   getSchedule();
+  // }, []);
 
   const scheduleList = [];
 

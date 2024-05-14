@@ -22,10 +22,15 @@ export const viewport: Viewport = {
 
 export default function Layout({
   children,
+  parallel,
 }: Readonly<{
   children: React.ReactNode;
+  parallel: React.ReactNode;
 }>) {
   return (
-    <section className={`${rajdhani.className} min-h-full`}>{children}</section>
+    <section className={`${rajdhani.className}`}>
+      {parallel}
+      {children}
+    </section>
   );
 }

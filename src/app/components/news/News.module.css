@@ -2,7 +2,7 @@
   position: relative;
   perspective: 1px;
   transform-style: preserve-3d;
-  overflow-x: scroll;
+  overflow-x: hidden;
   overflow-y: hidden;
 }
 

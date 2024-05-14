@@ -6,6 +6,13 @@ export default async function Home() {
     where: { id: "663e2ea55ccb92e4cd356ba6" },
   });
   const newsData = await prisma.news.findMany({});
+  const scheduleData = await prisma.schedule.findMany({});
 
-  return <HomePage bioData={bioData} newsData={newsData} />;
+  return (
+    <HomePage
+      bioData={bioData}
+      newsData={newsData}
+      scheduleData={scheduleData}
+    />
+  );
 }

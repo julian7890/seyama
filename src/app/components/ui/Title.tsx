@@ -12,10 +12,6 @@ const seasons = localFont({
   src: "../../../../public/resources/font/seasons.ttf",
 });
 
-const hiragino = localFont({
-  src: "../../../../public/resources/font/hiragino_mincho.otf",
-});
-
 export default function Title({ show, onLanguageChange, language }: any) {
   return (
     <div
