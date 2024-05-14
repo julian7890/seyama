@@ -2820,14 +2820,22 @@ export namespace Prisma {
 
   export type NewsMinAggregateOutputType = {
     id: string | null
-    date: string | null
+    date: Date | null
+    titleEN: string | null
+    descriptionEN: string | null
+    titleJP: string | null
+    descriptionJP: string | null
     url: string | null
     image: string | null
   }
 
   export type NewsMaxAggregateOutputType = {
     id: string | null
-    date: string | null
+    date: Date | null
+    titleEN: string | null
+    descriptionEN: string | null
+    titleJP: string | null
+    descriptionJP: string | null
     url: string | null
     image: string | null
   }
@@ -2835,8 +2843,10 @@ export namespace Prisma {
   export type NewsCountAggregateOutputType = {
     id: number
     date: number
-    en: number
-    jp: number
+    titleEN: number
+    descriptionEN: number
+    titleJP: number
+    descriptionJP: number
     url: number
     image: number
     _all: number
@@ -2846,6 +2856,10 @@ export namespace Prisma {
   export type NewsMinAggregateInputType = {
     id?: true
     date?: true
+    titleEN?: true
+    descriptionEN?: true
+    titleJP?: true
+    descriptionJP?: true
     url?: true
     image?: true
   }
@@ -2853,6 +2867,10 @@ export namespace Prisma {
   export type NewsMaxAggregateInputType = {
     id?: true
     date?: true
+    titleEN?: true
+    descriptionEN?: true
+    titleJP?: true
+    descriptionJP?: true
     url?: true
     image?: true
   }
@@ -2860,8 +2878,10 @@ export namespace Prisma {
   export type NewsCountAggregateInputType = {
     id?: true
     date?: true
-    en?: true
-    jp?: true
+    titleEN?: true
+    descriptionEN?: true
+    titleJP?: true
+    descriptionJP?: true
     url?: true
     image?: true
     _all?: true
@@ -2941,9 +2961,11 @@ export namespace Prisma {
 
   export type NewsGroupByOutputType = {
     id: string
-    date: string
-    en: JsonValue | null
-    jp: JsonValue | null
+    date: Date
+    titleEN: string
+    descriptionEN: string | null
+    titleJP: string
+    descriptionJP: string | null
     url: string | null
     image: string | null
     _count: NewsCountAggregateOutputType | null
@@ -2968,8 +2990,10 @@ export namespace Prisma {
   export type newsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     date?: boolean
-    en?: boolean
-    jp?: boolean
+    titleEN?: boolean
+    descriptionEN?: boolean
+    titleJP?: boolean
+    descriptionJP?: boolean
     url?: boolean
     image?: boolean
   }, ExtArgs["result"]["news"]>
@@ -2977,8 +3001,10 @@ export namespace Prisma {
   export type newsSelectScalar = {
     id?: boolean
     date?: boolean
-    en?: boolean
-    jp?: boolean
+    titleEN?: boolean
+    descriptionEN?: boolean
+    titleJP?: boolean
+    descriptionJP?: boolean
     url?: boolean
     image?: boolean
   }
@@ -2990,9 +3016,11 @@ export namespace Prisma {
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      date: string
-      en: Prisma.JsonValue | null
-      jp: Prisma.JsonValue | null
+      date: Date
+      titleEN: string
+      descriptionEN: string | null
+      titleJP: string
+      descriptionJP: string | null
       url: string | null
       image: string | null
     }, ExtArgs["result"]["news"]>
@@ -3417,9 +3445,11 @@ export namespace Prisma {
    */ 
   interface newsFieldRefs {
     readonly id: FieldRef<"news", 'String'>
-    readonly date: FieldRef<"news", 'String'>
-    readonly en: FieldRef<"news", 'Json'>
-    readonly jp: FieldRef<"news", 'Json'>
+    readonly date: FieldRef<"news", 'DateTime'>
+    readonly titleEN: FieldRef<"news", 'String'>
+    readonly descriptionEN: FieldRef<"news", 'String'>
+    readonly titleJP: FieldRef<"news", 'String'>
+    readonly descriptionJP: FieldRef<"news", 'String'>
     readonly url: FieldRef<"news", 'String'>
     readonly image: FieldRef<"news", 'String'>
   }
@@ -3749,8 +3779,10 @@ export namespace Prisma {
   export const NewsScalarFieldEnum: {
     id: 'id',
     date: 'date',
-    en: 'en',
-    jp: 'jp',
+    titleEN: 'titleEN',
+    descriptionEN: 'descriptionEN',
+    titleJP: 'titleJP',
+    descriptionJP: 'descriptionJP',
     url: 'url',
     image: 'image'
   };
@@ -3797,6 +3829,20 @@ export namespace Prisma {
    * Reference to a field of type 'Json'
    */
   export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
+    
+
+
+  /**
+   * Reference to a field of type 'DateTime'
+   */
+  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+  /**
+   * Reference to a field of type 'DateTime[]'
+   */
+  export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
     
 
 
@@ -3916,9 +3962,11 @@ export namespace Prisma {
     OR?: newsWhereInput[]
     NOT?: newsWhereInput | newsWhereInput[]
     id?: StringFilter<"news"> | string
-    date?: StringFilter<"news"> | string
-    en?: JsonNullableFilter<"news">
-    jp?: JsonNullableFilter<"news">
+    date?: DateTimeFilter<"news"> | Date | string
+    titleEN?: StringFilter<"news"> | string
+    descriptionEN?: StringNullableFilter<"news"> | string | null
+    titleJP?: StringFilter<"news"> | string
+    descriptionJP?: StringNullableFilter<"news"> | string | null
     url?: StringNullableFilter<"news"> | string | null
     image?: StringNullableFilter<"news"> | string | null
   }
@@ -3926,8 +3974,10 @@ export namespace Prisma {
   export type newsOrderByWithRelationInput = {
     id?: SortOrder
     date?: SortOrder
-    en?: SortOrder
-    jp?: SortOrder
+    titleEN?: SortOrder
+    descriptionEN?: SortOrder
+    titleJP?: SortOrder
+    descriptionJP?: SortOrder
     url?: SortOrder
     image?: SortOrder
   }
@@ -3937,9 +3987,11 @@ export namespace Prisma {
     AND?: newsWhereInput | newsWhereInput[]
     OR?: newsWhereInput[]
     NOT?: newsWhereInput | newsWhereInput[]
-    date?: StringFilter<"news"> | string
-    en?: JsonNullableFilter<"news">
-    jp?: JsonNullableFilter<"news">
+    date?: DateTimeFilter<"news"> | Date | string
+    titleEN?: StringFilter<"news"> | string
+    descriptionEN?: StringNullableFilter<"news"> | string | null
+    titleJP?: StringFilter<"news"> | string
+    descriptionJP?: StringNullableFilter<"news"> | string | null
     url?: StringNullableFilter<"news"> | string | null
     image?: StringNullableFilter<"news"> | string | null
   }, "id">
@@ -3947,8 +3999,10 @@ export namespace Prisma {
   export type newsOrderByWithAggregationInput = {
     id?: SortOrder
     date?: SortOrder
-    en?: SortOrder
-    jp?: SortOrder
+    titleEN?: SortOrder
+    descriptionEN?: SortOrder
+    titleJP?: SortOrder
+    descriptionJP?: SortOrder
     url?: SortOrder
     image?: SortOrder
     _count?: newsCountOrderByAggregateInput
@@ -3961,9 +4015,11 @@ export namespace Prisma {
     OR?: newsScalarWhereWithAggregatesInput[]
     NOT?: newsScalarWhereWithAggregatesInput | newsScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"news"> | string
-    date?: StringWithAggregatesFilter<"news"> | string
-    en?: JsonNullableWithAggregatesFilter<"news">
-    jp?: JsonNullableWithAggregatesFilter<"news">
+    date?: DateTimeWithAggregatesFilter<"news"> | Date | string
+    titleEN?: StringWithAggregatesFilter<"news"> | string
+    descriptionEN?: StringNullableWithAggregatesFilter<"news"> | string | null
+    titleJP?: StringWithAggregatesFilter<"news"> | string
+    descriptionJP?: StringNullableWithAggregatesFilter<"news"> | string | null
     url?: StringNullableWithAggregatesFilter<"news"> | string | null
     image?: StringNullableWithAggregatesFilter<"news"> | string | null
   }
@@ -4060,59 +4116,73 @@ export namespace Prisma {
 
   export type newsCreateInput = {
     id?: string
-    date: string
-    en?: InputJsonValue | null
-    jp?: InputJsonValue | null
+    date: Date | string
+    titleEN: string
+    descriptionEN?: string | null
+    titleJP: string
+    descriptionJP?: string | null
     url?: string | null
     image?: string | null
   }
 
   export type newsUncheckedCreateInput = {
     id?: string
-    date: string
-    en?: InputJsonValue | null
-    jp?: InputJsonValue | null
+    date: Date | string
+    titleEN: string
+    descriptionEN?: string | null
+    titleJP: string
+    descriptionJP?: string | null
     url?: string | null
     image?: string | null
   }
 
   export type newsUpdateInput = {
-    date?: StringFieldUpdateOperationsInput | string
-    en?: InputJsonValue | InputJsonValue | null
-    jp?: InputJsonValue | InputJsonValue | null
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    titleEN?: StringFieldUpdateOperationsInput | string
+    descriptionEN?: NullableStringFieldUpdateOperationsInput | string | null
+    titleJP?: StringFieldUpdateOperationsInput | string
+    descriptionJP?: NullableStringFieldUpdateOperationsInput | string | null
     url?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type newsUncheckedUpdateInput = {
-    date?: StringFieldUpdateOperationsInput | string
-    en?: InputJsonValue | InputJsonValue | null
-    jp?: InputJsonValue | InputJsonValue | null
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    titleEN?: StringFieldUpdateOperationsInput | string
+    descriptionEN?: NullableStringFieldUpdateOperationsInput | string | null
+    titleJP?: StringFieldUpdateOperationsInput | string
+    descriptionJP?: NullableStringFieldUpdateOperationsInput | string | null
     url?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type newsCreateManyInput = {
     id?: string
-    date: string
-    en?: InputJsonValue | null
-    jp?: InputJsonValue | null
+    date: Date | string
+    titleEN: string
+    descriptionEN?: string | null
+    titleJP: string
+    descriptionJP?: string | null
     url?: string | null
     image?: string | null
   }
 
   export type newsUpdateManyMutationInput = {
-    date?: StringFieldUpdateOperationsInput | string
-    en?: InputJsonValue | InputJsonValue | null
-    jp?: InputJsonValue | InputJsonValue | null
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    titleEN?: StringFieldUpdateOperationsInput | string
+    descriptionEN?: NullableStringFieldUpdateOperationsInput | string | null
+    titleJP?: StringFieldUpdateOperationsInput | string
+    descriptionJP?: NullableStringFieldUpdateOperationsInput | string | null
     url?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type newsUncheckedUpdateManyInput = {
-    date?: StringFieldUpdateOperationsInput | string
-    en?: InputJsonValue | InputJsonValue | null
-    jp?: InputJsonValue | InputJsonValue | null
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    titleEN?: StringFieldUpdateOperationsInput | string
+    descriptionEN?: NullableStringFieldUpdateOperationsInput | string | null
+    titleJP?: StringFieldUpdateOperationsInput | string
+    descriptionJP?: NullableStringFieldUpdateOperationsInput | string | null
     url?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
   }
@@ -4250,11 +4320,24 @@ export namespace Prisma {
     enData?: SortOrder
   }
 
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
   export type newsCountOrderByAggregateInput = {
     id?: SortOrder
     date?: SortOrder
-    en?: SortOrder
-    jp?: SortOrder
+    titleEN?: SortOrder
+    descriptionEN?: SortOrder
+    titleJP?: SortOrder
+    descriptionJP?: SortOrder
     url?: SortOrder
     image?: SortOrder
   }
@@ -4262,6 +4345,10 @@ export namespace Prisma {
   export type newsMaxOrderByAggregateInput = {
     id?: SortOrder
     date?: SortOrder
+    titleEN?: SortOrder
+    descriptionEN?: SortOrder
+    titleJP?: SortOrder
+    descriptionJP?: SortOrder
     url?: SortOrder
     image?: SortOrder
   }
@@ -4269,8 +4356,26 @@ export namespace Prisma {
   export type newsMinOrderByAggregateInput = {
     id?: SortOrder
     date?: SortOrder
+    titleEN?: SortOrder
+    descriptionEN?: SortOrder
+    titleJP?: SortOrder
+    descriptionJP?: SortOrder
     url?: SortOrder
     image?: SortOrder
+  }
+
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -4280,6 +4385,10 @@ export namespace Prisma {
   export type NullableStringFieldUpdateOperationsInput = {
     set?: string | null
     unset?: boolean
+  }
+
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -4379,6 +4488,31 @@ export namespace Prisma {
     _min?: NestedStringNullableFilter<$PrismaModel>
     _max?: NestedStringNullableFilter<$PrismaModel>
     isSet?: boolean
+  }
+
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
 

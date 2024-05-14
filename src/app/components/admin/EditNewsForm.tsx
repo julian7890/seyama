@@ -1,22 +1,13 @@
 "use client";
-import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
-export default function CreateNews() {
+export default function EditNewsForm({ news }: any) {
   const router = useRouter();
-  const today = new Date();
   const [uploadData, setUploadData]: any = useState();
-  const [imageSrc, setImageSrc]: any = useState();
-  const [formData, setFormData]: any = useState({
-    date: today,
-    titleJP: "",
-    descriptionJP: "",
-    titleEN: "",
-    descriptionEN: "",
-    url: "",
-    image: "",
-  });
+  const [imageSrc, setImageSrc]: any = useState(news.image);
+  const [formData, setFormData]: any = useState(news);
 
   const inputHandler = (e: any) => {
     const fieldName = e.target.name;
@@ -25,6 +16,24 @@ export default function CreateNews() {
       ...prevState,
       [fieldName]: fieldValue,
     }));
+  };
+
+  const deleteHandler = (e: any) => {
+    e.preventDefault();
+    const deleteNews = async () => {
+      const res = await fetch("/api/news", {
+        method: "DELETE",
+        body: JSON.stringify(formData.id),
+      });
+    };
+    if (
+      confirm(
+        `このニュースを削除しますか？\n Are you sure you want to delete this news?`
+      )
+    ) {
+      deleteNews();
+      router.push("/admin/news");
+    }
   };
 
   const data = new FormData();
@@ -47,10 +56,10 @@ export default function CreateNews() {
       "https://api.cloudinary.com/v1_1/dfqqteckl/image/upload",
       { method: "POST", body: data }
     ).then((r) => r.json());
-    console.log(response);
+
     formData.image = response.secure_url;
 
-    const newsEntry = async () => {
+    const newsEdit = async () => {
       const res = await fetch("/api/news/", {
         method: "POST",
         body: JSON.stringify(formData),
@@ -60,14 +69,14 @@ export default function CreateNews() {
         router.push("/admin/news");
       }
     };
-    newsEntry();
+    newsEdit();
   };
 
   return (
     <div className="min-h-svh">
       <div className="flex flex-col items-center p-4 text-2xl">
-        <div>新規ニュース作成</div>
-        <div>Create News</div>
+        <div>ニュース編集</div>
+        <div>Edit News</div>
       </div>
       <form className="w-full flex flex-col justify-center items-center">
         <div className="w-fit flex flex-col gap-4 p-4">
@@ -80,7 +89,7 @@ export default function CreateNews() {
               )}
             </div>
 
-            <label htmlFor="img">画像</label>
+            <label htmlFor="img">画像変更</label>
             <input
               type="file"
               id="img"
@@ -142,14 +151,24 @@ export default function CreateNews() {
           </div>
         </div>
       </form>
-      <div className="flex flex-col justify-center items-center gap-8 pb-8 pt-16">
+
+      <div className="flex justify-center gap-10 pt-12 ">
         <button
-          className="bg-green-800 hover:bg-green-700 px-4 py-2 rounded-md text-white"
+          className="bg-amber-200 hover:bg-amber-100 px-4 py-2 rounded-xl"
           onClick={formHandler}
         >
-          作成／Create
+          編集／Update
         </button>
 
+        <button
+          className="bg-red-600/70 hover:bg-red-600 text-white px-4 py-2 rounded-xl"
+          onClick={deleteHandler}
+        >
+          削除／Delete
+        </button>
+      </div>
+
+      <div className="flex justify-center pt-12 pb-8">
         <Link href={"/admin/news"}>
           <div className="bg-amber-500 hover:bg-amber-500/80 rounded-xl px-4 py-2">
             戻る

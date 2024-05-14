@@ -10,9 +10,20 @@ const hiragino = localFont({
 
 type propType = {
   language: string;
+  newsData: any;
 };
 
-export default function News({ language }: propType) {
+export default function News({ language, newsData }: propType) {
+  const newsList = [];
+
+  for (let news of newsData) {
+    newsList.push(
+      <div key={news.id} className="px-2">
+        <NewsCard news={news} language={language} />
+      </div>
+    );
+  }
+
   return (
     <div className={`${classes.bgViolin} `}>
       <div className="sticky top-0 left-0">
@@ -27,34 +38,13 @@ export default function News({ language }: propType) {
           <div
             className={`absolute top-0 translate-y-1/2 text-3xl transition duration-1000 ${
               hiragino.className
-            } ${language == "english" ? "opacity-0" : "opacity-190"}`}
+            } ${language == "english" ? "opacity-0" : "opacity-100"}`}
           >
             ニュース
           </div>
         </div>
-        <div className="flex flex-wrap justify-around gap-4 py-8">
-          <NewsCard
-            title={"First Blog"}
-            date={"4/28/24"}
-            pic={"/resources/img/outshot.jpg"}
-          />
-          <NewsCard
-            title={"Second Blog"}
-            date={"4/29/24"}
-            pic={"/resources/img/archway.webp"}
-          />
-          <NewsCard
-            title={"Third Blog"}
-            date={"4/30/24"}
-            pic={"/resources/img/headshot1.jpeg"}
-          />
-          <NewsCard
-            title={"Fourth Blog"}
-            date={"5/1/24"}
-            pic={"/resources/img/sofa.jpg"}
-          />
-        </div>
       </div>
+      <div className="flex justify-around gap-4 py-8">{newsList}</div>
     </div>
   );
 }

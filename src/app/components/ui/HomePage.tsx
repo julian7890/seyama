@@ -8,7 +8,7 @@ import News from "../news/News";
 import Bio from "../bio/Bio";
 import Navbar from "./Navbar";
 
-export default function HomePage({ bioData }: any) {
+export default function HomePage({ bioData, newsData }: any) {
   const [show, setShow] = useState(false);
   const [language, setLanguage] = useState("english");
   const [slide, setSlide] = useState(0);
@@ -186,7 +186,7 @@ export default function HomePage({ bioData }: any) {
         }`}
         id="news"
       >
-        <News language={language} />
+        <News language={language} newsData={newsData} />
         <Footer />
       </div>
     </div>

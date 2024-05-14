@@ -23,10 +23,12 @@ model profile {
 }
 
 model news {
-  id    String  @id @default(auto()) @map("_id") @db.ObjectId
-  date  String
-  en    Json?
-  jp    Json?
-  url   String?
-  image String?
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  date          DateTime
+  titleEN       String
+  descriptionEN String?
+  titleJP       String
+  descriptionJP String?
+  url           String?
+  image         String?
 }

@@ -129,8 +129,10 @@ exports.Prisma.ProfileScalarFieldEnum = {
 exports.Prisma.NewsScalarFieldEnum = {
   id: 'id',
   date: 'date',
-  en: 'en',
-  jp: 'jp',
+  titleEN: 'titleEN',
+  descriptionEN: 'descriptionEN',
+  titleJP: 'titleJP',
+  descriptionJP: 'descriptionJP',
   url: 'url',
   image: 'image'
 };

@@ -9,22 +9,21 @@ export async function GET(request: any) {
 
 export async function POST(req: any) {
   const res = await req.json();
-  console.log(res);
-  return NextResponse.json(res);
-  //   if (!res.id) {
-  //     const result = await prisma.news.create({
-  //       data: res,
-  //     });
-  //     revalidatePath("/admin/news")
-  //     return NextResponse.json(result);
-  //   } else {
-  //     const result = await prisma.news.update({
-  //       where: { id: res.id },
-  //       data: { ...res, id: undefined },
-  //     });
-  //     revalidatePath("/admin/news");
-  //     return NextResponse.json(result);
-  //   }
+  if (!res.id) {
+    const result = await prisma.news.create({
+      data: res,
+    });
+    revalidatePath("/admin/news");
+    return NextResponse.json(result);
+  } else {
+    const result = await prisma.news.update({
+      where: { id: res.id },
+      data: { ...res, id: undefined },
+    });
+    revalidatePath("/admin/news", "page");
+    revalidatePath(`/admin/news/[id]`, "page");
+    return NextResponse.json(result);
+  }
 }
 
 export async function DELETE(req: any) {

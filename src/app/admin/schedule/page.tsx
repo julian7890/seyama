@@ -30,12 +30,12 @@ export default function EditSchedule() {
           <div className="flex flex-col">
             <div className="p-4">
               {schedule.jp.description
-                ? schedule.jp.description
+                ? schedule.jp.description?.replace(/<br>/g, "")
                 : "-"}
             </div>
             <div className="p-4">
               {schedule.en.description
-                ? schedule.en.description?.replace("<br>", "")
+                ? schedule.en.description?.replace(/<br>/g, "")
                 : "-"}
             </div>
           </div>
@@ -46,7 +46,9 @@ export default function EditSchedule() {
 
   return (
     <div className="min-h-svh">
-      <div className="text-center text-2xl py-4 px-2">スケジュール編集 / Schedule Edit</div>
+      <div className="text-center text-2xl py-4 px-2">
+        スケジュール編集 / Schedule Edit
+      </div>
       <div className="flex flex-col justify-center items-center p-4">
         {scheduleList}
       </div>

@@ -20,7 +20,7 @@ export default function ScheduleCard({ schedule, language }: any) {
     if (!str) return "";
     const resultArr = [];
     const splitString = str.split("<br>");
-    console.log(splitString);
+    // console.log(splitString);
     let keyInd = 0;
 
     for (let section of splitString) {

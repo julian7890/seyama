@@ -1,10 +1,29 @@
 import Link from "next/link";
 
-export default function EditNews() {
+export default function EditNews({ newsData }: any) {
+  const newsList = [];
+  for (let news of newsData) {
+    newsList.push(
+      <Link href={`/admin/news/${news.id}`} key={news.id}>
+        <div
+          className="flex items-center border-stone-800 border bg-amber-200/30 hover:bg-amber-100/30"
+          key={news.id}
+        >
+          <div className="p-4">{news.date.toLocaleDateString()}</div>
+          <div className="flex flex-col">
+            <div className="p-4">{news.titleJP ? news.titleJP : "-"}</div>
+            <div className="p-4">
+              {news.titleEN ? news.titleEN?.replace("<br>", "") : "-"}
+            </div>
+          </div>
+        </div>
+      </Link>
+    );
+  }
   return (
     <div className="h-svh">
       <div className="p-4 text-2xl text-center">ニュース編集 / News Edit</div>
-
+      <div>{newsList}</div>
       <div className="flex justify-center pt-8">
         <Link href={"/admin/news/new"}>
           <div className="bg-amber-500 hover:bg-amber-500/80 rounded-xl px-4 py-2">
