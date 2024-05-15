@@ -17,7 +17,7 @@ export default function Title({ show, onLanguageChange, language }: any) {
     <div
       className={`${
         seasons.className
-      }  flex flex-col bg-gradient-to-b from-black to-black/20 pl-2 pt-6 md:text-6xl lg:text-8xl transition duration-1000 ${
+      }  flex flex-col bg-gradient-to-b from-black to-black/20 pl-2 pt-6 md:text-6xl lg:text-7xl transition duration-1000 ${
         show ? "opacity-100" : "opacity-0"
       }`}
     >

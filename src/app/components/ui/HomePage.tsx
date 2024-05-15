@@ -96,6 +96,7 @@ export default function HomePage({ bioData, newsData, scheduleData }: any) {
             width={1920}
             height={1080}
             alt="seyama3"
+            priority
             className={`w-full absolute transition duration-700 ${
               slide == 1 ? "inline-block translate-x-0" : "translate-x-full"
             } ${slide > 1 ? " !-translate-x-full" : ""}`}
