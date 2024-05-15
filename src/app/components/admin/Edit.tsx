@@ -275,6 +275,7 @@ export default function EditSchedule({ schedule }: any) {
                 value={formData?.jp.location}
                 onChange={inputHandler}
               ></textarea>
+              <div className="text-center">{`文中に<br>を使って改行が行えます。`}</div>
             </div>
           </div>
           <div className="flex flex-col gap-2 items-center">
@@ -312,6 +313,7 @@ export default function EditSchedule({ schedule }: any) {
                 value={formData?.en.location}
                 onChange={inputHandler}
               ></textarea>
+              <div className="text-center">{`Use <br> to force line break.`}</div>
             </div>
           </div>
 
