@@ -113,13 +113,17 @@ export default function ScheduleCard({ schedule, language }: any) {
                   }`}
                 >
                   <div className="flex gap-1 items-baseline">
-                    <div className="text-4xl">
+                    <div className="text-4xl lg:text-6xl">
                       <div>{dateDay < 10 ? "0" + dateDay : dateDay}</div>
                     </div>
-                    <div className="text-2xl">{monthConverter(dateMonth)}</div>
+                    <div className="text-2xl lg:text-4xl">
+                      {monthConverter(dateMonth)}
+                    </div>
                   </div>
                   <hr />
-                  <div className="text-2xl text-center">{dateYear}</div>
+                  <div className="text-2xl lg:text-4xl text-center">
+                    {dateYear}
+                  </div>
                 </div>
               ) : (
                 <div
@@ -130,24 +134,26 @@ export default function ScheduleCard({ schedule, language }: any) {
                   <div className="flex flex-col items-center">
                     <div className="flex justify-center">
                       <div className="flex items-baseline">
-                        <div className="text-2xl">{dateMonth + 1}</div>
-                        <div className="text-xl">月</div>
+                        <div className="text-2xl lg:text-4xl">
+                          {dateMonth + 1}
+                        </div>
+                        <div className="text-xl lg:text-3xl">月</div>
                       </div>
 
                       <div className="flex items-baseline">
-                        <div className="text-2xl">{dateDay}</div>
-                        <div className="text-xl">日</div>
+                        <div className="text-2xl lg:text-4xl">{dateDay}</div>
+                        <div className="text-xl lg:text-3xl">日</div>
                       </div>
                     </div>
                     <hr className="border-t-slate-300 rounded-xl w-full" />
-                    <div className="text-2xl">{dateYear}</div>
+                    <div className="text-2xl lg:text-4xl">{dateYear}</div>
                   </div>
                 </div>
               )}
             </div>
 
             <div className="flex flex-col">
-              <div className="font-semibold pt-2">
+              <div className="font-semibold pt-2 lg:text-2xl">
                 {language == "english" ? (
                   <div>{formatEN(schedule.en.description)}</div>
                 ) : (
@@ -160,13 +166,13 @@ export default function ScheduleCard({ schedule, language }: any) {
                 <div>
                   <Image
                     src={"/resources/img/location.png"}
-                    width={20}
-                    height={20}
+                    width={40}
+                    height={40}
                     alt="location"
-                    className="min-w-5"
+                    className="min-w-5 lg:min-w-10"
                   />
                 </div>
-                <div>
+                <div className="lg:text-2xl">
                   {language == "english" ? (
                     <div className="w-fit flex flex-col">
                       {formatEN(schedule.en.location)}
@@ -183,7 +189,7 @@ export default function ScheduleCard({ schedule, language }: any) {
             </div>
           </div>
 
-          <div className="pt-4">
+          <div className="pt-4 lg:text-2xl">
             <table>
               {language == "english" ? (
                 <tbody>{schedule.en.performer ? performerListEN : ""}</tbody>
@@ -196,7 +202,7 @@ export default function ScheduleCard({ schedule, language }: any) {
           </div>
 
           {schedule.url ? (
-            <div className="w-full flex justify-end items-center pt-4 font-semibold text-2xl text-amber-600">
+            <div className="w-full flex justify-end items-center pt-4 font-semibold text-2xl lg:text-4xl text-amber-600">
               <a href={schedule.url} target="_blank">
                 <div className="flex items-center  hover:translate-x-2 transition duration-200 select-none">
                   <div className="relative flex justify-end items-center">
@@ -208,7 +214,7 @@ export default function ScheduleCard({ schedule, language }: any) {
                       Tickets and Info
                     </div>
                     <div
-                      className={`absolute text-xl transition duration-1000 pb-[3px] ${
+                      className={`absolute text-xl lg:text-3xl transition duration-1000 pb-[3px] ${
                         hiragino.className
                       } ${language == "english" ? "opacity-0" : "opacity-100"}`}
                     >
@@ -216,7 +222,7 @@ export default function ScheduleCard({ schedule, language }: any) {
                     </div>
                   </div>
                   <div
-                    className={`${classes.arrow} w-8 h-8 bg-amber-600`}
+                    className={`${classes.arrow} w-8 lg:w-12 h-8 lg:h-12 bg-amber-600`}
                   ></div>
                 </div>
               </a>

@@ -71,13 +71,13 @@ export default function HomePage({ bioData, newsData, scheduleData }: any) {
           show ? "opacity-100" : "opacity-0"
         }`}
       >
-        <div className="relative flex bg-black overflow-hidden">
+        <div className="relative flex justify-center bg-black overflow-hidden">
           <Image
             src="/resources/img/top1.jpg"
             width={1920}
             height={1080}
             alt="seyama1"
-            className={`w-full transition duration-700 ${
+            className={`w-full landscape:w-2/3 transition duration-700 ${
               slide == 0 ? "inline-block translate-x-0" : ""
             } ${slide > 0 ? "-translate-x-full" : ""}`}
             priority
@@ -136,7 +136,7 @@ export default function HomePage({ bioData, newsData, scheduleData }: any) {
             language={language}
           />
           <div
-            className={`absolute flex justify-between bottom-2 left-2 text-xl w-10 transition duration-1000 delay-1000 ${
+            className={`absolute flex justify-between bottom-2 left-2 text-xl lg:text-4xl lg:gap-8 w-10 transition duration-1000 delay-1000 ${
               show ? "opacity-100" : "opacity-0"
             }`}
           >

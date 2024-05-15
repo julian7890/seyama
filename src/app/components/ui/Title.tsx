@@ -17,7 +17,7 @@ export default function Title({ show, onLanguageChange, language }: any) {
     <div
       className={`${
         seasons.className
-      }  flex flex-col bg-gradient-to-b from-black to-black/20 pl-2 pt-6 transition duration-1000 ${
+      }  flex flex-col bg-gradient-to-b from-black to-black/20 pl-2 pt-6 md:text-6xl lg:text-8xl transition duration-1000 ${
         show ? "opacity-100" : "opacity-0"
       }`}
     >
@@ -33,12 +33,12 @@ export default function Title({ show, onLanguageChange, language }: any) {
         <div
           className={`${
             zen.className
-          } px-8 font-bold absolute top-0 transition duration-1000 ${
+          } px-8 font-bold absolute top-0 transition duration-1000 md:w-full md:text-center ${
             language == "japanese" ? "opacity-100" : "opacity-0"
           }`}
         >
-          <div>瀬山</div>
-          <div className="pl-8">智博</div>
+          <div className="md:pr-12 lg:pr-20">瀬山</div>
+          <div className="pl-8 md:pl-14 lg:pl-24">智博</div>
         </div>
       </div>
       <div

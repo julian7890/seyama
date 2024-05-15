@@ -27,7 +27,7 @@ export default function News({ language, newsData }: propType) {
   return (
     <div className={`${classes.bgViolin} `}>
       <div className="sticky top-0 left-0">
-        <div className="text-4xl text-white text-center pt-4 flex justify-center">
+        <div className="text-4xl lg:text-6xl text-white text-center pt-4 flex justify-center">
           <div
             className={`transition duration-1000 ${
               language == "english" ? "opacity-100" : "opacity-0"
@@ -36,7 +36,7 @@ export default function News({ language, newsData }: propType) {
             Latest News
           </div>
           <div
-            className={`absolute top-0 translate-y-1/2 text-3xl transition duration-1000 ${
+            className={`absolute top-0 translate-y-1/2 text-3xl lg:text-5xl transition duration-1000 ${
               hiragino.className
             } ${language == "english" ? "opacity-0" : "opacity-100"}`}
           >

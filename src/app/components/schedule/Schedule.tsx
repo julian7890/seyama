@@ -97,12 +97,12 @@ export default function Schedule({ language, scheduleData }: propsType) {
         <div
           className={`transition duration-1000 ${
             language == "english" ? "opacity-100" : "opacity-0"
-          } pb-2 w-32 text-3xl leading-6`}
+          } pb-2 w-32 text-3xl lg:text-6xl leading-6`}
         >
           Upcoming Performances
         </div>
         <div
-          className={`absolute text-2xl transition duration-1000 pt-2 ${
+          className={`absolute text-2xl lg:text-5xl transition duration-1000 pt-2 lg:pt-8 ${
             hiragino.className
           } ${language == "english" ? "opacity-0" : "opacity-100"}`}
         >
@@ -123,7 +123,7 @@ export default function Schedule({ language, scheduleData }: propsType) {
         </div>
       </ul>
       {pageCount > 1 ? (
-        <div className="flex justify-center gap-8 pt-2 text-amber-600">
+        <div className="flex justify-center gap-8 pt-2 text-amber-600 md:text-3xl md:gap-12">
           <button
             onClick={decPage}
             className={`px-2 py-1 ${currentPage == 0 ? "opacity-50" : ""}`}

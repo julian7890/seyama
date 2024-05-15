@@ -20,10 +20,10 @@ export default function NewsDetail({ news, language }: any) {
             height={600}
           />
           <div className="max-w-[600px]">
-            <div className="text-lg font-semibold text-center">
+            <div className="text-lg lg:text-2xl font-semibold text-center">
               {language == "english" ? news?.titleEN : news?.titleJP}
             </div>
-            <div className="py-4">
+            <div className="p-4 lg:text-xl">
               {language == "english"
                 ? news?.descriptionEN
                 : news?.descriptionJP}
@@ -31,7 +31,7 @@ export default function NewsDetail({ news, language }: any) {
           </div>
         </div>
         {news.url ? (
-          <div className="w-full flex justify-end items-center pt-4 font-semibold text-2xl text-amber-600">
+          <div className="w-full flex justify-end items-center pt-4 font-semibold text-2xl lg:text-3xl text-amber-600">
             <a href={news.url} target="_blank">
               <div className="flex items-center hover:translate-x-2 transition duration-200 select-none">
                 <div className="flex justify-end items-center">
@@ -43,7 +43,7 @@ export default function NewsDetail({ news, language }: any) {
                     Additonal Info
                   </div>
                   <div
-                    className={`absolute text-xl transition duration-1000 pb-[3px] ${
+                    className={`absolute text-xl lg:text-2xl transition duration-1000 pb-[3px] ${
                       hiragino.className
                     } ${language == "english" ? "opacity-0" : "opacity-100"}`}
                   >

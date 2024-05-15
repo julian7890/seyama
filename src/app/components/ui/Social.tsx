@@ -6,7 +6,7 @@ import instagramIcon from "../../../../public/resources/img/Instagram_Glyph_Grad
 
 export default function Social() {
   return (
-    <div className="flex justify-around pt-8">
+    <div className="flex justify-around lg:justify-end lg:gap-16 lg:px-16 pt-8">
       <a
         href={"https://www.facebook.com/profile.php?id=100018508096709"}
         target="_blank"

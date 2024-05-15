@@ -20,7 +20,7 @@ export default function Navbar({ language }: propType) {
   };
 
   return (
-    <div className="flex justify-around bg-black text-white text-2xl py-2">
+    <div className="flex justify-around bg-black text-white text-2xl lg:text-5xl py-2 lg:pb-4">
       <button value="schedule" onClick={handleScroll}>
         <div className="pointer-events-none flex justify-center">
           <div
@@ -31,7 +31,7 @@ export default function Navbar({ language }: propType) {
             Schedule
           </div>
           <div
-            className={`top-0 text-lg transition duration-1000 ${
+            className={`top-0 text-lg lg:text-3xl transition duration-1000 ${
               hiragino.className
             } ${language == "english" ? "opacity-0" : "opacity-100"}`}
           >
@@ -49,7 +49,7 @@ export default function Navbar({ language }: propType) {
             Bio
           </div>
           <div
-            className={`top-0 text-lg transition duration-1000 ${
+            className={`top-0 text-lg lg:text-3xl  transition duration-1000 ${
               hiragino.className
             } ${language == "english" ? "opacity-0" : "opacity-100"}`}
           >
@@ -67,7 +67,7 @@ export default function Navbar({ language }: propType) {
             News
           </div>
           <div
-            className={`top-0 text-lg transition duration-1000 ${
+            className={`top-0 text-lg lg:text-3xl transition duration-1000 ${
               hiragino.className
             }  ${language == "english" ? "opacity-0" : "opacity-100"}`}
           >

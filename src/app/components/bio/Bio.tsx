@@ -29,28 +29,28 @@ export default function Bio({ language, bioData }: any) {
     <div className="w-full relative overflow-y-auto">
       <div className="sticky top-0 -z-10">
         <Image src={bioPhoto} alt="bio" priority />
-        <div className="absolute top-6 right-2">
+        <div className="absolute w-full top-6 lg:top-10 right-2 lg:right-12">
           <div
-            className={`"absolute w-full text-end px-4 text-4xl transition duration-700 ${
+            className={`"absolute w-full text-end px-4 text-4xl lg:text-7xl transition duration-700 ${
               language == "english" ? "opacity-100" : "opacity-0"
             }`}
           >
             Biography
           </div>
           <div
-            className={`absolute top-2 w-full text-end px-4 text-2xl transition duration-700  ${
+            className={`absolute top-2 w-full text-end px-4 text-2xl lg:text-6xl transition duration-700  ${
               language == "english" ? "opacity-0" : "opacity-100"
             } ${hiragino.className}`}
           >
             <div>プロフィール</div>
-            <div className="text-base">瀬山 智博 / 指揮者</div>
+            <div className="text-base lg:text-3xl">瀬山 智博 / 指揮者</div>
           </div>
         </div>
       </div>
 
-      <div className={`absolute top-0 w-1/2 h-full pb-4`}>
+      <div className={`absolute top-0 w-1/2 h-full pb-4 md:pr-10`}>
         <div
-          className={`flex flex-col gap-8 p-4 pt-8 transition duration-700 ${
+          className={`flex flex-col gap-8 p-4 lg:p-20 pt-8 lg:pt-32 transition duration-700 lg:text-3xl lg:leading-relaxed ${
             garamond.className
           } ${
             language == "english"
@@ -117,11 +117,12 @@ export default function Bio({ language, bioData }: any) {
           {bioEN}
         </div>
         <div
-          className={`flex flex-col absolute top-0 gap-8 p-4 pt-8 pb-10 transition duration-700 text-sm ${
+          className={`flex flex-col absolute top-0 gap-8 p-4 lg:p-20 pt-8 lg:pt-32 pb-10 lg:pb-40 transition duration-700 text-sm lg:text-3xl lg:leading-relaxed md:pr-10 lg:pr-24 ${
             hiragino.className
           } ${language == "english" ? "opacity-0" : "opacity-100"}`}
         >
-          <div>
+          {bioJP}
+          {/* <div>
             ３歳よりメキシコシティで音楽教育を受け始める。大阪音楽大学ピアノ科およびウィーン国立音楽大学指揮科卒業。2008年にドイツのアーヘン市立歌劇場コレペティトールとして活動を始め、ウィーンのシェーンブルン宮殿歌劇場でモーツァルト「ドン・ジョヴァンニ」を指揮してデビュー。
           </div>
           <div>
@@ -138,7 +139,7 @@ export default function Bio({ language, bioData }: any) {
           </div>
           <div>
             大阪音楽大学声楽科オペラ部門非常勤講師、名古屋音楽大学声楽科オペラ部門客員講師。2021年よりノマドオペラ音楽監督を務めている。
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
