@@ -169,7 +169,7 @@ export default function ScheduleCard({ schedule, language }: any) {
                     width={40}
                     height={40}
                     alt="location"
-                    className="min-w-5 lg:min-w-10"
+                    className="w-5 lg:w-10"
                   />
                 </div>
                 <div className="lg:text-2xl">
