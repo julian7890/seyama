@@ -6,8 +6,8 @@ import { Viewport } from "next";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Tomohiro Seyama",
-  description: "Profile page for conductor Tomohiro Seyama",
+  title: "Tomohiro Seyama / 瀬山智博",
+  description: "Profile page for conductor Tomohiro Seyama / 指揮者、瀬山智博のホームページ",
   icons: {
     icon: "/resources/img/favicon.ico",
   },
