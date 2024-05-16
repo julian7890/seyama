@@ -56,7 +56,7 @@ export default function Schedule({ language, scheduleData }: propsType) {
     }
   }
 
-  const paginationLimit = 2;
+  const paginationLimit = 3;
   const pageCount = Math.ceil(scheduleList.length / paginationLimit);
 
   if (currentPage > pageCount) {

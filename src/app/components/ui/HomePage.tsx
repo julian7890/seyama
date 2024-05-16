@@ -7,6 +7,7 @@ import Schedule from "../schedule/Schedule";
 import News from "../news/News";
 import Bio from "../bio/Bio";
 import Navbar from "./Navbar";
+// import classes from "./HomePage.module.css";
 
 export default function HomePage({ bioData, newsData, scheduleData }: any) {
   const [show, setShow] = useState(false);
@@ -65,7 +66,7 @@ export default function HomePage({ bioData, newsData, scheduleData }: any) {
   }, 1000);
 
   return (
-    <div className="relative min-h-[100svh] flex flex-col justify-start">
+    <div className={`"relative min-h-[100svh] flex flex-col justify-start snap-y snap-mandatory`}>
       <div
         className={`w-full translate-x-0 duration-1000 ${
           show ? "opacity-100" : "opacity-0"
@@ -101,34 +102,6 @@ export default function HomePage({ bioData, newsData, scheduleData }: any) {
               slide == 1 ? "inline-block translate-x-0" : "translate-x-full"
             } ${slide > 1 ? " !-translate-x-full" : ""}`}
           />
-          {/* <Image
-            src="/resources/img/forest2_edit.jpg"
-            width={1920}
-            height={1080}
-            alt="seyama1"
-            className={`w-full transition duration-700 ${
-              slide == 0 ? "inline-block translate-x-0" : ""
-            } ${slide > 0 ? "-translate-x-full" : ""}`}
-            priority
-          />
-          <Image
-            src="/resources/img/headshot2.jpg"
-            width={1920}
-            height={1080}
-            alt="seyama2"
-            className={`w-full absolute transition duration-700 ${
-              slide == 1 ? "inline-block translate-x-0" : "translate-x-full"
-            } ${slide > 1 ? " !-translate-x-[200%]" : ""}`}
-          />
-          <Image
-            src="/resources/img/bwportrait6_edit.jpg"
-            width={1920}
-            height={1080}
-            alt="seyama3"
-            className={`w-full absolute transition duration-700 ${
-              slide == 2 ? "inline-block translate-x-0" : "translate-x-full"
-            } ${slide > 2 ? " !-translate-x-[200%]" : ""}`}
-          /> */}
         </div>
         <div className="flex absolute top-0 right-0 h-full w-fit justify-center text-4xl">
           <Title
@@ -166,20 +139,20 @@ export default function HomePage({ bioData, newsData, scheduleData }: any) {
       </div>
 
       <div
-        className={`flex flex-col justify-between h-fit transition duration-500 delay-[1300ms] scroll-mt-8 ${
+        className={`flex flex-col justify-between h-fit transition duration-500 delay-[1300ms] scroll-mt-8 bg-white ${
           show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
         id="schedule"
       >
         <Schedule language={language} scheduleData={scheduleData} />
-        <div
-          className={`transition duration-500 delay-[1600ms] scroll-mt-8 ${
-            show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
-          id="bio"
-        >
-          <Bio language={language} bioData={bioData} />
-        </div>
+      </div>
+      <div
+        className={`transition duration-500 delay-[1600ms] scroll-mt-8 lg:h-svh lg:overflow-hidden snap-start ${
+          show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }  `}
+        id="bio"
+      >
+        <Bio language={language} bioData={bioData} />
       </div>
       <div
         className={`transition duration-500 delay-[1900ms] scroll-mt-8 ${
