@@ -18,9 +18,9 @@ export default function NameAnimation() {
     setShow(true);
     setTimeout(() => {
       setPosition(true);
-      setTimeout(() => {
-        setFade(true);
-      }, 1000);
+      // setTimeout(() => {
+      //   setFade(true);
+      // }, 1000);
     }, 2000);
   }, 1500);
   //5000
