@@ -20,7 +20,7 @@ export default function Title({ show, onLanguageChange, language }: any) {
     >
       <div className="invert relative">
         <div
-          className={`transition duration-1000 pr-4 ${
+          className={`transition duration-1000 pr-3 m:pr-1 md:pt-1 ${
             language == "japanese" ? "opacity-0" : "opacity-100"
           }`}
         >
