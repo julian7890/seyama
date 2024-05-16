@@ -15,11 +15,8 @@ const seasons = localFont({
 export default function Title({ show, onLanguageChange, language }: any) {
   return (
     <div
-      className={`${
-        seasons.className
-      }  flex flex-col bg-gradient-to-b from-black to-black/20 pl-2 pt-6 md:text-6xl lg:text-7xl transition duration-1000 ${
-        show ? "opacity-100" : "opacity-0"
-      }`}
+      className={`${seasons.className}  flex flex-col bg-gradient-to-b from-black to-black/20 pl-2 pt-6 md:text-6xl lg:text-7xl transition duration-1000 
+      `}
     >
       <div className="invert relative">
         <div
