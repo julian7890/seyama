@@ -66,12 +66,11 @@ export default function HomePage({ bioData, newsData, scheduleData }: any) {
   }, 1000);
 
   return (
-    <div
-      className={`"relative min-h-[100svh] flex flex-col justify-start snap-y snap-mandatory`}
-    >
+    <div className={`"relative min-h-[100svh] flex flex-col justify-start snap-y snap-mandatory`}>
       <div
-        className={`w-full translate-x-0 duration-1000
-         `}
+        className={`w-full translate-x-0 transition duration-1000 ${
+          show ? "opacity-100" : "opacity-0"
+        }`}
       >
         <div className="relative flex justify-center bg-black overflow-hidden">
           <Image
