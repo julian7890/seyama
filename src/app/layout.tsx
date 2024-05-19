@@ -20,7 +20,7 @@ export const metadata: Metadata = {
       type: "image/png",
     },
   },
-  manifest: "www.tomohiroseyama.com/site.webmanifest",
+  // manifest: "www.tomohiroseyama.com/site.webmanifest",
 };
 
 export const viewport: Viewport = {
