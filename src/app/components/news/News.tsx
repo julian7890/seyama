@@ -18,7 +18,7 @@ export default function News({ language, newsData }: propType) {
 
   for (let news of newsData) {
     newsList.push(
-      <div key={news.id} className="px-2">
+      <div key={news.id} className="min-w-full px-2">
         <NewsCard news={news} language={language} />
       </div>
     );
@@ -47,9 +47,9 @@ export default function News({ language, newsData }: propType) {
       <div className="w-svw overflow-x-auto p-8">
         <div className="flex justify-around gap-4">
           {newsList}
-          {/* {newsList}
           {newsList}
-          {newsList} */}
+          {newsList}
+          {newsList}
         </div>
       </div>
     </div>
