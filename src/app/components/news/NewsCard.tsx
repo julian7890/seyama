@@ -17,7 +17,7 @@ export default function NewsCard({ news, language }: any) {
       }`}
       scroll={false}
     >
-      <div className="flex flex-col justify-center items-center bg-white rounded-md drop-shadow-xl hover:-translate-y-2 transition duration-100">
+      <div className="flex flex-col w-full md:w-fit justify-center items-center bg-white rounded-md drop-shadow-xl hover:-translate-y-2 transition duration-100">
         <div className="relative w-full h-48 lg:h-80 flex justify-center">
           <Image
             src={news.image}

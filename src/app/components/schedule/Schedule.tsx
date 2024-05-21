@@ -56,7 +56,7 @@ export default function Schedule({ language, scheduleData }: propsType) {
     }
   }
 
-  const paginationLimit = 2;
+  const paginationLimit = 1;
   const pageCount = Math.ceil(scheduleList.length / paginationLimit);
 
   if (currentPage > pageCount) {
@@ -71,8 +71,8 @@ export default function Schedule({ language, scheduleData }: propsType) {
         className={`min-w-full px-2 flex flex-wrap justify-around`}
         key={`pagination${i}`}
       >
-        {scheduleList[2 * i]}
-        {scheduleList[2 * i + 1]}
+        {scheduleList[i]}
+        {/* {scheduleList[2 * i + 1]} */}
       </div>
     );
   }
