@@ -28,25 +28,36 @@ export default function Bio({ language, bioData }: any) {
   formatBio(bioData.jpData, bioJP);
   return (
     <div className={`w-full`}>
-      <div className="absolute w-full top-6 lg:top-10 right-2 lg:right-12">
-        <div
-          className={`"absolute w-full text-end px-4 text-4xl lg:text-7xl transition duration-700 ${
-            language == "english" ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          Biography
+      <div className="sticky top-10 -z-10">
+        <div className="absolute h-svh w-full">
+          <Image
+            src={bioPhoto}
+            fill
+            className="object-cover lg:object-[50%,20%]"
+            alt="biophoto"
+          />
         </div>
-        <div
-          className={`absolute top-2 w-full text-end px-4 text-2xl lg:text-6xl transition duration-700  ${
-            language == "english" ? "opacity-0" : "opacity-100"
-          } ${hiragino.className}`}
-        >
-          <div>プロフィール</div>
-          <div className="text-base lg:text-3xl">瀬山 智博 / 指揮者</div>
+
+        <div className="absolute w-full top-6 lg:top-10 right-2 lg:right-12">
+          <div
+            className={`"absolute w-full text-end px-4 text-4xl lg:text-7xl transition duration-700 ${
+              language == "english" ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            Biography
+          </div>
+          <div
+            className={`absolute top-2 w-full text-end px-4 text-2xl lg:text-6xl transition duration-700  ${
+              language == "english" ? "opacity-0" : "opacity-100"
+            } ${hiragino.className}`}
+          >
+            <div>プロフィール</div>
+            <div className="text-base lg:text-3xl">瀬山 智博 / 指揮者</div>
+          </div>
         </div>
       </div>
 
-      <div className={`h-full pb-4 pr-[50vw]`}>
+      <div className={`h-full pb-4 pt-20 pr-[50vw]`}>
         <div
           className={`flex flex-col gap-8 p-4 lg:p-20 pt-8 lg:pt-32 transition duration-700 lg:text-3xl lg:leading-relaxed ${
             garamond.className

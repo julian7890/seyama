@@ -25,6 +25,11 @@ export default function EditNewsForm({ news }: any) {
         method: "DELETE",
         body: JSON.stringify(formData.id),
       });
+      const response = await res.json();
+      if (response) {
+        router.push("/admin/news");
+        router.refresh();
+      }
     };
     if (
       confirm(
@@ -32,7 +37,6 @@ export default function EditNewsForm({ news }: any) {
       )
     ) {
       deleteNews();
-      router.push("/admin/news");
     }
   };
 
@@ -64,9 +68,10 @@ export default function EditNewsForm({ news }: any) {
         method: "POST",
         body: JSON.stringify(formData),
       });
-      console.log(await res.json());
-      if (res) {
+      const response = await res.json();
+      if (response) {
         router.push("/admin/news");
+        router.refresh();
       }
     };
     newsEdit();

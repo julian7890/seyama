@@ -5,7 +5,8 @@ import Image from "next/image";
 import Footer from "../footer/Footer";
 import Schedule from "../schedule/Schedule";
 import News from "../news/News";
-import Bio from "../bio/Bio";
+// import Bio from "../bio/Bio";
+import Bio2 from "../bio/Bio2";
 import Navbar from "./Navbar";
 // import classes from "./HomePage.module.css";
 
@@ -66,7 +67,9 @@ export default function HomePage({ bioData, newsData, scheduleData }: any) {
   }, 1000);
 
   return (
-    <div className={`"relative min-h-[100svh] flex flex-col justify-start snap-y snap-mandatory`}>
+    <div
+      className={`"relative min-h-[100svh] flex flex-col justify-start snap-y snap-mandatory`}
+    >
       <div
         className={`w-full translate-x-0 transition duration-1000 ${
           show ? "opacity-100" : "opacity-0"
@@ -147,12 +150,13 @@ export default function HomePage({ bioData, newsData, scheduleData }: any) {
         <Schedule language={language} scheduleData={scheduleData} />
       </div>
       <div
-        className={`transition duration-500 delay-[1600ms] scroll-mt-8 lg:h-svh lg:overflow-hidden snap-start ${
+        className={`transition duration-500 delay-[1600ms] scroll-mt-8 snap-start ${
           show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }  `}
         id="bio"
       >
-        <Bio language={language} bioData={bioData} />
+        {/* <Bio language={language} bioData={bioData} /> */}
+        <Bio2 language={language} bioData={bioData} />
       </div>
       <div
         className={`transition duration-500 delay-[1900ms] scroll-mt-8 ${

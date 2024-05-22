@@ -7,6 +7,7 @@ export default function CreateNews() {
   const router = useRouter();
   const today = new Date();
   const [uploadData, setUploadData]: any = useState();
+  const [message, setMessage]: any = useState("");
   const [imageSrc, setImageSrc]: any = useState();
   const [formData, setFormData]: any = useState({
     date: today,
@@ -49,30 +50,40 @@ export default function CreateNews() {
     ).then((r) => r.json());
     console.log(response);
     formData.image = response.secure_url;
+    if (response.error) {
+      return setMessage(
+        <div className="flex flex-col justify-center items-center">
+          <span>画像ファイルが大きすぎるか存在しません。</span>
+          <span>The image files is too large or non-existent.</span>
+        </div>
+      );
+    }
 
     const newsEntry = async () => {
       const res = await fetch("/api/news/", {
         method: "POST",
         body: JSON.stringify(formData),
       });
-      console.log(await res.json());
-      if (res) {
+      const response = await res.json().then();
+      if (response) {
         router.push("/admin/news");
+        router.refresh();
       }
     };
+
     newsEntry();
   };
 
   return (
-    <div className="min-h-svh">
-      <div className="flex flex-col items-center p-4 text-2xl">
+    <div className="min-h-svh w-full flex flex-col items-center">
+      <div className="w-fit flex flex-col items-center p-4 text-2xl">
         <div>新規ニュース作成</div>
         <div>Create News</div>
       </div>
-      <form className="w-full flex flex-col justify-center items-center">
+      <form className="w-fit flex flex-col justify-center items-center">
         <div className="w-fit flex flex-col gap-4 p-4">
           <div className="flex flex-col">
-            <div className="flex justify-center">
+            <div className="max-w-screen-md flex justify-center">
               {imageSrc ? (
                 <img src={imageSrc} className="w-1/2" alt="uploadPic" />
               ) : (
@@ -142,7 +153,8 @@ export default function CreateNews() {
           </div>
         </div>
       </form>
-      <div className="flex flex-col justify-center items-center gap-8 pb-8 pt-16">
+      <div className="flex flex-col justify-center items-center gap-8 pb-8 pt-5">
+        <div className="text-red-800 text-center">{message}</div>
         <button
           className="bg-green-800 hover:bg-green-700 px-4 py-2 rounded-md text-white"
           onClick={formHandler}
