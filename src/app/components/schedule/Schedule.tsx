@@ -112,7 +112,7 @@ export default function Schedule({ language, scheduleData }: propsType) {
       <ul className={`w-full overflow-x-hidden`}>
         {/* {scheduleList} */}
         <div
-          className={`w-full flex transition duration-700`}
+          className={`w-full flex items-center transition duration-700`}
           style={{
             transform: `${
               currentPage > 0 ? `translateX(-${currentPage * 100}%)` : ""
