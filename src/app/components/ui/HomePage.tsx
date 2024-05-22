@@ -8,6 +8,7 @@ import News from "../news/News";
 // import Bio from "../bio/Bio";
 import Bio2 from "../bio/Bio2";
 import Navbar from "./Navbar";
+import Contact from "../contact/Contact";
 // import classes from "./HomePage.module.css";
 
 export default function HomePage({ bioData, newsData, scheduleData }: any) {
@@ -166,8 +167,16 @@ export default function HomePage({ bioData, newsData, scheduleData }: any) {
       >
         <News language={language} newsData={newsData} />
       </div>
-      <div
+      {/* <div
         className={`mt-auto transition duration-500 delay-[2200ms] scroll-mt-8 ${
+          show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}
+        id="contact"
+      >
+        <Contact />
+      </div> */}
+      <div
+        className={`mt-auto transition duration-500 delay-[2500ms] scroll-mt-8 ${
           show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
         id="footer"

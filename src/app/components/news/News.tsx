@@ -16,7 +16,7 @@ type propType = {
   newsData: any;
 };
 
-const DRAG_BUFFER = 50;
+const DRAG_BUFFER = 40;
 
 export default function News({ language, newsData }: propType) {
   const [newsIndex, setNewsIndex] = useState(0);
@@ -46,7 +46,7 @@ export default function News({ language, newsData }: propType) {
     const x = dragX.get();
     if (x <= -DRAG_BUFFER && newsIndex < newsList.length - 1) {
       setNewsIndex((prevState) => prevState + 1);
-    } else if (x >= -DRAG_BUFFER + 25 && newsIndex > 0) {
+    } else if (x >= -DRAG_BUFFER + 15 && newsIndex > 0) {
       setNewsIndex((prevState) => prevState - 1);
     }
   };

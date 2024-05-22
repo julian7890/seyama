@@ -93,7 +93,7 @@ export default function Schedule({ language, scheduleData }: propsType) {
     }
   };
 
-  const DRAG_BUFFER = 50;
+  const DRAG_BUFFER = 40;
   const dragX = useMotionValue(0);
 
   const onDragStart = () => {
@@ -105,7 +105,7 @@ export default function Schedule({ language, scheduleData }: propsType) {
     const x = dragX.get();
     if (x <= -DRAG_BUFFER && currentPage < pageCount - 1) {
       setCurrentPage((prevState) => prevState + 1);
-    } else if (x >= -DRAG_BUFFER + 25 && currentPage > 0) {
+    } else if (x >= -DRAG_BUFFER + 15 && currentPage > 0) {
       setCurrentPage((prevState) => prevState - 1);
     }
   };
