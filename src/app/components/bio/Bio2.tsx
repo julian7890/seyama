@@ -29,7 +29,7 @@ export default function Bio({ language, bioData }: any) {
   return (
     <div className={`w-full`}>
       <div className="sticky top-10 -z-10">
-        <div className="absolute h-svh w-full">
+        <div className="absolute h-screen w-full">
           <Image
             src={bioPhoto}
             fill
