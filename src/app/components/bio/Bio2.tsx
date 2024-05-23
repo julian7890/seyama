@@ -35,6 +35,7 @@ export default function Bio({ language, bioData }: any) {
             fill
             className="object-cover lg:object-[50%,20%]"
             alt="biophoto"
+            priority
           />
         </div>
 

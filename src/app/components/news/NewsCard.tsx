@@ -19,7 +19,7 @@ export default function NewsCard({ news, language }: any) {
         className="w-full"
         scroll={false}
       >
-        <div className="relative min-w-80 w-full h-48 lg:h-80 flex justify-center">
+        <div className="relative w-full h-48 lg:h-80 flex justify-center">
           <Image
             src={news.image}
             alt={news.image}
