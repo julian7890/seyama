@@ -41,7 +41,7 @@ export default function Contact({ language }: propType) {
     //   message: messageRef.current?.value,
     // };
 
-    // if (data.name == "" || data.email == "") setSending(true);
+    setSending(true);
     const res = fetch("/api/contact", {
       method: "POST",
       body: JSON.stringify(data),
@@ -54,6 +54,7 @@ export default function Contact({ language }: propType) {
       setSent(true);
       reset();
     } else if (!response.ok) {
+      setSending(false);
       setError(true);
     }
   };
@@ -88,7 +89,7 @@ export default function Contact({ language }: propType) {
             <input
               type="text"
               id="name"
-              className={`text-black text-2xl`}
+              className={`text-black text-xl`}
               autoComplete="name"
               {...register("name", {
                 required: true,
@@ -116,7 +117,7 @@ export default function Contact({ language }: propType) {
             <input
               type="email"
               id="email"
-              className="text-black text-2xl"
+              className="text-black text-xl"
               autoComplete="email"
               {...register("email", {
                 required: true,
@@ -150,7 +151,7 @@ export default function Contact({ language }: propType) {
             <textarea
               id="message"
               style={{ resize: "none" }}
-              className="text-black text-2xl h-20 lg:h-32"
+              className="text-black text-lg h-20 lg:h-32"
               {...register("message", {
                 required: true,
               })}
@@ -170,9 +171,7 @@ export default function Contact({ language }: propType) {
             disabled={sending || sent ? true : false}
           >
             {error
-              ? `${
-                  language == "english" ? "Try Again" : "もう一度お試しください"
-                }`
+              ? `${language == "english" ? "Service Down" : "送信失敗"}`
               : sent
               ? `${language == "english" ? "Message Sent" : "送信完了"}`
               : sending
