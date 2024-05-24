@@ -29,6 +29,7 @@ export default function Contact({ language }: propType) {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<FormData>();
 
@@ -51,9 +52,7 @@ export default function Contact({ language }: propType) {
       setSending(false);
       setError(false);
       setSent(true);
-      nameRef.current!.value = "";
-      emailRef.current!.value = "";
-      messageRef.current!.value = "";
+      reset();
     } else if (!response.ok) {
       setError(true);
     }
@@ -94,7 +93,6 @@ export default function Contact({ language }: propType) {
               {...register("name", {
                 required: true,
               })}
-              ref={nameRef}
             />
             {errors.name && (
               <div className="absolute -top-2 bg-red-200 rounded-lg text-red-600 text-sm font-bold px-4 py-2">
@@ -123,7 +121,6 @@ export default function Contact({ language }: propType) {
               {...register("email", {
                 required: true,
               })}
-              ref={emailRef}
             />
             {errors.email && (
               <div className="absolute -top-2 bg-red-200 rounded-lg text-red-600 text-sm font-bold px-4 py-2">
@@ -157,7 +154,6 @@ export default function Contact({ language }: propType) {
               {...register("message", {
                 required: true,
               })}
-              ref={messageRef}
             />
             {errors.message && (
               <div className="absolute -top-2 bg-red-200 rounded-lg text-red-600 text-sm font-bold px-4 py-2">
