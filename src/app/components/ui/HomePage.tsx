@@ -173,7 +173,7 @@ export default function HomePage({ bioData, newsData, scheduleData }: any) {
         }`}
         id="contact"
       >
-        <Contact />
+        <Contact language={language} />
       </div>
       <div
         className={`mt-auto transition duration-500 delay-[2500ms] scroll-mt-8 ${

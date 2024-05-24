@@ -183,7 +183,7 @@ export default function Schedule({ language, scheduleData }: propsType) {
         </motion.div>
       </ul>
       {pageCount > 1 ? (
-        <div className="flex justify-center items-center gap-8 pt-2 text-amber-600 md:text-3xl md:gap-12">
+        <div className="flex justify-center items-center gap-8 py-8 text-amber-600 md:text-3xl md:gap-12">
           <button
             onClick={decPage}
             className={`px-2 py-1 ${currentPage == 0 ? "opacity-50" : ""}`}

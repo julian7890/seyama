@@ -2,10 +2,9 @@
 import NewsCard from "./NewsCard";
 import classes from "./News.module.css";
 import { motion, useMotionValue } from "framer-motion";
+import { Dispatch, SetStateAction, useState } from "react";
 
 import localFont from "next/font/local";
-import { frame } from "framer-motion";
-import { Dispatch, SetStateAction, useState } from "react";
 
 const hiragino = localFont({
   src: "../../../../public/resources/font/hiragino_mincho.otf",
@@ -59,7 +58,7 @@ export default function News({ language, newsData }: propType) {
     setNewsIndex: Dispatch<SetStateAction<number>>;
   }) => {
     return (
-      <div className="mt-4 flex w-full justify-center gap-2">
+      <div className="flex justify-center gap-2">
         {newsList.map((_: any, idx: number) => {
           return (
             <button
@@ -73,6 +72,20 @@ export default function News({ language, newsData }: propType) {
         })}
       </div>
     );
+  };
+
+  const incNewsIdx = (e: any) => {
+    e.preventDefault();
+    if (newsIndex < newsList.length - 1) {
+      setNewsIndex((prevIndex) => prevIndex + 1);
+    }
+  };
+
+  const decNewsIdx = (e: any) => {
+    e.preventDefault();
+    if (newsIndex > 0) {
+      setNewsIndex((prevIndex) => prevIndex - 1);
+    }
   };
 
   return (
@@ -118,7 +131,25 @@ export default function News({ language, newsData }: propType) {
         >
           {newsList}
         </motion.div>
-        <Dots newsIndex={newsIndex} setNewsIndex={setNewsIndex} />
+
+        <div className="flex justify-center items-center gap-8 pt-12 text-amber-600 md:text-3xl md:gap-12">
+          <button
+            onClick={decNewsIdx}
+            className={`px-2 py-1 ${newsIndex == 0 ? "opacity-50" : ""}`}
+          >
+            &#10094;
+          </button>
+          <Dots newsIndex={newsIndex} setNewsIndex={setNewsIndex} />
+
+          <button
+            className={`px-2 py-1 ${
+              newsIndex == newsList.length - 1 ? "opacity-50" : ""
+            }`}
+            onClick={incNewsIdx}
+          >
+            &#10095;
+          </button>
+        </div>
       </div>
     </div>
   );

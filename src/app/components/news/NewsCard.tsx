@@ -9,7 +9,7 @@ const hiragino = localFont({
 
 export default function NewsCard({ news, language }: any) {
   return (
-    <div className="flex flex-col w-full md:w-fit justify-center items-center bg-white rounded-md drop-shadow-xl hover:-translate-y-2 transition duration-100">
+    <div className="flex flex-col w-full md:w-fit md:min-w-96 justify-center items-center bg-white rounded-md drop-shadow-xl hover:-translate-y-2 transition duration-100">
       <Link
         href={`${
           language == "english"
