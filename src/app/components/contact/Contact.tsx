@@ -1,5 +1,5 @@
 import Image from "next/image";
-import contactImg from "../../../../public/resources/img/forest2_edit.jpg";
+import contactImg from "../../../../public/resources/img/trumpet.jpg";
 import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import localFont from "next/font/local";
@@ -60,9 +60,9 @@ export default function Contact({ language }: propType) {
 
   return (
     <div
-      className={`h-screen ${language == "japanese" ? hiragino.className : ""}`}
+      className={`relative ${language == "japanese" ? hiragino.className : ""}`}
     >
-      <div className="absolute w-full lg:w-1/2 h-1/2 top-[50%] lg:-translate-y-[50%] lg:right-10 text-center  bg-gradient-to-b from-black to-black/50 rounded-t-md text-white p-4">
+      <div className="w-full text-center flex flex-col items-center justify-center bg-gradient-to-b from-black to-black/50 lg:rounded-md text-white p-4">
         <div
           className={`text-4xl lg:text-5xl ${
             language == "japanese" ? "!text-2xl lg:!text-3xl" : ""
@@ -72,7 +72,7 @@ export default function Contact({ language }: propType) {
         </div>
         <form
           onSubmit={handleSubmit(formHandler)}
-          className="w-full p-4 lg:p-8 text-2xl flex flex-col gap-2 lg:gap-4 items-center"
+          className="w-full lg:w-1/2 p-4 lg:p-8 text-2xl flex flex-col gap-2 lg:gap-4 items-center"
         >
           <div className="relative w-full flex flex-col">
             <label
@@ -182,12 +182,12 @@ export default function Contact({ language }: propType) {
         </form>
       </div>
 
-      <div className="relative w-full h-full -z-30">
+      <div className="w-full h-full -z-30">
         <Image
           src={contactImg}
           fill
           sizes="300vw"
-          className="absolute object-cover object-[20%,20%] lg:object-[50%,0%] -z-40"
+          className="absolute object-cover object-[20%,20%] lg:object-center -z-40"
           alt="contactImg"
           priority
         />
