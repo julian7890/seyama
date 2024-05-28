@@ -10,7 +10,7 @@ const hiragino = localFont({
 const murecho = Murecho({ subsets: ["latin"] });
 
 export default function ScheduleCard({ schedule, language }: any) {
-  const dateData = new Date(schedule.date);
+  const dateData = new Date(schedule.date.replace("-", "/"));
 
   const dateDay = dateData.getDate();
   const dateMonth = dateData.getMonth();
