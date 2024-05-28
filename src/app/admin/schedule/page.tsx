@@ -19,7 +19,8 @@ export default function EditSchedule() {
   const scheduleList = [];
 
   for (let schedule of scheduleData) {
-    const date = new Date(schedule.date);
+    const date = new Date(schedule.date.replace("-", "/"));
+    console.log(schedule.date);
     scheduleList.push(
       <Link href={`/admin/schedule/${schedule.id}`} key={schedule.id}>
         <div
