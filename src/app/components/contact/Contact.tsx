@@ -181,7 +181,7 @@ export default function Contact({ language }: propType) {
         </form>
       </div>
 
-      <div className="w-full h-full -z-30">
+      <div className="absolute top-0 w-full h-full -z-30">
         <Image
           src={contactImg}
           fill
