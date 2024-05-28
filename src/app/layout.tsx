@@ -10,15 +10,7 @@ export const metadata: Metadata = {
   description:
     "Profile page for conductor Tomohiro Seyama / 指揮者、瀬山智博のホームページ",
   icons: {
-    icon: [
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-    ],
-    apple: {
-      url: "/apple-touch-icon.png",
-      sizes: "180x180",
-      type: "image/png",
-    },
+    icon: "/resources/img/favicon.ico",
   },
   // manifest: "www.tomohiroseyama.com/site.webmanifest",
 };
