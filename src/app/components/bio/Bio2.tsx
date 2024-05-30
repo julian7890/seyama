@@ -27,9 +27,9 @@ export default function Bio({ language, bioData }: any) {
   formatBio(bioData.enData, bioEN);
   formatBio(bioData.jpData, bioJP);
   return (
-    <div className={`w-full`}>
+    <div className={`w-full `}>
       <div className="sticky top-10 -z-10">
-        <div className="absolute h-screen w-full">
+        <div className="absolute h-screen w-full overflow-hidden">
           <Image
             src={bioPhoto}
             fill

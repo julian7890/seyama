@@ -45,7 +45,7 @@ export default function NewsCard({ news, language }: any) {
           </div>
           <hr className="border border-slate-500/50 w-5/6" />
           <div className={`text-xl lg:text-3xl p-2 ${hiragino.className}`}>
-            {news.date.toLocaleDateString()}
+            {news.date.toLocaleDateString("en-US")}
           </div>
         </div>
       </Link>
