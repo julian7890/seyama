@@ -29,6 +29,7 @@ export default function EditSchedule({ schedule }: any) {
   const inputHandler = (e: any) => {
     const fieldName = e.target.id;
     const fieldValue = e.target.value;
+    console.log(fieldValue);
     if (fieldName.includes("JP")) {
       const newfieldName = fieldName.replace("JP", "");
       setFormData((prevState: { jp: any }) => ({
