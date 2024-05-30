@@ -10,7 +10,7 @@ export default function AdminLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <section className={`bg-slate-600/50`}>
+    <section className={`bg-slate-600/50 min-h-screen`}>
       {children}
     </section>
   );
