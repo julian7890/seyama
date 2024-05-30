@@ -26,7 +26,7 @@ export default function EditSchedule() {
           className="flex items-center border-stone-800 border bg-amber-200/30 hover:bg-amber-100/30"
           key={schedule.id}
         >
-          <div className="p-4">{date.toLocaleDateString()}</div>
+          <div className="p-4">{date.toLocaleDateString("en-US")}</div>
           <div className="flex flex-col">
             <div className="p-4">
               {schedule.jp.description
