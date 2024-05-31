@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import moment from "moment";
 
 export default function EditSchedule({ schedule }: any) {
   const router = useRouter();
@@ -225,6 +226,7 @@ export default function EditSchedule({ schedule }: any) {
   //   getSchedule();
   // }, [params.id]);
 
+
   return (
     <div>
       <div className="text-2xl text-center py-4 px-2">
@@ -238,7 +240,7 @@ export default function EditSchedule({ schedule }: any) {
               type="date"
               id="date"
               name="date"
-              value={formData?.date}
+              value={moment(formData?.date, "YYYY-M-DD").format('YYYY-MM-DD')}
               onChange={inputHandler}
             />
           </div>

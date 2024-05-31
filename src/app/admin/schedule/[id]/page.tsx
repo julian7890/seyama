@@ -1,5 +1,6 @@
 import Edit from "@/app/components/admin/Edit";
 import prisma from "../../../../../lib/prisma";
+import moment from "moment";
 
 export const dynamic = "force-dynamic";
 
@@ -9,12 +10,10 @@ export default async function EditSchedulePage({
   params: { id: string };
 }) {
   const data = await prisma.schedule.findUnique({ where: { id: params.id } });
-  const dateData = new Date(data!.date.replace("-", "/"));
-  const year = dateData.getFullYear();
-  const month = String(dateData.getMonth() + 1).padStart(2, "0");
-  const day = String(dateData.getDate()).padStart(2, "0");
-  const formattedDate = `${year}-${month}-${day}`;
-  data!.date = formattedDate;
+
+  const dateData = moment(data!.date).format("YYYY-M-DD");
+
+  data!.date = dateData;
 
   return <Edit schedule={data} />;
 }

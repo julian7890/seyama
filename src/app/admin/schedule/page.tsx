@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import moment from "moment";
 
 export default function EditSchedule() {
   const [scheduleData, setScheduleData]: any = useState([]);
@@ -19,14 +20,14 @@ export default function EditSchedule() {
   const scheduleList = [];
 
   for (let schedule of scheduleData) {
-    const date = new Date(schedule.date.replace("-", "/"));
+    const date = moment(schedule.date).format("M/DD/YYYY");
     scheduleList.push(
       <Link href={`/admin/schedule/${schedule.id}`} key={schedule.id}>
         <div
           className="flex items-center border-stone-800 border bg-amber-200/30 hover:bg-amber-100/30"
           key={schedule.id}
         >
-          <div className="p-4">{date.toLocaleDateString("en-US")}</div>
+          <div className="p-4">{date}</div>
           <div className="flex flex-col">
             <div className="p-4">
               {schedule.jp.description

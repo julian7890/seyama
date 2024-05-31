@@ -2,6 +2,7 @@ import Image from "next/image";
 import classes from "./ScheduleCard.module.css";
 import { Murecho } from "next/font/google";
 import localFont from "next/font/local";
+import moment from "moment";
 
 const hiragino = localFont({
   src: "../../../../public/resources/font/hiragino_mincho.otf",
@@ -10,11 +11,10 @@ const hiragino = localFont({
 const murecho = Murecho({ subsets: ["latin"] });
 
 export default function ScheduleCard({ schedule, language }: any) {
-  const dateData = new Date(schedule.date.replace("-", "/"));
-
-  const dateDay = dateData.getDate();
-  const dateMonth = dateData.getMonth();
-  const dateYear = dateData.getFullYear();
+  const dateData = moment(schedule.date);
+  const dateDay = moment(dateData).date();
+  const dateMonth = moment(dateData).month() + 1;
+  const dateYear = moment(dateData).format("YYYY");
 
   const formatJP = (str: string) => {
     if (!str) return "";
