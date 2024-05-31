@@ -13,7 +13,7 @@ const murecho = Murecho({ subsets: ["latin"] });
 export default function ScheduleCard({ schedule, language }: any) {
   const dateData = moment(schedule.date);
   const dateDay = moment(dateData).date();
-  const dateMonth = moment(dateData).month() + 1;
+  const dateMonth = moment(dateData).month();
   const dateYear = moment(dateData).format("YYYY");
 
   const formatJP = (str: string) => {
