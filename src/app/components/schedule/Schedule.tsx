@@ -55,13 +55,12 @@ export default function Schedule({ language, scheduleData }: propsType) {
 
   const schedulePageList: any = [];
 
-  const scheduleArr = [];
-
-  for (let j = 0; j < paginationLimit; j++) {
-    scheduleArr.push(scheduleList[j]);
-  }
-
   for (let i = 0; i < pageCount; i++) {
+    const scheduleArr = [];
+
+    for (let j = 0; j < paginationLimit; j++) {
+      scheduleArr.push(scheduleList[2 * i + j]);
+    }
     schedulePageList.push(
       <div
         className={`min-w-full px-2 flex flex-wrap justify-around`}
