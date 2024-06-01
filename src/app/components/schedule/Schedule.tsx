@@ -59,7 +59,7 @@ export default function Schedule({ language, scheduleData }: propsType) {
     const scheduleArr = [];
 
     for (let j = 0; j < paginationLimit; j++) {
-      scheduleArr.push(scheduleList[2 * i + j]);
+      scheduleArr.push(scheduleList[paginationLimit * i + j]);
     }
     schedulePageList.push(
       <div
