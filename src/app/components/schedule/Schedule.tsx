@@ -140,6 +140,8 @@ export default function Schedule({ language, scheduleData }: propsType) {
 
       window.addEventListener("resize", updatePagination);
 
+      updatePagination();
+
       return () => window.removeEventListener("resize", updatePagination);
     }
   }, []);
