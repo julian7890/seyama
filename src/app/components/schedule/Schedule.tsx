@@ -18,20 +18,9 @@ type propsType = {
 const murecho = Murecho({ subsets: ["latin"] });
 
 export default function Schedule({ language, scheduleData }: propsType) {
-  // const [scheduleData, setScheduleData]: any = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
+  const [paginationLimit, setPaginationLimit] = useState(1);
   const [draggin, setDragging] = useState(false);
-
-  // useEffect(() => {
-  //   const getSchedule = async () => {
-  //     const schedule = await fetch("/api/schedule");
-  //     const data = await schedule.json();
-  //     setScheduleData(data);
-  //   };
-
-  //   getSchedule();
-  // }, []);
-
   const scheduleList = [];
 
   for (let schedule of scheduleData) {
@@ -58,7 +47,6 @@ export default function Schedule({ language, scheduleData }: propsType) {
     }
   }
 
-  const paginationLimit = 1;
   const pageCount = Math.ceil(scheduleList.length / paginationLimit);
 
   if (currentPage > pageCount) {
@@ -67,14 +55,19 @@ export default function Schedule({ language, scheduleData }: propsType) {
 
   const schedulePageList: any = [];
 
+  const scheduleArr = [];
+
+  for (let j = 0; j < paginationLimit; j++) {
+    scheduleArr.push(scheduleList[j]);
+  }
+
   for (let i = 0; i < pageCount; i++) {
     schedulePageList.push(
       <div
         className={`min-w-full px-2 flex flex-wrap justify-around`}
         key={`pagination${i}`}
       >
-        {scheduleList[i]}
-        {/* {scheduleList[2 * i + 1]} */}
+        {scheduleArr}
       </div>
     );
   }
@@ -134,6 +127,23 @@ export default function Schedule({ language, scheduleData }: propsType) {
     );
   };
 
+  useEffect(() => {
+    if (window !== undefined) {
+      const updatePagination = () => {
+        window.innerWidth > 1900
+          ? setPaginationLimit(3)
+          : window.innerWidth > 1200
+          ? setPaginationLimit(2)
+          : setPaginationLimit(1);
+        console.log(window.innerWidth);
+      };
+
+      window.addEventListener("resize", updatePagination);
+
+      return () => window.removeEventListener("resize", updatePagination);
+    }
+  }, []);
+
   return (
     <div className="w-full">
       <div className="w-full flex justify-start px-4 pt-4">
@@ -153,7 +163,6 @@ export default function Schedule({ language, scheduleData }: propsType) {
         </div>
       </div>
       <ul className={`w-full overflow-x-hidden`}>
-        {/* {scheduleList} */}
         <motion.div
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
@@ -173,11 +182,6 @@ export default function Schedule({ language, scheduleData }: propsType) {
             damping: 50,
           }}
           className={`w-full flex items-center cursor-grab active:cursor-grabbing`}
-          // style={{
-          //   transform: `${
-          //     currentPage > 0 ? `translateX(-${currentPage * 100}%)` : ""
-          //   }`,
-          // }}
         >
           {schedulePageList}
         </motion.div>
