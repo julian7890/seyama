@@ -11,10 +11,11 @@ const hiragino = localFont({
 const murecho = Murecho({ subsets: ["latin"] });
 
 export default function ScheduleCard({ schedule, language }: any) {
-  const dateData = moment(schedule.date);
+  console.log(schedule.date);
+  const dateData = moment(schedule.date, "YYYY-MM-DD");
   const dateDay = moment(dateData).date();
   const dateMonth = moment(dateData).month();
-  const dateYear = moment(dateData).format("YYYY");
+  const dateYear = moment(dateData).year();
 
   const formatJP = (str: string) => {
     if (!str) return "";
