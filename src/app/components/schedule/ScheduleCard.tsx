@@ -11,7 +11,6 @@ const hiragino = localFont({
 const murecho = Murecho({ subsets: ["latin"] });
 
 export default function ScheduleCard({ schedule, language }: any) {
-  console.log(schedule.date);
   const dateData = moment(schedule.date, "YYYY-MM-DD");
   const dateDay = moment(dateData).date();
   const dateMonth = moment(dateData).month();
