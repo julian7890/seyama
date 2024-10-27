@@ -10,11 +10,19 @@ export default async function Home() {
   const newsData = await prisma.news.findMany({});
   const scheduleData = await prisma.schedule.findMany({});
 
+  const sortNewsData = newsData.sort(
+    (a: any, b: any) => new Date(a.date).getTime() - new Date(b.date).getTime()
+  );
+
+  const sortScheduleData = scheduleData.sort(
+    (a: any, b: any) => new Date(a.date).getTime() - new Date(b.date).getTime()
+  );
+
   return (
     <HomePage
       bioData={bioData}
-      newsData={newsData}
-      scheduleData={scheduleData}
+      newsData={sortNewsData}
+      scheduleData={sortScheduleData}
     />
   );
 }

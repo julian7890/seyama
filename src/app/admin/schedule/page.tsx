@@ -11,7 +11,11 @@ export default function EditSchedule() {
     const getSchedule = async () => {
       const schedule = await fetch("/api/schedule");
       const data = await schedule.json();
-      setScheduleData(data);
+      const sortData = data.sort(
+        (a: any, b: any) =>
+          new Date(a.date).getTime() - new Date(b.date).getTime()
+      );
+      setScheduleData(sortData);
     };
 
     getSchedule();
