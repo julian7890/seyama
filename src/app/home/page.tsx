@@ -11,7 +11,7 @@ export default async function Home() {
   const scheduleData = await prisma.schedule.findMany({});
 
   const sortNewsData = newsData.sort(
-    (a: any, b: any) => new Date(a.date).getTime() - new Date(b.date).getTime()
+    (a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
 
   const sortScheduleData = scheduleData.sort(
