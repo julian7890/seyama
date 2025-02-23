@@ -23,7 +23,7 @@ export default function HomePage({ bioData, newsData, scheduleData }: any) {
 
   const incSlide = (e: any) => {
     e.preventDefault();
-    if (slide < 1) {
+    if (slide < 2) {
       setSlide((prevState) => prevState + 1);
     }
     setSlideActive(true);
@@ -45,7 +45,7 @@ export default function HomePage({ bioData, newsData, scheduleData }: any) {
         if (slideDirection == "forwards") {
           setSlide((prevState) => prevState + 1);
           slideInd++;
-          if (slideInd == 1) {
+          if (slideInd == 2) {
             slideDirection = "backwards";
           }
         } else if (slideDirection == "backwards") {
@@ -87,15 +87,6 @@ export default function HomePage({ bioData, newsData, scheduleData }: any) {
             } ${slide > 0 ? "-translate-x-full" : ""}`}
             priority
           />
-          {/* <Image
-            src="/resources/img/top2.jpg"
-            width={1920}
-            height={1080}
-            alt="seyama2"
-            className={`w-full absolute transition duration-700 ${
-              slide == 1 ? "inline-block translate-x-0" : "translate-x-full"
-            } ${slide > 1 ? " !-translate-x-full" : ""}`}
-          /> */}
           <Image
             src="/resources/img/top3.jpg"
             width={1920}
@@ -105,6 +96,15 @@ export default function HomePage({ bioData, newsData, scheduleData }: any) {
             className={`w-full absolute transition duration-700 ${
               slide == 1 ? "inline-block translate-x-0" : "translate-x-full"
             } ${slide > 1 ? " !-translate-x-full" : ""}`}
+          />
+               <Image
+            src="/resources/img/scorepic.jpeg"
+            width={1920}
+            height={1080}
+            alt="seyama2"
+            className={`w-full absolute transition duration-700 ${
+              slide == 2 ? "inline-block translate-x-0" : "translate-x-full"
+            } ${slide > 2 ? " !-translate-x-full" : ""}`}
           />
         </div>
         <div className="flex absolute top-0 right-0 h-full w-fit justify-center text-4xl">
