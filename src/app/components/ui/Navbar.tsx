@@ -24,14 +24,14 @@ export default function Navbar({ language }: propType) {
       <button value="schedule" onClick={handleScroll}>
         <div className="pointer-events-none flex justify-center">
           <div
-            className={`absolute transition duration-1000 ${
+            className={`absolute top-1 transition duration-1000 ${
               language == "english" ? "opacity-100" : "opacity-0"
             }`}
           >
             Schedule
           </div>
           <div
-            className={`top-0 text-lg lg:text-3xl transition duration-1000 ${
+            className={`top-0 text-base lg:text-3xl transition duration-1000 ${
               hiragino.className
             } ${language == "english" ? "opacity-0" : "opacity-100"}`}
           >
@@ -42,14 +42,14 @@ export default function Navbar({ language }: propType) {
       <button value="bio" onClick={handleScroll}>
         <div className="pointer-events-none flex justify-center">
           <div
-            className={`absolute transition duration-1000 ${
+            className={`absolute top-1 transition duration-1000 ${
               language == "english" ? "opacity-100" : "opacity-0"
             }`}
           >
             Bio
           </div>
           <div
-            className={`top-0 text-lg lg:text-3xl  transition duration-1000 ${
+            className={`top-0 text-base lg:text-3xl  transition duration-1000 ${
               hiragino.className
             } ${language == "english" ? "opacity-0" : "opacity-100"}`}
           >
@@ -60,18 +60,36 @@ export default function Navbar({ language }: propType) {
       <button value="news" onClick={handleScroll}>
         <div className="pointer-events-none flex justify-center">
           <div
-            className={`absolute transition duration-1000 ${
+            className={`absolute top-1 transition duration-1000 ${
               language == "english" ? "opacity-100" : "opacity-0"
             }`}
           >
             News
           </div>
           <div
-            className={`top-0 text-lg lg:text-3xl transition duration-1000 ${
+            className={`top-0 text-base lg:text-3xl transition duration-1000 ${
               hiragino.className
             }  ${language == "english" ? "opacity-0" : "opacity-100"}`}
           >
             ニュース
+          </div>
+        </div>
+      </button>
+      <button value="contact" onClick={handleScroll}>
+        <div className="pointer-events-none flex justify-center">
+          <div
+            className={`absolute top-1 transition duration-1000 ${
+              language == "english" ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            Contact
+          </div>
+          <div
+            className={`top-0 text-base lg:text-3xl transition duration-1000 ${
+              hiragino.className
+            }  ${language == "english" ? "opacity-0" : "opacity-100"}`}
+          >
+            お問い合わせ
           </div>
         </div>
       </button>
