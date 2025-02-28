@@ -98,7 +98,7 @@ export default function HomePage({ bioData, newsData, scheduleData }: any) {
             } ${slide > 1 ? " !-translate-x-full" : ""}`}
           />
                <Image
-            src="/resources/img/scorepic.jpeg"
+            src="/resources/img/scorepic.png"
             width={1920}
             height={1080}
             alt="seyama2"
