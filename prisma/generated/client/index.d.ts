@@ -3413,7 +3413,6 @@ export namespace Prisma {
    * https://github.com/prisma/prisma-client-js/issues/707
    */
   export interface Prisma__newsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
-    titleJP: ReactNode;
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
 
